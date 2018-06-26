@@ -13,6 +13,7 @@ const formHandler = require("../handlers/handleForm");
 
 
 router.get('/account', authController.isLoggedIn, userController.questionaire);
+router.get('/', userController.loginForm);
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login, (req, res) => {
   if (req.user.isAdmin) { res.redirect('/admin/account') }
