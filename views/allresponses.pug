@@ -1,0 +1,15 @@
+extends layout
+block content
+  .row
+    each response in responses
+      .col-md-4
+        .card.product.mt-4
+          .card-body
+            h5.card-title
+              | Response from
+              span.badge.badge-warning.ml-2 #{response.user.firstname} #{response.user.lastname}
+            p.card-text
+              | #{response.location}
+              span.text-danger.bold
+            a.btn.btn-dark.block(href=`/admin/account/responses/${response._id}`)
+              | View Response

@@ -1,0 +1,12 @@
+hr.style {
+    border-top: 2px double inherit;
+}
+
+div.space {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.heading {
+    color: #fff;
+}

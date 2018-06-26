@@ -1,0 +1,1409 @@
+<html>
+
+<head>
+    <link href="bootstrap-4.0.0-dist/css/bootstrap.css" rel="stylesheet" >
+    <link href="style.css" rel="stylesheet" >
+</head>
+
+<body>
+
+    <div class="col-sm-6" > <!-- <style = "display : none" > this will cause all the elements of this div to disapper -->
+
+        
+        <form method="POST" action="/formController.js">
+
+            <div>
+                <div id="q1.1" class=" row form-group row-fluid space">
+                        <label for ="gender" class="col-sm-6 row control-label"><span class="col-sm-1">1.1</span> <span class="col-sm-9"> Gender </span> </label>
+                
+                
+                        <label for="genderType"  class="radio-inline control-label col-sm-3">Male
+                            <input type="radio"  name="genderType" value="00" onclick= "">            
+                        </label>
+                        
+                    
+                        <label for="genderType"  class="radio-inline control-label col-sm-3">Female
+                            <input type="radio"  name="genderType" value="01" onclick="">
+                        </label>
+                    
+                    
+                </div>
+
+                <hr class="style">
+
+                <div class="row row-fluid form-group  space" id="q1.2" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">1.2</span> <span class="col-sm-9"> Age range</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="AgeRange" >
+                            <option></option>
+                            <option value="0" >18 - 25</option>
+                            <option value="1" >26 - 35</option>
+                            <option value="2" >36 - 45</option>
+                            <option value="3" >46 - 55</option>
+                            <option value="4" >56+ </option>
+                        </select>	
+                    </div>
+                </div>
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q1.3" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">1.3</span> <span class="col-sm-9"> What is your relationship to the household ? </span> </label>
+        
+                        <div class="col-sm-6">
+                            <select class=" form-control"  name="Relationship" onclick="" >
+                                <option></option>
+                                <option value="0" >Head</option>
+                                <option value="1" >Wife/Husband</option>
+                                <option value="2" >Son/Daughter</option>
+                                <option value="3" >Son-in-law or Daughter-in-law</option>
+                                <option value="4" >Grandchild </option>
+                                <option value="5" >Parent</option>
+                                <option value="6" >Parent-in-law</option>
+                                <option value="7" >Brother-in-law</option>
+                                <option value="8" >Brother/Sister</option>
+                                <option value="9" >Niece/Nephew by blood</option>
+                                <option value="10">Niece/Nephew by marriage </option>
+                                <option value="11">Adoted/Foster/Step child</option>
+                                <option value="12">Other (specify) </option>
+                            </select>	
+
+                            put logic for textbox to collect other options
+                        </div>
+                </div>
+
+                <hr class="style">
+                
+                <div class=" row row-fluid form-group space" id="q1.4" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">1.4</span> <span class="col-sm-9 "> Number of people in the household </span> </label>
+        
+                            <div class="col-sm-6">
+                                <input type="text" name="Population" class="form-control">
+                            </div>
+                </div> 
+
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q1.5" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">1.5</span> <span class="col-sm-9"> Highest level of education in the household  </span> </label>
+        
+                        <div class="col-sm-6">
+                            <select class=" form-control"  name="EducationalLevel" onclick="" >
+                                <option></option>
+                                <option value="0" >Primary</option>
+                                <option value="1" >Secondary</option>
+                                <option value="2" >Tertiary</option>
+                                <option value="3" >Post-graduate</option>
+                            
+                            </select>	
+
+                            put logic for textbox to collect other options
+                        </div>
+                </div>
+
+                <hr class="style">
+
+                <div id="q1.6" class=" row form-group row-fluid space">
+                        <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">1.6</span> <span class="col-sm-9"> Did you rent or own this property ? </span> </label>
+                
+                
+                        <label for="Property_ownership"  class="radio-inline control-label col-sm-3">Rent
+                            <input type="radio"  name="PropertyOwnership" value="00" onclick= "">            
+                        </label>
+                        
+                    
+                        <label for="Property_ownership"  class="radio-inline control-label col-sm-3">Own
+                            <input type="radio"  name="PropertyOwnership" value="01" onclick="">
+                        </label>  
+                    
+                </div>
+
+                <hr class="style">
+
+
+                
+                <div class=" row row-fluid form-group space" id="q1.7" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">1.7</span> <span class="col-sm-9 ">What is your occupation ? (Optional) </span> </label>
+        
+                            <div class="col-sm-6">
+                                <input type="text" name="Occupation" class="form-control">
+                            </div>
+                </div> 
+
+                <hr class="style">
+
+                <div id="q1.8" class=" row form-group row-fluid space">
+                        <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">1.8</span> <span class="col-sm-9"> Do you run a business from home ? </span> </label>
+                
+                
+                        <label for="RemoteBusiness"  class="radio-inline control-label col-sm-3">Yes
+                            <input type="radio"  name="RemoteBusiness" value="01" onclick= "">            
+                        </label>
+                        
+                    
+                        <label for="RemoteBusiness"  class="radio-inline control-label col-sm-3">No
+                            <input type="radio"  name="RemoteBusiness" value="02" onclick="">
+                        </label> 
+                        
+                        <div class=" row row-fluid form-group " id="q1.8a" >
+                                <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">If yes, what is your business ?</span> </label>
+                
+                                    <div class="col-sm-6">
+                                        <input type="text" name="BusinessType" class="form-control">
+                                    </div>
+                        </div> 
+                    
+                </div>
+
+                <hr class="style">
+
+                <div class="row row-fluid form-group  space" id="q1.9" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">1.9</span> <span class="col-sm-9"> How long have you lived here ?</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="TenancyAge" >
+                            <option></option>
+                            <option value="0" >Less than one year</option>
+                            <option value="1" >1 - 3 years</option>
+                            <option value="2" >3 - 6 years</option>
+                            <option value="3" >6+ years</option>
+                        </select>	
+                    </div>
+                </div>
+
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q1.11" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">1.11</span> <span class="col-sm-9 "> How many bedrooms are there </span> </label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="NoBedrooms" class="form-control">
+                        </div>
+                </div> 
+
+                <hr class="style">
+
+
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6"><input type="button" id="submitButton" class=" btn btn-info col-sm-12 " value="NEXT" onclick="fClick()"> 
+                    </div>
+                
+                </div>
+            </div>
+
+            <div>
+
+                <hr class="style">
+
+                <div id="q2.1" class=" row form-group row-fluid space">
+                        <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">2.1</span> <span class="col-sm-9"> Are you using a pre-paid or post-paid meter ? </span> </label>
+                
+                
+                        <label for="Property_ownership"  class="radio-inline control-label col-sm-3">Pre-paid meter
+                            <input type="radio"  name="MeterType" value="00" >            
+                        </label>
+                        
+                    
+                        <label for="Property_ownership"  class="radio-inline control-label col-sm-3">Post-paid meter
+                            <input type="radio"  name="MeterType" value="01" >
+                        </label>  
+                    
+                </div>
+    
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q2.2" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">2.2</span> <span class="col-sm-9 "> How much do you spend on electricity per month, an average ? </span> </label>
+    
+                            <div class="col-sm-6">
+                                <input type="text" name="ElectricCost" class="form-control">
+                            </div>
+                </div> 
+    
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q2.3" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">2.3</span> <span class="col-sm-9 "> How much does the electricity company bill you, per month ? </span> </label>
+    
+                            <div class="col-sm-6">
+                                <input type="text" name="ElectricBill" class="form-control">
+                            </div>
+                </div> 
+    
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q2.4" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">2.4</span> <span class="col-sm-9 "> How much do you actually pay, per month ? </span> </label>
+    
+                            <div class="col-sm-6">
+                                <input type="text" name="MonthlyBill" class="form-control">
+                            </div>
+                </div> 
+    
+                <hr class="style">
+
+                <div class="row row-fluid form-group  space" id="q2.5a" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">2.5a</span> <span class="col-sm-9"> "These electricity costs are affordable for my household." ?</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="Affordable" >
+                            <option></option>
+                            <option value="0" >Strongly disagree</option>
+                            <option value="1" >Disagree</option>
+                            <option value="2" >Neither agree or disagree</option>
+                            <option value="3" >Agree</option>
+                            <option value="4" >Strongly agree</option>
+                        </select>	
+                    </div>
+
+                </div>
+
+                <hr class="style">
+
+                <div class="row row-fluid form-group  space" id="q2.5b" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">2.5b</span> <span class="col-sm-9"> "I feel that these electricity cost are fair." ?</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="FairCost" >
+                            <option></option>
+                            <option value="0" >Strongly disagree</option>
+                            <option value="1" >Disagree</option>
+                            <option value="2" >Neither agree or disagree</option>
+                            <option value="3" >Agree</option>
+                            <option value="4" >Strongly agree</option>
+                        </select>	
+                    </div>
+                    
+                </div>
+
+                <hr class="style">
+
+                <div id="q2.6a" class=" row form-group row-fluid space">
+                    <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">2.6a</span> <span class="col-sm-9"> If you were given the option to buy your own pre-paid meter, would you ? </span> </label>
+                
+                    <span class="col-sm-6">
+                        
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-3">Yes
+                            <input type="radio"  name="BuyMeter" value="00" onclick= "">            
+                        </label>
+                        
+                    
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-3">No
+                            <input type="radio"  name="BuyMeter" value="01" onclick="">
+                        </label>  
+
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-5">Not sure
+                            <input type="radio"  name="BuyMeter" value="02" onclick="">
+                        </label>  
+                    </span>
+                    
+                </div>
+
+                <hr class="style">
+
+                <div id="q2.6b" class=" row form-group row-fluid space">
+                    <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">2.6b</span> <span class="col-sm-9"> If you were given the option to ould you ? </span> </label>
+                
+                    <span class="col-sm-6">
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-3">Yes
+                            <input type="radio"  name="BuyMeter" value="00" onclick= "">            
+                        </label>
+                        
+                    
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-3">No
+                            <input type="radio"  name="BuyMeter" value="01" onclick="">
+                        </label>  
+
+                        <label for="BuyMeter"  class="radio-inline control-label col-sm-5">Not sure
+                                <input type="radio"  name="BuyMeter" value="03" onclick="">
+                         </label>
+                    </span>  
+                    
+                </div>
+
+                <hr class="style">
+
+                <div id="q2.7" class=" row row-fluid space ">
+                    <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">2.7</span> <span class="col-sm-9"> If yes : During what times of the day would you  be most interested to receive power ? </span> </label>
+
+                    <span class="col-sm-6">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="00" name="PreferredTime">
+                            <label class="form-check-label" for="">12AM - 5AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="01" name="PreferredTime">
+                            <label class="form-check-label" for="">5AM - 8AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="02" name="PreferredTime">
+                            <label class="form-check-label" for="">8AM - 12NOON</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="03" name="PreferredTime">
+                            <label class="form-check-label" for="">12NOON - 4PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="04" name="PreferredTime">
+                            <label class="form-check-label" for="">4PM - 7PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="05" name="PreferredTime">
+                            <label class="form-check-label" for="">7PM - 12AM</label>
+                        </div>
+
+                            
+                    </span>
+                </div>
+
+                <hr class="style" >
+
+                <div class="row row-fluid ">
+                    <span class=" col-sm-6 ">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6"><input type="button" id="submitButton2" class=" btn btn-info col-sm-12 " value="PREVIOUS" onclick="fClMick(2)"> 
+                        </div>
+                        
+                    </span>
+
+                    <span class=" col-sm-4 col-sm-offset-2">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6"><input type="button" id="submitButton" class=" btn btn-info col-sm-12 " value="NEXT" onclick="fCliMck(3)"> 
+                        </div>
+                        
+                    </span>
+                </div>
+
+            </div>
+
+            <div>
+
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q3.1" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">3.1</span> <span class="col-sm-9 "> How many times during a day (24 hour period) do you experience power failures ? </span> </label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="NoPowerFailure" class="form-control">
+                        </div>
+                </div> 
+    
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q3.2" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">3.2</span> <span class="col-sm-9 "> How many hours per day, do you have power, on average ? </span> </label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="HoursOfPower" class="form-control">
+                        </div>
+                </div> 
+    
+                <hr class="style">
+
+                <div id="q3.3" class=" row row-fluid space ">
+                    <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">3.3</span> <span class="col-sm-9"> If yes : During what times of the day would you  be most interested to receive power ? </span> </label>
+
+                    <span class="col-sm-6">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="00" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">12AM - 5AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="01" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">5AM - 8AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="02" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">8AM - 12NOON</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="03" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">12NOON - 4PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="04" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">4PM - 7PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="05" name="TimeOfPowerFailure">
+                            <label class="form-check-label" for="">7PM - 12AM</label>
+                        </div>
+
+                        put logic for front end to pick values and display the next, just like checkTable    
+                    </span>
+                </div>
+
+                <hr class="style" >
+
+
+                <div class="row row-fluid form-group  space" id="q3.4a" >
+                    <DIV class="row ">
+                        <label class="row"> <span class="col-sm-1"></span>3.4<span class="col-sm-10"> PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER</span> </label>
+                    </DIV>
+                    <label class="col-sm-6 row"><span class="col-sm-1"> a)</span> <span class="col-sm-9"> 12AM - 5AM</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="12-5" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                    
+                </div>
+
+                <div class="row row-fluid form-group  space" id="q3.4b" >
+                        
+                    <label class="col-sm-6 row"><span class="col-sm-1"> b)</span> <span class="col-sm-9"> 5AM - 8AM</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="5-8" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                        
+                </div>
+
+                <div class="row row-fluid form-group  space" id="q3.4c" >
+                        
+                    <label class="col-sm-6 row"><span class="col-sm-1"> c)</span> <span class="col-sm-9">8AM - 12NOON</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="8-12" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                            
+                </div>
+
+                <div class="row row-fluid form-group  space" id="q3.4d" >
+                        
+                    <label class="col-sm-6 row"><span class="col-sm-1"> d)</span> <span class="col-sm-9">12NOON - 4PM</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="12-4" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                                
+                </div>
+
+                <div class="row row-fluid form-group  space" id="q3.4e" >
+                        
+                    <label class="col-sm-6 row"><span class="col-sm-1"> e)</span> <span class="col-sm-9">4PM - 7PM</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="4-7" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                                    
+                </div>
+
+                <div class="row row-fluid form-group  space" id="q3.4f" >
+                        
+                    <label class="col-sm-6 row"><span class="col-sm-1"> f)</span> <span class="col-sm-9">7PM - 12AM</span> </label>
+
+                    <div class="col-sm-6">
+                        <select class=" form-control"  name="7-12" >
+                            <option></option>
+                            <option value="0" >Very Important</option>
+                            <option value="1" >Quite Important</option>
+                            <option value="2" >Neutral</option>
+                            <option value="3" >Quite unimportant (not too important)</option>
+                            <option value="4" >Very unimportant (not at all important)</option>
+                        </select>	
+                    </div>
+                                        
+                </div>
+
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q3.5" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">3.5</span> <span class="col-sm-9 "> If a power failure happens during a period you've indicated is very disruptive/important; how much money might you lose through work or your business ? </span> </label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="CostOfPF" class="form-control">
+                        </div>
+                </div> 
+        
+                <hr class="style">
+
+                <div class=" row row-fluid form-group space" id="q3.6" >
+                    <label class="col-sm-6 row"><span class="col-sm-1">3.6</span> <span class="col-sm-9 "> When did you most recently experience a power failure ? </span> </label>
+
+                        <div class="col-sm-6">
+                            <input type="date" name="TimeOfDay" class="form-control">
+                        </div>
+                </div> 
+            
+                <hr class="style">
+
+                <div id="q3.7" class=" row row-fluid space ">
+                    <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">3.7</span> <span class="col-sm-9"> What time of the day was it ? (tick all that apply) </span> </label>
+
+                    <span class="col-sm-6">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="00" name="PreferredTime">
+                            <label class="form-check-label" for="">12AM - 5AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="01" name="PreferredTime">
+                            <label class="form-check-label" for="">5AM - 8AM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="02" name="PreferredTime">
+                            <label class="form-check-label" for="">8AM - 12NOON</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="03" name="PreferredTime">
+                            <label class="form-check-label" for="">12NOON - 4PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="04" name="PreferredTime">
+                            <label class="form-check-label" for="">4PM - 7PM</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="filled-in form-check-input" value="05" name="PreferredTime">
+                            <label class="form-check-label" for="">7PM - 12AM</label>
+                        </div>
+
+                            
+                    </span>
+                </div>
+
+                <hr class="style" >
+
+                <div class="row row-fluid ">
+                        <span class=" col-sm-6 ">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6"><input type="button" id="submitButton2" class=" btn btn-info col-sm-12 " value="PREVIOUS" onclick="fClMick(2)"> 
+                            </div>
+                            
+                        </span>
+    
+                        <span class=" col-sm-4 col-sm-offset-2">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6"><input type="button" id="submitButton" class=" btn btn-info col-sm-12 " value="NEXT" onclick="fCliMck(3)"> 
+                            </div>
+                            
+                        </span>
+                    </div>
+    
+                </div>
+
+
+                <div>
+                    <div id="q4.1" class=" row row-fluid space ">
+                        <label for ="" class="col-sm-6 row control-label"><span class="col-sm-1">4.1</span> <span class="col-sm-9"> Which of the following alternative power sources do you own ? (select all that apply) </span> </label>
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="AlternatePower">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="AlternatePower">
+                                <label class="form-check-label" for="">Generator (petrol - 90 watt)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="AlternatePower">
+                                <label class="form-check-label" for="">Generator [petrol  (1 - 5 kw) ] </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="AlternatePower">
+                                <label class="form-check-label" for="">Generator [5kw and above ] </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="AlternatePower">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="AlternatePower">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="06" name="AlternatePower">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="07" name="AlternatePower">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="08" name="AlternatePower">
+                                <label class="form-check-label" for="">Other (specify)</label>
+                            </div>
+
+                            put logic for front end to pick values and display the next, just like checkTable    
+                        </span>
+                    </div>
+
+                    <hr class="style" >
+
+                    <div class=" row row-fluid form-group space" id="q4.1a" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">4.1a</span> <span class="col-sm-9 "> Other power source ? </span> </label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="OtherAP" class="form-control">
+                            </div>
+                    </div> 
+            
+                    <hr class="style">
+
+                    <div id="q4.2a" class=" row row-fluid space ">
+                                        
+                        <label class="col-sm-12 row"><span class="col-sm-1"></span><span class="col-sm-9">WHICH POWER SOURCES ARE YOU LIKELY TO USE IF YOU EXPERIENCE A POWER FAILURE DURING THESE DIFFERENT TIME PERIODS ? (TICK ALL THAT APPLY)</span></label>
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">  12AM - 5AM </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="12-5PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="12-5PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="12-5PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="12-5PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="12-5PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="12-5PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="12-5PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                            
+                        </span>
+                    </div>
+        
+
+                    <div id="q4.2b" class=" row row-fluid space ">
+                        
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> 5AM - 8AM </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="5-8PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="5-8PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="5-8PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="5-8PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="5-8PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="5-8PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="12-5PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                                
+                        </span>
+                    </div>
+
+
+                    <div id="q4.2c" class=" row row-fluid space ">
+                        
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> 8AM - 12NOON </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="8-12PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="8-12PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="8-12PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="8-12PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="8-12PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="8-12PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="8-12PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                                
+                        </span>
+                    </div>
+
+
+                    <div id="q4.2d" class=" row row-fluid space ">
+                        
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> 12NOON- 4PM </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="12-4PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="12-4PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="12-4PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="12-4PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="12-4PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="12-4PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="12-4PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                                
+                        </span>
+                    </div>
+        
+
+                    <div id="q4.2e" class=" row row-fluid space ">
+                        
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> 4PM - 7PM </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="4-7PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="4-7PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="4-7PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="4-7PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="4-7PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="4-7PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="4-7PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                                
+                        </span>
+                    </div>
+
+
+                    <div id="q4.2f" class=" row row-fluid space ">
+                        
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> 7PM - 12AM </span> </label>
+
+
+                        <span class="col-sm-6">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="00" name="7-12PS">
+                                <label class="form-check-label" for="">Generator (diesel)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="01" name="7-12PS">
+                                <label class="form-check-label" for="">Generator (petrol )</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="02" name="7-12PS">
+                                <label class="form-check-label" for="">Inverter</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="03" name="7-12PS">
+                                <label class="form-check-label" for="">Solar panel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="04" name="7-12PS">
+                                <label class="form-check-label" for="">Battery LED</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="7-12PS">
+                                <label class="form-check-label" for="">Kerosene lamp</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="filled-in form-check-input" value="05" name="7-12PS">
+                                <label class="form-check-label" for="">Other </label>
+                            </div>
+
+                                
+                        </span>
+                    </div>
+
+                    <hr class="style" >
+
+
+                    <div class="row row-fluid form-group  space" id="4.3a" >
+                        
+                        <label class="col-sm-6 row"><span class="col-sm-1"> 4.3</span> <span class="col-sm-9">Which alternative power source do you prefer ?</span> </label>
+    
+                        <div class="col-sm-6">
+                            <select class=" form-control"  name="PreferredPS" >
+                                <option></option>
+                                <option value="0" >Generator(diesel)</option>
+                                <option value="1" >Generator(Petrol)</option>
+                                <option value="2" >Inverter</option>
+                                <option value="3" >Solar Panel</option>
+                                <option value="4" >Battery LED</option>
+                                <option value="5" >Kerosene Lamp</option>
+                                <option value="6">Other</option>
+                            </select>	
+                        </div>
+                                            
+                    </div>
+    
+                    <hr class="style">
+
+                    <div class=" row row-fluid form-group space" id="q4.3b" >
+                        <label class="col-sm-6 row"><span class="col-sm-1">4.3b</span> <span class="col-sm-9 "> Other preferred power source specify </span> </label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="OtherPreferredPS" class="form-control">
+                            </div>
+                    </div> 
+            
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4aa" >
+                            <label class="col-sm-6 row"><span class="col-sm-1">4.3</span> <span class="col-sm-9 "> How long have you owned the generator </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GendieselA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4ab" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How much did you purchase the generator ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GendieselB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4ac" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How much do you spend on the generator currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GendieselC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4ba" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How long have you owned the diesel generator </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GenpetrolA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4bb" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How much did you purchase it ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GenpetrolB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4bc" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How much do you spend on it currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="GenpetrolC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4ca" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 "> How long have you owned the Inverter </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="InverterA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4cb" >
+                            <label class="col-sm-6 row"><span class="col-sm-1">4.3</span> <span class="col-sm-9 "> How much did you purchase it ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="nummber" name="InverterB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4cc" >
+                            <label class="col-sm-6 row"><span class="col-sm-1">4.3</span> <span class="col-sm-9 ">  How much do you spend on it currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="InverterC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4da" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How long have you owned the Solar Panel </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="SolarPaneA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4db" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How much did you purchase the Solar Panel ?</span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="SolarPanelB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4dc" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">  How much do you spend on the Solar Panel currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="SolarPanelC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4ea" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How long have you owned the Battery LED</span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="BatteryA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4eb" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How much did you purchase the Battery LED ?</span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="BatteryB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4ec" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">  How much do you spend on the Battery (LED) currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="BatteryC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+                    <hr class="style">
+
+                    <div>
+
+                        <div class=" row row-fluid form-group space" id="q4.4fa" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How long have you owned the Kerosene Lamp</span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="KeroseneLampA" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4fb" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">How much did you purchase the Kerosene Lamp?</span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="KeroseneLampB" class="form-control">
+                                </div>
+                        </div> 
+
+                        <div class=" row row-fluid form-group space" id="q4.4fc" >
+                            <label class="col-sm-6 row"><span class="col-sm-1"></span> <span class="col-sm-9 ">  How much do you spend on the Kerosene Lamp currently ? </span> </label>
+    
+                                <div class="col-sm-6">
+                                    <input type="number" name="KeroseneLampC" class="form-control">
+                                </div>
+                        </div> 
+ 
+
+                    </div>
+
+
+
+                    
+                    
+                </div>
+
+            </div>
+        
+        </form>
+
+    </div>
+
+        <script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+        <!--script type="text/javascript" src="question.json"></script-->
+
+        <script>
+
+
+        var obj;
+        function pjson(event) {
+        var json = this.responseText;
+        obj = JSON.parse(json);
+        console.log(obj);
+        }
+        
+        var xhr = new XMLHttpRequest();
+       
+        xhr.open("GET", "./question.json");
+        
+        xhr.addEventListener('load',pjson);
+        
+        xhr.send();
+
+        //////////////////////////////////////////
+
+        var keys = ["genderType", "AgeRange", "Relationship", "Population", "EducationalLevel", "PropertyOwnership", "Occupation", "RemoteBusiness", "BusinessType", "TenancyAge", "NoBedrooms"]
+
+        var JsonDataList = [] ;
+
+        var initialKey = keys[0];
+
+        function fClick()
+        {
+            iterateVia(initialKey);
+        }
+        
+
+        function iterateVia(name)
+        {
+            var node = obj[name] ;
+            var nodeObj = {title : name , ref: node} ;
+
+            var form = document.getElementsByTagName("form")[0] ;
+
+
+            if (nodeObj.ref.nextQuestion.length != 0 || node.nextQuestion != "END" )
+            {
+                if(nodeObj.ref.type == "radio")
+                {
+                    var index = form.elements[nodeObj.title].value ;
+                    var container = {};
+                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
+                    container["responses"] =[]; 
+                    nodeObj.ref.responses.push(index);
+
+                    JsonDataList.push(container) ;
+                   
+                    nextName = nodeObj.ref.nextQuestion ;
+                   // alert("seen radio, inserted " + container + " next question is "+ nextName);
+                    console.log(JsonDataList);
+                    iterateVia(nextName);
+
+                }
+                else if(node.type == "date")
+                {
+                    var index = form.elements[nodeObj.title].value ;
+                    var container = {};
+                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
+                    container["responses"] = [] ; //index ;
+                    nodeObj.ref.responses.push(index);
+
+                    JsonDataList.push(container) ;
+                   
+                    nextName = nodeObj.ref.nextQuestion ;
+                    alert("seen date, inserted " + container + " next question is "+ nextName);
+                    console.log(JsonDataList);
+                    iterateVia(nextName);
+
+                }
+                else if(node.type == "text")
+                {
+                    var index = form.elements[nodeObj.title].value ;
+                    var container = {};
+                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
+                    container["responses"] = [] // index ;
+                    nodeObj.ref.responses.push(index);
+
+                    JsonDataList.push(container) ;
+                   
+                    nextName = nodeObj.ref.nextQuestion ;
+                  //  alert("seen text, inserted " + container + " next question is "+ nextName);
+                    console.log(JsonDataList);
+                    iterateVia(nextName);
+
+                }
+
+                else if(node.type == "select")
+                {
+                    var index = form.elements[nodeObj.title].value ;
+                    var container = {};
+                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
+                    container["responses"] = [] ; //index ;
+                    nodeObj.ref.responses.push(index);
+
+                    JsonDataList.push(container) ;
+                   
+                    nextName = nodeObj.ref.nextQuestion ;
+                //    alert("seen select, inserted " + container + " next question is "+ nextName);
+                    console.log(JsonDataList);
+                    iterateVia(nextName);
+
+                }
+
+                else if(node.type == "checkbox")
+                {
+
+                }
+                else if(node.type == "checkTable")
+                {
+
+                }
+                else {
+
+                }
+            }
+        }
+
+
+        
+        
+        
+
+
+            
+        //     const dict = new FormData(document.querySelector('form'));
+
+        //     const button = document.getElementById("submitButton");
+        //     button.addEventListener('submit', handleSubmit);
+
+        //     const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+  
+        //     data[element.name] = element.value;
+        //     return data;
+
+        //     }, {});
+
+        //     function handleSubmit(event){
+            
+        //     // Stop the form from submitting since we’re handling that with AJAX.
+        //     event.preventDefault();
+            
+        //     // Call our function to get the form data.
+        //     const data = formToJSON(dict.elements);
+
+        //     // Demo only: print the form data onscreen as a formatted JSON object.
+        //     //const dataContainer = document.getElementsByClassName('results__display')[0];
+            
+        //     // Use `JSON.stringify()` to make the output valid, human-readable JSON.
+        //    // dataContainer.textContent = JSON.stringify(data, null, "  ");
+            
+        //     // ...this is where we’d actually do something with the form data...
+
+        //     console.log(data);
+
+        //     }
+
+        //     //button.addEventListener('submit', handleSubmit);
+
+        //     function formVal()
+        //     {
+        //        // console.log(document.querySelector('form').innerHTML);
+        //        // console.log(Object.values(dict).reduce((obj,field) => {obj[field.name] = field.value; return obj}, {}));
+        //     }
+
+        //     // function handleSubmit()
+        //     // {
+
+        //     // }
+
+        //    // console.log(dict.keys());
+        </script>
+
+
+        </body>
+
+
+</html>

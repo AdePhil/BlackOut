@@ -1,0 +1,28 @@
+extends layout
+block content
+  .row
+    div(class='col-md-12')
+      h1 Response from #{answers.user.firstname} #{answers.user.lastname}
+      //- i.fa.fa-pin
+      table(class='table table-bordered mt-4')
+        thead
+          tr
+            th(class='text-center yellocell') Question No
+            th(class='text-center yellocell') Question
+            th(class='text-center yellocell') Answer
+        tbody
+          each response in answers.response
+            tr.text-center
+              td #{response.questionNo}
+              td #{response.question}
+              td #{response.responses.join(',')}
+  - const link = `admin/account/responses/${answers._id}`
+  .pagination.mt-4
+      .pagination__prev
+        if page > 1
+          a.btn.btn-dark(href=`/${link}/page/${page - 1}`) Prev
+      .pagination__text
+        p Page #{page} of #{pages} — #{count} total results
+      .pagination__next
+        if page < pages
+          a.btn.btn-dark(href=`/${link}/page/${parseFloat(page) + 1}`) Next

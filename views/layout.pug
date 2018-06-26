@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Questionaire
+    link(rel='stylesheet', href='/css/bootstrap-4.0.0-dist/css/bootstrap.min.css')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/main.css')
+    link(href='/css/style.css', rel='stylesheet')
+    block style
+  body
+    header.header
+      .wrapper
+        .header__wrapper
+          .header__mobile
+            i.fa.fa-bars
+          .header__logo
+            h1.heading BlackOutChasing
+          nav.header__nav
+            if user.isAdmin
+              a.header__nav-link.header__nav-link--active(href='') All Responses
+            if user
+                a.header__nav-link(href='') #{user.firstname}
+                a.header__nav-link(href='')
+                  img.avatar(src=user.gravatar + 'd=retro')
+                a.header__nav-link(href='/logout') Logout
+    .body
+      .container-fluid#container
+          block content
+
+
+      block scripts
+        script(src='/js/jquery-1.8.2.min.js')
+
+
+

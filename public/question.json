@@ -1,0 +1,608 @@
+{
+    "genderType" : {
+        "type" : "radio",
+        "QuestionNo" : "1.1",
+        "responses" : [] ,
+        "nextQuestion" : ["AgeRange","AgeRange","AgeRange"],
+        "dynamic" : "false"
+    },
+
+    "AgeRange" : {
+        "type" : "select",
+        "QuestionNo" : "1.2",
+        "responses" : [] ,
+        "nextQuestion" : ["Relationship"],
+        "dynamic" : "false"
+
+    },
+
+    "Relationship" :{
+        "type" : "select",
+        "QuestionNo" : "1.3",
+        "responses" : [] ,
+        "nextQuestion" : ["Population","OTRelationship"],
+        "dynamic" : "false"
+    },
+
+    "OTRelationship" : {
+        "type" : "text",
+        "QuestionNo" : "1.3a",
+        "responses" : [] ,
+        "nextQuestion" : ["Population"],
+        "dynamic" : "false"
+    },
+
+
+    "Population" : {
+        "type" : "select",
+        "QuestionNo" :" 1.4",
+        "responses" : [] ,
+        "nextQuestion" : ["EducationalLevel"],
+        "dynamic" : "false"
+
+    },
+
+    "EducationalLevel" : {
+        "type" : "select",
+        "QuestionNo" :" 1.5",
+        "responses" : [] ,
+        "nextQuestion" : ["PropertyOwnership"],
+        "dynamic" : "false"
+    },
+
+    "PropertyOwnership" : {
+        "type" : "radio",
+        "QuestionNo" : "1.6",
+        "responses" : [] ,
+        "nextQuestion" : ["Occupation"],
+        "dynamic" : "false"
+
+    },
+
+    "Occupation" : {
+        "type" : "text",
+        "QuestionNo" : "1.7",
+        "responses" : [] ,
+        "nextQuestion" : ["RemoteBusiness"],
+        "dynamic" : "false"
+    },
+
+    "RemoteBusiness" : {
+        "type" : "radio",
+        "QuestionNo" : "1.8",
+        "responses" : [] ,
+        "nextQuestion" : ["BusinessType","TenancyAge"],
+        "dynamic" : "false"
+    },
+
+    "BusinessType" : {
+        "type" : "text",
+        "QuestionNo" : "1.8a",
+        "responses" : [] ,
+        "nextQuestion" : ["TenancyAge"],
+        "dynamic" : "false"
+    },
+
+    "TenancyAge" : {
+        "type" : "select",
+        "QuestionNo" : "1.9",
+        "responses" : [] ,
+        "nextQuestion" : ["NoBedrooms"],
+        "dynamic" : "false"
+    },
+
+    "NoBedrooms": {
+        "type" : "text",
+        "QuestionNo" : "1.11",
+        "responses" : [] ,
+        "nextQuestion" : ["MeterType"],
+        "dynamic" : "false"
+
+    },
+
+    "MeterType": {
+        "type" : "radio",
+        "QuestionNo" : "2.1",
+        "responses" : [] ,
+        "nextQuestion" : ["ElectricCost", "ElectricBill"],
+        "dynamic" : "true"
+
+    },
+
+    "ElectricCost": {
+        "type" : "text",
+        "QuestionNo" : "2.2",
+        "responses" : [] ,
+        "nextQuestion" : ["MonthlyBill"],
+        "dynamic" : "false"
+
+    },
+
+    "ElectricBill": {
+        "type" : "text",
+        "QuestionNo" : "2.3",
+        "responses" : [] ,
+        "nextQuestion" : ["MonthlyBill"],
+        "dynamic" : "false"
+
+    },
+
+    "MonthlyBill": {
+        "type" : "text",
+        "QuestionNo" : "2.4",
+        "responses" : [] ,
+        "nextQuestion" : ["Affordable?"],
+        "dynamic" : "false"
+
+    },
+
+    "Affordable?": {
+        "type" : "select",
+        "QuestionNo" : "2.5a",
+        "responses" : [] ,
+        "nextQuestion" : ["FairCost?"],
+        "dynamic" : "false"
+
+    },
+
+    "FairCost?": {
+        "type" : "select",
+        "QuestionNo" : "2.5b",
+        "responses" : [] ,
+        "nextQuestion" : ["BuyMeter"],
+        "dynamic" : "false"
+
+    },
+
+    "BuyMeter": {
+        "type" : "radio",
+        "QuestionNo" : "2.6a",
+        "responses" : [] ,
+        "nextQuestion" : ["PredictablePower"],
+        "dynamic" : "false"
+
+    },
+
+    "PredictablePower": {
+        "type" : "radio",
+        "QuestionNo" : "2.6b",
+        "responses" : [] ,
+        "nextQuestion" : ["PreferredTime", "NoPowerFailure", "NoPowerFailure"],
+        "dynamic" : "true"
+
+    },
+
+    "PreferredTime": {
+        "type" : "checkbox",
+        "QuestionNo" : "2.7",
+        "responses" : [] ,
+        "nextQuestion" : ["NoPowerFailure"],
+        "dynamic" : "false"
+
+    },
+
+    "NoPowerFailure": {
+        "type" : "text",
+        "QuestionNo" : "3.1",
+        "responses" : [] ,
+        "nextQuestion" : ["HoursOfPower"],
+        "dynamic" : "false"
+
+    },
+
+    "HoursOfPower" : {
+        "type" : "text",
+        "QuestionNo" : "3.2",
+        "responses" : [] ,
+        "nextQuestion" : ["TimeOfPowerFailure"],
+        "dynamic" : "false"
+    },
+
+    "TimeOfPowerFailure" : {
+        "type" : "checkTable",
+        "QuestionNo" : "3.3",
+        "responses" : [] ,
+        "nextQuestion" : ["CostOfPF"],
+        "dynamic" : "dependent",
+        "direction" : ["12-5" , "5-8","8-12","12-4","4-7","7-12"]
+    },
+
+    "12-5" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4a",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "5-8" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4b",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "8-12" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4c",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "12-4" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4d",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "4-7" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4e",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "7-12" : {
+        "type" : "radio",
+        "QuestionNo" : "3.4f",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "CostOfPF" : {
+        "type" : "text",
+        "QuestionNo" : "3.5",
+        "responses" : [] ,
+        "nextQuestion" : ["RecentPF"],
+        "dynamic" : "false"
+    },
+
+    "RecentPF" : {
+        "type" : "date",
+        "QuestionNo" : "3.6",
+        "responses" : [] ,
+        "nextQuestion" : ["TimeOfPF"],
+        "dynamic" : "false"
+    },
+    
+    "TimeOfPF" : {
+        "type" : "checkbox",
+        "QuestionNo" : "3.7",
+        "responses" : [] ,
+        "nextQuestion" : ["AlternatePower"],
+        "dynamic" : "false"
+    },
+
+    "AlternatePower" : {
+        "type" : "checkTable",
+        "QuestionNo" : "4.1",
+        "responses" : [] ,
+        "nextQuestion" : ["12-5PS"],
+        "dynamic" : "dependent",
+      "direction" : ["GendieselA" , "GenpetrolA", "GenpetrolA", "GenpetrolA","InverterA","SolarPanelA","BatteryA","KeroseneLampA", "OtherPSA"]
+        
+    },
+
+    "OtherAP" : {
+        "type" : "text",
+        "QuestionNo" : "4.1b",
+        "responses" : [] ,
+        "nextQuestion" : ["OtherPSA"],
+        "dynamic" : "false"
+    },
+
+    "12-5PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2a",
+        "responses" : [] ,
+        "nextQuestion" : ["5-8PS"], 
+        "dynamic" : "false"
+    },
+
+    "5-8PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2b",
+        "responses" : [] ,
+        "nextQuestion" : ["8-12PS"],
+        "dynamic" : "false"
+    },
+
+    "8-12PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2c",
+        "responses" : [] ,
+        "nextQuestion" : ["12-4PS"],
+        "dynamic" : "false"
+    },
+
+    "12-4PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2d",
+        "responses" : [] ,
+        "nextQuestion" : ["4-7PS"],
+        "dynamic" : "false"
+    },
+
+    "4-7PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2e",
+        "responses" : [] ,
+        "nextQuestion" : ["7-12PS"],
+        "dynamic" : "false"
+    },
+
+    "7-12PS" : {
+        "type" : "checkbox",
+        "QuestionNo" : "4.2f",
+        "responses" : [] ,
+        "nextQuestion" : ["PreferredPS"],
+        "dynamic" : "false"
+    },
+
+    "PreferredPS" : {
+        "type" : "select",
+        "QuestionNo" : "4.3a",
+        "responses" : [] ,
+        "nextQuestion" : ["AlternatePowerCost","OtherPreferredPS"],
+        "dynamic" : "true"
+    },
+
+    "OtherPreferredPS" : {
+        "type" : "text",
+        "QuestionNo" : "4.3b",
+        "responses" : [] ,
+        "nextQuestion" : ["AlternatePowerCost"],
+        "dynamic" : "false"
+    },
+
+
+    "GendieselA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4aa",
+        "responses" : [] ,
+        "nextQuestion" : ["GendieselB"],
+        "dynamic" : "false"
+    },
+
+    "GendieselB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ab",
+        "responses" : [] ,
+        "nextQuestion" : ["GendieselC"],
+        "dynamic" : "false"
+    },
+
+    "GendieselC" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ac",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "GenpetrolA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ba",
+        "responses" : [] ,
+        "nextQuestion" : ["GenpetrolB"],
+        "dynamic" : "false"
+    },
+
+    "GenpetrolB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4bb",
+        "responses" : [] ,
+        "nextQuestion" : ["GenpetrolC"],
+        "dynamic" : "false"
+    },
+
+    "GenpetrolC" : {
+        "type" : "number",
+        "QuestionNo" : "4.4bc",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "InverterA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ca",
+        "responses" : [] ,
+        "nextQuestion" : ["InverterB"],
+        "dynamic" : "false"
+    },
+
+    "InverterB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4cb",
+        "responses" : [] ,
+        "nextQuestion" : ["InverterC"],
+        "dynamic" : "false"
+    },
+
+    "InverterC" : {
+        "type" : "number",
+        "QuestionNo" : "4.4cc",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "SolarPanelA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4da",
+        "responses" : [] ,
+        "nextQuestion" : ["SolarPanelB"],
+        "dynamic" : "false"
+    },
+
+    "SolarPanelB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4db",
+        "responses" : [] ,
+        "nextQuestion" : ["SolarPanelC"],
+        "dynamic" : "false"
+    },
+
+    "SolarPanelC" : {
+        "type" : "number",
+        "QuestionNo" : "4.4dc",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "BatteryA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ea",
+        "responses" : [] ,
+        "nextQuestion" : ["BatteryB"],
+        "dynamic" : "false"
+    },
+
+    "BatteryB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4eb",
+        "responses" : [] ,
+        "nextQuestion" : ["BatteryC"],
+        "dynamic" : "false"
+    },
+
+    "BatteryC" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ec",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "KeroseneLampA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4fa",
+        "responses" : [] ,
+        "nextQuestion" : ["KeroseneLampB"],
+        "dynamic" : "false"
+    },
+
+    "KeroseneLampB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4fb",
+        "responses" : [] ,
+        "nextQuestion" : ["KeroseneLampC"],
+        "dynamic" : "false"
+    },
+
+    "KeroseneLampC" : {
+        "type" :"number",
+        "QuestionNo" : "4.4fc",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "OtherPSA" : {
+        "type" : "number",
+        "QuestionNo" : "4.4ga",
+        "responses" : [] ,
+        "nextQuestion" : ["OtherPSB"],
+        "dynamic" : "false"
+    },
+
+    "OtherPSB" : {
+        "type" : "number",
+        "QuestionNo" : "4.4gb",
+        "responses" : [] ,
+        "nextQuestion" : ["OtherPSC"],
+        "dynamic" : "false"
+    },
+
+    "OtherPSC" : {
+        "type" :"number",
+        "QuestionNo" : "4.4gc",
+        "responses" : [] ,
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    },
+
+    "AlternatePowerCost" : {
+        "type" : "number",
+        "QuestionNo" : "4.5",
+        "responses" : [],
+        "nextQuestion" : ["EffectsOfPF"],
+        "dynamic" : "false"
+    },
+
+    "EffectsOfPF" : {
+        "type" : "text",
+        "QuestionNo" : "4.6",
+        "responses" : [],
+        "nextQuestion" : ["SmartPhone?"],
+        "dynamic" : "false"
+    },
+
+    "SmartPhone?" : {
+        "type" : "radio",
+        "QuestionNo" : "4.7",
+        "responses" : [],
+        "nextQuestion" : ["OS?","END"],
+        "dynamic" : "false"
+    },
+
+    "OS?" : {
+        "type" : "radio",
+        "QuestionNo" : "4.8",
+        "responses" : [],
+        "nextQuestion" : ["GetGridwatch?","END", "OtherOS"],
+        "dynamic" : "false"
+    },
+
+    "OtherOS" : {
+        "type" : "text",
+        "QuestionNo" : "4.8a",
+        "responses" : [],
+        "nextQuestion" : ["END"],
+        "dynamic" : "false"
+    },
+
+    "GetGridwatch?" : {
+        "type" : "radio",
+        "QuestionNo" : "4.9",
+        "responses" : [],
+        "nextQuestion" : ["NameDetails","END"],
+        "dynamic" : "false"
+    },
+
+    "NameDetails" : {
+        "type" : "text",
+        "QuestionNo" : "4.9a",
+        "responses" : [],
+        "nextQuestion" : ["AddressDetails"],
+        "dynamic" : "false"
+    },
+
+    "AddressDetails" : {
+        "type" : "text",
+        "QuestionNo" : "4.9a",
+        "responses" : [],
+        "nextQuestion" : ["END"],
+        "dynamic" : "false"
+    },
+
+    "END" : {
+        "type" : "button",
+        "QuestionNo" : "last",
+        "responses" : [],
+        "nextQuestion" : [],
+        "dynamic" : "false"
+    }
+    
+    
+    
+}
+

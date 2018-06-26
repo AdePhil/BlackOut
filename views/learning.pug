@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title E-learning off-the-shelf
+    link(href='css/smart_wizard.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='css/main.css')
+  body
+    header.header
+      .wrapper
+        .header__wrapper
+          .header__mobile
+            i.fa.fa-bars
+          .header__logo
+            a.header__link(href='')
+              img.logo(src='img/logo.png', alt='')
+          nav.header__nav
+            a.header__nav-link.header__nav-link--active(href='') My Training
+            if user
+                a.header__nav-link(href='') #{user.name}
+                a.header__nav-link(href='')
+                  img.avatar(src=user.gravatar + 'd=retro')
+                a.header__nav-link(href='/logout') Logout
+    .body
+      .wrapper
+        #step-form.modal-wrapper.step-form
+          .modal-wrap
+            .modal-container
+              .modal-header
+                .slider-container
+                  .slider
+                    .motion.progressbar(data-percent='50%')
+                      span.language 0%
+              .modal-bodies
+                .modal-body.modal-body-step-2.is-showing
+                  form#question-form(action='', method='POST')
+                    #smartwizard
+                      ul.step-navigation(style='display:none')
+                      .content-container
+    script(src='/dist/App.bundle.js')
