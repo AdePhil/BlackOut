@@ -4,6 +4,7 @@ const Response = require('../models/Response');
 exports.post = async (req, res) => {
   const { responses, location } = req.body;
   console.log(responses);
+  console.log('req user obj', req.user._id);
   const userId = req.user._id;
 
 
@@ -41,6 +42,6 @@ exports.post = async (req, res) => {
     res.json({ error });
   }
 
-  
+
 
 }

@@ -19,19 +19,19 @@
         "type" : "select",
         "QuestionNo" : "1.10",
         "responses" : [],
-        "nextQuestion" : ["BriefRespondent?"]
+        "nextQuestion" : ["BriefRespondent"]
     },
 
-    "BriefRespondent?" : {
+    "BriefRespondent" : {
         "type" : "radio",
         "QuestionNo" : "002",
         "responses" : [] ,
-        "nextQuestion" : ["Consent?"],
+        "nextQuestion" : ["Consent"],
         "dynamic" : "false"
 
     },
 
-    "Consent?" : {
+    "Consent" : {
         "type" : "radio",
         "QuestionNo" : "003",
         "responses" : [] ,

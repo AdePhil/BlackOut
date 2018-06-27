@@ -4,8 +4,6 @@ block style
 block content
   .loader-wrapper
     .loader
-  //- h1.text-center.mb-4 Fill Our Survey
-  //- hr.style
   .row
     .col-sm-3
       .panel.panel-primary
@@ -14,7 +12,9 @@ block content
         .panel-body
           ul
             li
-              a.section-link(href="#", onclick='navigate(1)') Section 1 (Demographics)
+              a.section-link(href="#", onclick='navigate(0)') Section 0 (Introduction)
+            li
+              a.section-link(href="#", onclick='navigate2(1)') Section 1 (Demographics)
             li
               a.section-link(href="#", onclick='navigate(2)') Section 2 (Cost of electicity)
             li
@@ -29,17 +29,69 @@ block content
           h3.panel-title.dynamic-panel-title Section 1 (Demographics)
         .panel-body
           form(method='POST', action='/formController.js')
-            #sect1
+            #sect0(style='display:block')
+              #q000.row.row-fluid.form-group.space
+                label.col-sm-6.row
+                  span.col-sm-1
+                  span.col-sm-9.question  Name of Interviewer
+                .col-sm-6
+                  input.form-control(type='text', name='InterviewerName')
+              hr.style
+              #q001.row.row-fluid.form-group.space
+                label.col-sm-6.row
+                  span.col-sm-1
+                  span.col-sm-9.question Date of survey
+                .col-sm-6
+                  input.form-control(type='date', name='SurveyDate')
+              hr.style
+              .row.row-fluid.form-group.space(id='q1.10')
+                label.col-sm-6.row
+                  span.col-sm-1
+                  span.col-sm-9.question  What type of property is it ?
+                .col-sm-6
+                  select.form-control(name='PropertyType')
+                    option
+                    option(value='0') Face-me-I-face-you
+                    option(value='1') Self-contained flat
+                    option(value='2') Semi-detached
+                    option(value='3') Detached house
+              hr.style
+              #q002.row.form-group.row-fluid.space
+                label.col-sm-8.row.control-label(for='')
+                  span.col-sm-1
+                  span.col-sm-9.question
+                    | Has respondent been told briefly about the research, and been provided with an information shhet, including : contact information, information on their right to withdraw, and their right to not answer questions that they are uncomfortable with
+                label.radio-inline.control-label.col-sm-2(for='BriefRespondent?')
+                  | Yes
+                  input(type='radio', name='BriefRespondent?', value='00', onclick='')
+                label.radio-inline.control-label.col-sm-2(for='genderType')
+                  | No
+                  input(type='radio', name='BriefRespondent?', value='01', onclick='')
+              hr.style
+              #q003.row.form-group.row-fluid.space
+                label.col-sm-8.row.control-label(for='')
+                  span.col-sm-1
+                  span.col-sm-11.question  Has respondent provided verbal consent to be interviewed
+                label.radio-inline.control-label.col-sm-2(for='BriefRespondent?')
+                  | Yes
+                  input(type='radio', name='Consent?', value='00', onclick='')
+                label.radio-inline.control-label.col-sm-2(for='genderType')
+                  | No
+                  input(type='radio', name='Consent?', value='01', onclick='')
+              hr.style
+              .btn-wrapper.text-center
+                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate2(1)')
+            #sect1(style='display:none')
               .row.form-group.row-fluid.space(id='q1.1')
-                label.col-sm-6.row.control-label(for='gender')
+                label.col-sm-5.row.control-label(for='gender')
                   span.col-sm-1 1.1
                   span.col-sm-9.question  Gender
                 label.radio-inline.control-label.col-sm-3(for='genderType')
                   | Male
-                  input(type='radio', data-ans='Male' name='genderType', value='00', onclick='')
-                label.radio-inline.control-label.col-sm-3(for='genderType')
+                  input(type='radio', name='genderType', value='00', onclick='')
+                label.radio-inline.control-label.col-sm-4(for='genderType')
                   | Female
-                  input(type='radio', data-ans='Female' name='genderType', value='01', onclick='')
+                  input(type='radio', name='genderType', value='01', onclick='')
               hr.style
               .row.row-fluid.form-group.space(id='q1.2')
                 label.col-sm-6.row
@@ -48,11 +100,11 @@ block content
                 .col-sm-6
                   select.form-control(name='AgeRange')
                     option
-                    option(value='0', data-ans='18 - 25') 18 - 25
-                    option(value='1', data-ans='26 - 35') 26 - 35
-                    option(value='2',  data-ans='36 - 45') 36 - 45
-                    option(value='3', data-ans='46 - 55') 46 - 55
-                    option(value='4', data-ans='56+') 56+
+                    option(value='0') 18 - 25
+                    option(value='1') 26 - 35
+                    option(value='2') 36 - 45
+                    option(value='3') 46 - 55
+                    option(value='4') 56+
               hr.style
               .row.row-fluid.form-group.space(id='q1.3')
                 label.col-sm-6.row
@@ -61,19 +113,19 @@ block content
                 .col-sm-6
                   select.form-control(name='Relationship', onclick='')
                     option
-                    option(value='0', data-ans='Head') Head
-                    option(value='1', data-ans='Wife/Husband') Wife/Husband
-                    option(value='2', data-ans='Son/Daughter') Son/Daughter
-                    option(value='3', data-ans='Son-in-law or Daughter-in-law') Son-in-law or Daughter-in-law
-                    option(value='4', data-ans='Grandchild') Grandchild
-                    option(value='5', data-ans='Parent') Parent
-                    option(value='6', data-ans='Parent-in-law') Parent-in-law
-                    option(value='7', data-ans='Brother-in-law') Brother-in-law
-                    option(value='8', data-ans='Brother/Sister') Brother/Sister
-                    option(value='9', data-ans='Niece/Nephew by blood') Niece/Nephew by blood
-                    option(value='10', data-ans='Niece/Nephew by marriage') Niece/Nephew by marriage
-                    option(value='11', data-ans='Adoted/Foster/Step child') Adoted/Foster/Step child
-                    option(value='OT', data-ans='Other (specify)') Other (specify)
+                    option(value='0') Head
+                    option(value='1') Wife/Husband
+                    option(value='2') Son/Daughter
+                    option(value='3') Son-in-law or Daughter-in-law
+                    option(value='4') Grandchild
+                    option(value='5') Parent
+                    option(value='6') Parent-in-law
+                    option(value='7') Brother-in-law
+                    option(value='8') Brother/Sister
+                    option(value='9') Niece/Nephew by blood
+                    option(value='10') Niece/Nephew by marriage
+                    option(value='11') Adopted/Foster/Step child
+                    option(value='OT') Other (specify)
               .row.row-fluid.form-group.space(id='q1.3a')
                 label.col-sm-6.row
                   span.col-sm-1
@@ -86,7 +138,7 @@ block content
                   span.col-sm-1 1.4
                   span.col-sm-9.question  Number of people in the household
                 .col-sm-6
-                  input.form-control(type='text', name='Population')
+                  input.form-control(type='number', name='Population', min='0')
               hr.style
               .row.row-fluid.form-group.space(id='q1.5')
                 label.col-sm-6.row
@@ -95,10 +147,10 @@ block content
                 .col-sm-6
                   select.form-control(name='EducationalLevel', onclick='')
                     option
-                    option(value='0', data-ans='Primary') Primary
-                    option(value='1', data-ans='Secondary') Secondary
-                    option(value='2', data-ans='Tertiary') Tertiary
-                    option(value='3', data-ans='Post-graduate') Post-graduate
+                    option(value='0') Primary
+                    option(value='1') Secondary
+                    option(value='2') Tertiary
+                    option(value='3') Post-graduate
               hr.style
               .row.form-group.row-fluid.space(id='q1.6')
                 label.col-sm-6.row.control-label(for='')
@@ -106,10 +158,10 @@ block content
                   span.col-sm-9.question  Did you rent or own this property ?
                 label.radio-inline.control-label.col-sm-3(for='Property_ownership')
                   | Rent
-                  input(type='radio', data-ans='Rent' name='PropertyOwnership', value='00', onclick='')
+                  input(type='radio', name='PropertyOwnership', value='00', onclick='')
                 label.radio-inline.control-label.col-sm-3(for='Property_ownership')
                   | Own
-                  input(type='radio', data-ans='Own' name='PropertyOwnership', value='01', onclick='')
+                  input(type='radio', name='PropertyOwnership', value='01', onclick='')
               hr.style
               .row.row-fluid.form-group.space(id='q1.7')
                 label.col-sm-6.row
@@ -124,10 +176,10 @@ block content
                   span.col-sm-9.question  Do you run a business from home ?
                 label.radio-inline.control-label.col-sm-3(for='RemoteBusiness')
                   | Yes
-                  input(type='radio', data-ans='Yes' name='RemoteBusiness', value='00', onclick='')
+                  input(type='radio', name='RemoteBusiness', value='00', onclick='')
                 label.radio-inline.control-label.col-sm-3(for='RemoteBusiness')
                   | No
-                  input(type='radio', data-ans='No' name='RemoteBusiness', value='01', onclick='')
+                  input(type='radio', name='RemoteBusiness', value='01', onclick='')
                 .row.row-fluid.form-group(id='q1.8a')
                   label.col-sm-6.row
                     span.col-sm-1
@@ -142,83 +194,84 @@ block content
                 .col-sm-6
                   select.form-control(name='TenancyAge')
                     option
-                    option(value='0', data-ans='Less than one year') Less than one year
-                    option(value='1', data-ans='1 - 3 years') 1 - 3 years
-                    option(value='2', data-ans='3 - 6 years') 3 - 6 years
-                    option(value='3', data-ans='6+ years') 6+ years
+                    option(value='0') Less than one year
+                    option(value='1') 1 - 3 years
+                    option(value='2') 3 - 6 years
+                    option(value='3') 6+ years
               hr.style
               .row.row-fluid.form-group.space(id='q1.11')
                 label.col-sm-6.row
-                  span.col-sm-1 1.11
+                  span.col-sm-1 1.10
                   span.col-sm-9.question  How many bedrooms are there
                 .col-sm-6
-                  input.form-control(type='text', name='NoBedrooms')
+                  input.form-control(type='number', name='NoBedrooms')
               hr.style
-              .row
-                .col-sm-3
-                .col-sm-6
-                  input.btn.btn-primary.col-sm-12(type='button', id='', value='NEXT', onclick='navigate(2)')
-            #sect2(style='display : none')
+              .text-center
+                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(2)')
+            #sect2(style='display: none')
               hr.style
               .row.form-group.row-fluid.space(id='q2.1')
-                label.col-sm-6.row.control-label(for='')
+                label.col-sm-4.row.control-label(for='')
                   span.col-sm-1 2.1
                   span.col-sm-9.question  Are you using a pre-paid or post-paid meter ?
                 label.radio-inline.control-label.col-sm-3(for='Property_ownership')
                   | Pre-paid meter
-                  input(type='radio', data-ans='Pre-paid meter' name='MeterType', value='00', onclick="showNext('MeterType')")
+                  input(type='radio', name='MeterType', value='00', onclick="showNext('MeterType')")
                 label.radio-inline.control-label.col-sm-3(for='Property_ownership')
                   | Post-paid meter
-                  input(type='radio', data-ans='Post-paid meter' name='MeterType', value='01', onclick="showNext('MeterType')")
-
+                  input(type='radio', name='MeterType', value='01', onclick="showNext('MeterType')")
+                label.radio-inline.control-label.col-sm-2(for='Property_ownership')
+                  | Don't know
+                  input(type='radio', name='MeterType', value='02', onclick="showNext('MeterType')")
+              div(id='2.2a')
               .row.row-fluid.form-group.space(id='q2.2', style='display:none')
                 hr.style
                 label.col-sm-12
                   span.col-sm-1 2.2
                   span.col-sm-9.question  How much do you spend on electricity per month, an average ?
                 span.col-sm-6
-                  input.form-control(type='text', name='ElectricCost')
-              hr.style
-              .row.row-fluid.form-group.space(id='q2.3', style='display:none')
-                label.col-sm-6
-                  span.col-sm-1 2.3
-                  span.col-sm-9.question  How much does the electricity company bill you, per month ?
-                span.col-sm-6
-                  input.form-control(type='text', name='ElectricBill')
-
-              .row.row-fluid.form-group.space(id='q2.4')
+                  input.form-control(type='number', name='ElectricCost')
+              div(style='display:none', id='q2.3')
                 hr.style
-                label.col-sm-6.row
-                  span.col-sm-1 2.4
-                  span.col-sm-9.question  How much do you actually pay, per month ?
-                .col-sm-6
-                  input.form-control(type='text', name='MonthlyBill')
+                .row.row-fluid.form-group.space
+                  label.col-sm-6
+                    span.col-sm-1 2.3
+                    span.col-sm-9.question  How much does the electricity company bill you, per month ?
+                  span.col-sm-6
+                    input.form-control(type='number', name='ElectricBill')
+                hr.style
+                .row.row-fluid.form-group.space(id='q2.4')
+                  label.col-sm-6.row
+                    span.col-sm-1 2.4
+                    span.col-sm-9.question  How much do you actually pay, per month ?
+                  .col-sm-6
+                    input.form-control(type='number', name='MonthlyBill')
               hr.style
               .row.row-fluid.form-group.space(id='q2.5a')
                 label.col-sm-6.row
                   span.col-sm-1 2.5a
-                  span.col-sm-9.question  "These electricity costs are affordable for my household." ?
+                  span.col-sm-9.question  "These electricity costs are affordable for my household."
                 .col-sm-6
                   select.form-control(name='Affordable?')
                     option
-                    option(value='0', data-ans='Strongly disagree') Strongly disagree
-                    option(value='1', data-ans='Disagree') Disagree
-                    option(value='2', data-ans='Neither agree or disagree') Neither agree or disagree
-                    option(value='3', data-ans='Agree') Agree
-                    option(value='4', data-ans='Strongly agree') Strongly agree
+                    option(value='0') Strongly disagree
+                    option(value='1') Disagree
+                    option(value='2') Neither agree or disagree
+                    option(value='3') Agree
+                    option(value='4') Strongly agree
               hr.style
               .row.row-fluid.form-group.space(id='q2.5b')
                 label.col-sm-6.row
                   span.col-sm-1 2.5b
-                  span.col-sm-9.question  "I feel that these electricity cost are fair." ?
+                  span.col-sm-9.question  "I feel that these electricity cost are fair."
                 .col-sm-6
                   select.form-control(name='FairCost?')
                     option
-                    option(value='0', data-ans='Strongly disagree') Strongly disagree
-                    option(value='1', data-ans='Disagree') Disagree
-                    option(value='2', data-ans='Neither agree or disagree') Neither agree or disagree
-                    option(value='3', data-ans='Agree') Agree
-                    option(value='4', data-ans='Strongly agree') Strongly agree
+                    option(value='0') Strongly disagree
+                    option(value='1') Disagree
+                    option(value='2') Neither agree or disagree
+                    option(value='3') Agree
+                    option(value='4') Strongly agree
               hr.style
               .row.form-group.row-fluid.space(id='q2.6a')
                 label.col-sm-6.row.control-label(for='')
@@ -227,64 +280,62 @@ block content
                 span.col-sm-6
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | Yes
-                    input(type='radio', data-ans='Yes' name='BuyMeter', value='00', onclick='')
+                    input(type='radio', name='BuyMeter', value='00', onclick='')
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | No
-                    input(type='radio', data-ans='No' name='BuyMeter', value='01', onclick='')
+                    input(type='radio', name='BuyMeter', value='01', onclick='')
                   label.radio-inline.control-label.col-sm-5(for='BuyMeter')
                     | Not sure
-                    input(type='radio', data-ans='Not sure' name='BuyMeter', value='02', onclick='')
+                    input(type='radio', name='BuyMeter', value='02', onclick='')
               hr.style
               .row.form-group.row-fluid.space(id='q2.6b')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 2.6b
-                  span.col-sm-9.question  If you were given the option to ould you ?
+                  span.col-sm-9.question
+                    | If you were given the option to receive electricity more reliably but for only part of the day, would you choose
+                    | this?
                 span.col-sm-6
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | Yes
-                    input(type='radio', data-ans='Yes' name='PredictablePower', value='00', onclick='')
+                    input#227(type='radio', name='PredictablePower', value='00', onclick="showNext2('PredictablePower','227')")
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | No
-                    input(type='radio', data-ans='No' name='PredictablePower', value='01', onclick='')
+                    input(type='radio', name='PredictablePower', value='01', onclick="showNext2('PredictablePower','227')")
                   label.radio-inline.control-label.col-sm-5(for='BuyMeter')
                     | Not sure
-                    input(type='radio', data-ans='Not sure' name='PredictablePower', value='02', onclick='')
+                    input(type='radio', name='PredictablePower', value='02', onclick="showNext2('PredictablePower','227')")
+              div(id='q2.7', style='display:none')
+                .row.space
+                  // style="display:none"
+                  hr.style
+                  .col-sm-6.row-eq-height
+                    label.control-label(for='')
+                      span.col-sm-1 2.7
+                      span.col-sm-4.question  During what times of the day would you be most interested to receive power ?
+                  .col-sm-6.row-eq-height
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='00', name='PreferredTime')
+                      label.form-check-label(for='') 12MIDNIGHT - 5AM
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='01', name='PreferredTime')
+                      label.form-check-label(for='') 5AM - 8AM
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='02', name='PreferredTime')
+                      label.form-check-label(for='') 8AM - 12NOON
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='03', name='PreferredTime')
+                      label.form-check-label(for='') 12NOON - 4PM
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='04', name='PreferredTime')
+                      label.form-check-label(for='') 4PM - 7PM
+                    .form-check
+                      input.filled-in.form-check-input(type='checkbox', value='05', name='PreferredTime')
+                      label.form-check-label(for='') 7PM - 12MIDNIGHT
               hr.style
-              .row.row-fluid.space(id='q2.7')
-                label.col-sm-6.row.control-label(for='')
-                  span.col-sm-1 2.7
-                  span.col-sm-9.question
-                    | If yes : During what times of the day would you  be most interested to receive power ?
-                span.col-sm-6
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12AM - 5AM' value='00', name='PreferredTime')
-                    label.form-check-label(for='') 12AM - 5AM
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='5AM - 8AM' value='01', name='PreferredTime')
-                    label.form-check-label(for='') 5AM - 8AM
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='8AM - 12NOON' value='02', name='PreferredTime')
-                    label.form-check-label(for='') 8AM - 12NOON
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12NOON - 4PM' value='03', name='PreferredTime')
-                    label.form-check-label(for='') 12NOON - 4PM
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='4PM - 7PM' value='04', name='PreferredTime')
-                    label.form-check-label(for='') 4PM - 7PM
-                  .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='7PM - 12AM' value='05', name='PreferredTime')
-                    label.form-check-label(for='') 7PM - 12AM
-              hr.style
-              .row.row-fluid
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='PREVIOUS', onclick='navigate(1)')
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='NEXT', onclick='navigate(3)')
-            #sect3(style='display : none')
+              .btn-wrapper.text-center
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(1)')
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(3)')
+            #sect3(style='display: none')
               hr.style
               .row.row-fluid.form-group.space(id='q3.1')
                 label.col-sm-6.row
@@ -292,126 +343,126 @@ block content
                   span.col-sm-9.question
                     | How many times during a day (24 hour period) do you experience power failures ?
                 .col-sm-6
-                  input.form-control(type='text', name='NoPowerFailure')
+                  input.form-control(type='number', name='NoPowerFailure', min='0')
               hr.style
               .row.row-fluid.form-group.space(id='q3.2')
                 label.col-sm-6.row
                   span.col-sm-1 3.2
                   span.col-sm-9.question  How many hours per day, do you have power, on average ?
                 .col-sm-6
-                  input.form-control(type='text', name='HoursOfPower')
+                  input.form-control(type='number', name='HoursOfPower', max='24', min='0')
               hr.style
               .row.row-fluid.space(id='q3.3')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 3.3
-                  span.col-sm-9.question
-                    | If yes : During what times of the day would you  be most interested to receive power ?
+                  span.col-sm-9.question  What times(s) of the day do failures tend to occur? (select all that apply)
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12AM - 5AM' value='00', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
-                    label.form-check-label(for='') 12AM - 5AM
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    label.form-check-label(for='') 12MIDNIGHT - 5AM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='5AM - 8AM' value='01', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
                     label.form-check-label(for='') 5AM - 8AM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='8AM - 12NOON' value='02', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
                     label.form-check-label(for='') 8AM - 12NOON
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12NOON - 4PM' value='03', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
                     label.form-check-label(for='') 12NOON - 4PM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='4PM - 7PM' value='04', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
                     label.form-check-label(for='') 4PM - 7PM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='7PM - 12AM' value='05', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
-                    label.form-check-label(for='') 7PM - 12AM
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='TimeOfPowerFailure', onclick="showNext('TimeOfPowerFailure')")
+                    label.form-check-label(for='') 7PM - 12MIDNIGHT
               hr.style
               .row
                 label.row
                   span.col-sm-1
                   | 3.4
-                  span.col-sm-10
-                    | PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER
+                  span.col-sm-10.question
+                    | PLEASE INDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER
               .row.row-fluid.form-group.space(id='q3.4a', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  a)
-                  span.col-sm-9.question  PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (12AM - 5AM)
+                  span.col-sm-9.question  12MIDNIGHT - 5AM
                 .col-sm-6
                   select.form-control(name='12-5')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               .row.row-fluid.form-group.space(id='q3.4b', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  b)
-                  span.col-sm-9.question  PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (5AM - 8AM)
+                  span.col-sm-9.question  5AM - 8AM
                 .col-sm-6
                   select.form-control(name='5-8')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               .row.row-fluid.form-group.space(id='q3.4c', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  c)
-                  span.col-sm-9 PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (8AM - 12NOON)
+                  span.col-sm-9 8AM - 12NOON
                 .col-sm-6
                   select.form-control(name='8-12')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               .row.row-fluid.form-group.space(id='q3.4d', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  d)
-                  span.col-sm-9.question PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (12NOON - 4PM)
+                  span.col-sm-9.question 12NOON - 4PM
                 .col-sm-6
                   select.form-control(name='12-4')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               .row.row-fluid.form-group.space(id='q3.4e', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  e)
-                  span.col-sm-9.question PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (4PM - 7PM)
+                  span.col-sm-9.question 4PM - 7PM
                 .col-sm-6
                   select.form-control(name='4-7')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               .row.row-fluid.form-group.space(id='q3.4f', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  f)
-                  span.col-sm-9.question PLEASE IINDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER (7PM - 12AM)
+                  span.col-sm-9.question 7PM - 12MIDNIGHT
                 .col-sm-6
                   select.form-control(name='7-12')
                     option
-                    option(value='0', data-ans='Very Important') Very Important
-                    option(value='1', data-ans='Quite Important') Quite Important
-                    option(value='2', data-ans='Neutral') Neutral
-                    option(value='3', data-ans='Quite unimportant (not too important)') Quite unimportant (not too important)
-                    option(value='4', data-ans='Very unimportant (not at all important)') Very unimportant (not at all important)
+                    option(value='0') Very Important
+                    option(value='1') Quite Important
+                    option(value='2') Neutral
+                    option(value='3') Quite unimportant (not too important)
+                    option(value='4') Very unimportant (not at all important)
               hr.style
               .row.row-fluid.form-group.space(id='q3.5')
                 label.col-sm-6.row
                   span.col-sm-1 3.5
                   span.col-sm-9.question
-                    | If a power failure happens during a period you've indicated is very disruptive/important; how much money might you lose through work or your business ?
+                    | 3.5 If a power failure happens during a period you’ve indicated is very disruptive/important; how does it affect
+                    | you? [Prompts: costs? work? Cooking food? Watching television? Family?]
                 .col-sm-6
-                  input.form-control(type='text', name='CostOfPF')
+                  input.form-control(type='textarea', name='CostOfPF', min='0')
               hr.style
               .row.row-fluid.form-group.space(id='q3.6')
                 label.col-sm-6.row
@@ -426,34 +477,28 @@ block content
                   span.col-sm-9.question  What time of the day was it ? (tick all that apply)
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12AM - 5AM' value='00', name='TimeOfPF')
-                    label.form-check-label(for='') 12AM - 5AM
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='TimeOfPF')
+                    label.form-check-label(for='') 12MIDNIGHT- 5AM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='5AM - 8AM' value='01', name='TimeOfPF')
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='TimeOfPF')
                     label.form-check-label(for='') 5AM - 8AM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='8AM - 12NOON' value='02', name='TimeOfPF')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='TimeOfPF')
                     label.form-check-label(for='') 8AM - 12NOON
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='12NOON - 4PM' value='03', name='TimeOfPF')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='TimeOfPF')
                     label.form-check-label(for='') 12NOON - 4PM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='4PM - 7PM' value='04', name='TimeOfPF')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='TimeOfPF')
                     label.form-check-label(for='') 4PM - 7PM
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='7PM - 12AM' value='05', name='TimeOfPF')
-                    label.form-check-label(for='') 7PM - 12AM
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='TimeOfPF')
+                    label.form-check-label(for='') 7PM - 12MIDNIGHT
               hr.style
-              .row.row-fluid
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='PREVIOUS', onclick='navigate(2)')
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='NEXT', onclick='navigate(4)')
-            #sect4(style='display : none')
+              .btn-wrapper.text-center
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(2)')
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(4)')
+            #sect4(style='display: none')
               .row.row-fluid.space(id='q4.1')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 4.1
@@ -461,34 +506,178 @@ block content
                     | Which of the following alternative power sources do you own ? (select all that apply)
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Generator (diesel)
+                  div(id='q4.4aa', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4aA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How long have you owned the diesel generator
+                      .col-sm-6
+                        input.form-control(type='number', name='GendieselA')
+                    .row.row-fluid.form-group.space(id='q4.4ab')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much did you purchase the dieselgenerator ?
+                      .col-sm-6
+                        input.form-control(type='number', name='GendieselB')
+                    .row.row-fluid.form-group.space(id='q4.4ac')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on the diesel generator currently, per month ?
+                      .col-sm-6
+                        input.form-control(type='number', name='GendieselC')
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol - 90 watt)' value='01', name='AlternatePower', onclick="showNext('AlternatePower')")
-                    label.form-check-label(for='') Generator (petrol - 90 watt)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    label.form-check-label(for='') Generator(petrol - 900 watt) a.k.a I pass my neighbour
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='[petrol  (1 - 5 kw) ]' value='02', name='AlternatePower', onclick="showNext('AlternatePower')")
-                    label.form-check-label(for='') Generator [petrol  (1 - 5 kw) ]
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    label.form-check-label(for='') Generator [petrol (1 - 5 kw) ]
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator [5kw and above ]' value='03', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Generator [5kw and above ]
+                  div(id='q4.4ba', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4bA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How long have you owned the petrol generator
+                      .col-sm-6
+                        input.form-control(type='number', name='GenpetrolA')
+                    .row.row-fluid.form-group.space(id='q4.4bb')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much did you purchase it ?
+                      .col-sm-6
+                        input.form-control(type='number', name='GenpetrolB')
+                    .row.row-fluid.form-group.space(id='q4.4bc')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on it currently per month?
+                      .col-sm-6
+                        input.form-control(type='number', name='GenpetrolC')
+                    hr.style
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='04', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Inverter
+                  div(id='q4.4ca', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4caA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How long have you owned the Inverter
+                      .col-sm-6
+                        input.form-control(type='number', name='InverterA')
+                    .row.row-fluid.form-group.space(id='q4.4cb')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much did you purchase it ?
+                      .col-sm-6
+                        input.form-control(type='nummber', name='InverterB')
+                    .row.row-fluid.form-group.space(id='q4.4cc')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on it currently per month ?
+                      .col-sm-6
+                        input.form-control(type='number', name='InverterC')
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='05', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Solar panel
+                  div(id='q4.4da', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4dA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How long have you owned the Solar Panel
+                      .col-sm-6
+                        input.form-control(type='number', name='SolarPaneA')
+                    .row.row-fluid.form-group.space(id='q4.4db')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How much did you purchase the Solar Panel ?
+                      .col-sm-6
+                        input.form-control(type='number', name='SolarPanelB')
+                    .row.row-fluid.form-group.space(id='q4.4dc')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on the Solar Panel currently per month?
+                      .col-sm-6
+                        input.form-control(type='number', name='SolarPanelC')
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='06', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='06', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Battery LED
+                  div(id='q4.4ea', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4eA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How long have you owned the Battery LED
+                      .col-sm-6
+                        input.form-control(type='number', name='BatteryA')
+                    .row.row-fluid.form-group.space(id='q4.4eb')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How much did you purchase the Battery LED ?
+                      .col-sm-6
+                        input.form-control(type='number', name='BatteryB')
+                    .row.row-fluid.form-group.space(id='q4.4ec')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on the Battery (LED) currently, per month ?
+                      .col-sm-6
+                        input.form-control(type='number', name='BatteryC')
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='' value='07', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='07', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Kerosene lamp
+                  div(id='q4.4fa', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4fA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        | 4.4F
+                        span.col-sm-9.question How long have you owned the Kerosene Lamp
+                      .col-sm-6
+                        input.form-control(type='number', name='KeroseneLampA')
+                    .row.row-fluid.form-group.space(id='q4.4fb')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How much did you purchase the Kerosene Lamp?
+                      .col-sm-6
+                        input.form-control(type='number', name='KeroseneLampB')
+                    .row.row-fluid.form-group.space(id='q4.4fc')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on the Kerosene Lamp currently ?
+                      .col-sm-6
+                        input.form-control(type='number', name='KeroseneLampC')
+                  hr.style
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='08', name='AlternatePower', onclick="showNext('AlternatePower')")
+                    input.filled-in.form-check-input(type='checkbox', value='08', name='AlternatePower', onclick="showNext('AlternatePower')")
                     label.form-check-label(for='') Other (specify)
+                  div(id='q4.4ga', style='display : none')
+                    hr.style
+                    .row.row-fluid.form-group.space(id='q4.4gA')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        | 4.4G
+                        span.col-sm-9.question How long have you owned the Other source
+                      .col-sm-6
+                        input.form-control(type='number', name='OtherPSA')
+                    .row.row-fluid.form-group.space(id='q4.4gb')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question How much did you purchase the other source?
+                      .col-sm-6
+                        input.form-control(type='number', name='OtherPSB')
+                    .row.row-fluid.form-group.space(id='q4.4gc')
+                      label.col-sm-6.row
+                        span.col-sm-1
+                        span.col-sm-9.question  How much do you spend on the other source currently per month ?
+                      .col-sm-6
+                        input.form-control(type='number', name='OtherPSC')
               hr.style
-              .row.row-fluid.form-group.space(id='q4.1b', style='display:none')
+              .row.row-fluid.form-group.space(id='q4.1b')
                 label.col-sm-6.row
                   span.col-sm-1 4.1b
                   span.col-sm-9.question  Other power source ?
@@ -498,84 +687,85 @@ block content
               label.col-sm-12.row
                 span.col-sm-1
                 span.col-sm-9
-                  |  WHICH POWER SOURCES ARE YOU LIKELY TO USE IF YOU EXPERIENCE A POWER FAILURE DURING THESE DIFFERENT TIME PERIODS? (TICK ALL THAT APPLY)
+                  | WHICH POWER SOURCES ARE YOU LIKELY TO USE IF YOU EXPERIENCE A POWER FAILURE DURING THESE DIFFERENT TIME PERIODS
+                  | ? (TICK ALL THAT APPLY)
               .row.row-fluid.space(id='q4.2a')
                 label.col-sm-6.row
                   span.col-sm-1
-                  span.col-sm-9.question (12AM - 5AM)
+                  span.col-sm-9.question  12MIDNIGHT - 5AM
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans=' Generator (diesel)' value='00', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='12-5PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='12-5PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='12-5PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='12-5PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='12-5PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='12-5PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='12-5PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='12-5PS')
                     label.form-check-label(for='') Other
               .row.row-fluid.space(id='q4.2b')
                 label.col-sm-6.row
                   span.col-sm-1
-                  span.col-sm-9.question  (5AM - 8AM)
+                  span.col-sm-9.question  5AM - 8AM
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='5-8PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='5-8PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='5-8PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='5-8PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='5-8PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='5-8PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='5-8PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='5-8PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='5-8PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='5-8PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='5-8PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='5-8PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='12-5PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='12-5PS')
                     label.form-check-label(for='') Other
               .row.row-fluid.space(id='q4.2c')
                 label.col-sm-6.row
                   span.col-sm-1
-                  span.col-sm-9.question  (8AM - 12NOON)
+                  span.col-sm-9.question  8AM - 12NOON
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='8-12PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='8-12PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='8-12PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='8-12PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='8-12PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='8-12PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='8-12PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='8-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='8-12PS')
                     label.form-check-label(for='') Other
               .row.row-fluid.space(id='q4.2d')
                 label.col-sm-6.row
@@ -583,77 +773,77 @@ block content
                   span.col-sm-9.question  12NOON- 4PM
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='12-4PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='12-4PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='12-4PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='12-4PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='12-4PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='12-4PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='12-4PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='12-4PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='12-4PS')
                     label.form-check-label(for='') Other
               .row.row-fluid.space(id='q4.2e')
                 label.col-sm-6.row
                   span.col-sm-1
-                  span.col-sm-9.question  (4PM - 7PM)
+                  span.col-sm-9.question  4PM - 7PM
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='4-7PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='4-7PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='4-7PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='4-7PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='4-7PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='4-7PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='4-7PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='4-7PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='4-7PS')
                     label.form-check-label(for='') Other
               .row.row-fluid.space(id='q4.2f')
                 label.col-sm-6.row
                   span.col-sm-1
-                  span.col-sm-9.question  (7PM - 12AM)
+                  span.col-sm-9.question  7PM - 12MIDNIGHT
                 span.col-sm-6
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (diesel)' value='00', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='00', name='7-12PS')
                     label.form-check-label(for='') Generator (diesel)
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Generator (petrol)' value='01', name='7-12PS')
-                    label.form-check-label(for='') Generator (petrol)
+                    input.filled-in.form-check-input(type='checkbox', value='01', name='7-12PS')
+                    label.form-check-label(for='') Generator (petrol )
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Inverter' value='02', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='02', name='7-12PS')
                     label.form-check-label(for='') Inverter
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Solar panel' value='03', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='03', name='7-12PS')
                     label.form-check-label(for='') Solar panel
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Battery LED' value='04', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='04', name='7-12PS')
                     label.form-check-label(for='') Battery LED
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Kerosene lamp' value='05', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='7-12PS')
                     label.form-check-label(for='') Kerosene lamp
                   .form-check
-                    input.filled-in.form-check-input(type='checkbox', data-ans='Other' value='05', name='7-12PS')
+                    input.filled-in.form-check-input(type='checkbox', value='05', name='7-12PS')
                     label.form-check-label(for='') Other
               hr.style
               .row.row-fluid.form-group.space(id='q4.3a')
@@ -664,645 +854,665 @@ block content
                   select.form-control(name='PreferredPS')
                     // onchange="showNext('PreferredPS')"
                     option
-                    option(value='0', data-ans='Generator(diesel)') Generator(diesel)
-                    option(value='1', data-ans='Generator(Petrol)') Generator(Petrol)
-                    option(value='2', data-ans='Inverter') Inverter
-                    option(value='3', data-ans='Solar Panel') Solar Panel
-                    option(value='4', data-ans='Battery LED') Battery LED
-                    option(value='5', data-ans='Kerosene Lamp') Kerosene Lamp
-                    option(value='OT', data-ans='Other') Other
+                    option(value='0') Generator(diesel)
+                    option(value='1') Generator(Petrol)
+                    option(value='2') Inverter
+                    option(value='3') Solar Panel
+                    option(value='4') Battery LED
+                    option(value='5') Kerosene Lamp
+                    option(value='OT') Other
               hr.style
               .row.row-fluid.form-group.space(id='q4.3b')
                 label.col-sm-6.row
                   span.col-sm-1 4.3b
-                  span.col-sm-9.question If  Other, preferred power source specify
+                  span.col-sm-9.question If Other, preferred power source specify
                 .col-sm-6
                   input.form-control(type='text', name='OtherPreferredPS')
-              hr.style
-              div(id='q4.4aa', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4aA')
-                  label.col-sm-6.row
-                    span.col-sm-1 4.4A
-                    span.col-sm-9.question  How long have you owned the generator
-                  .col-sm-6
-                    input.form-control(type='number', name='GendieselA')
-                .row.row-fluid.form-group.space(id='q4.4ab')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question  How much did you purchase the generator ?
-                  .col-sm-6
-                    input.form-control(type='number', name='GendieselB')
-                .row.row-fluid.form-group.space(id='q4.4ac')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question  How much do you spend on the generator currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='GendieselC')
-              div(id='q4.4ba', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4bA')
-                  hr.style
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    |  4.4B
-                    span.col-sm-9.question  How long have you owned the diesel generator
-                  .col-sm-6
-                    input.form-control(type='number', name='GenpetrolA')
-                .row.row-fluid.form-group.space(id='q4.4bb')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question  How much did you purchase it ?
-                  .col-sm-6
-                    input.form-control(type='number', name='GenpetrolB')
-                .row.row-fluid.form-group.space(id='q4.4bc')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question  How much do you spend on it currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='GenpetrolC')
-              div(id='q4.4ca', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4caA')
-                  hr.style
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    | 4.4C
-                    span.col-sm-9.question  How long have you owned the Inverter
-                  .col-sm-6
-                    input.form-control(type='number', name='InverterA')
-                .row.row-fluid.form-group.space(id='q4.4cb')
-                  label.col-sm-6.row
-                    span.col-sm-1 4.4
-                    span.col-sm-9.question  How much did you purchase it ?
-                  .col-sm-6
-                    input.form-control(type='nummber', name='InverterB')
-                .row.row-fluid.form-group.space(id='q4.4cc')
-                  label.col-sm-6.row
-                    span.col-sm-1 4.3
-                    span.col-sm-9.question   How much do you spend on it currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='InverterC')
-              hr.style
-              div(id='q4.4da', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4dA')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    | 4.4D
-                    span.col-sm-9.question How long have you owned the Solar Panel
-                  .col-sm-6
-                    input.form-control(type='number', name='SolarPaneA')
-                .row.row-fluid.form-group.space(id='q4.4db')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question How much did you purchase the Solar Panel ?
-                  .col-sm-6
-                    input.form-control(type='number', name='SolarPanelB')
-                .row.row-fluid.form-group.space(id='q4.4dc')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question   How much do you spend on the Solar Panel currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='SolarPanelC')
-              hr.style
-              div(id='q4.4ea', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4eA')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    | 4.4E
-                    span.col-sm-9.question How long have you owned the Battery LED
-                  .col-sm-6
-                    input.form-control(type='number', name='BatteryA')
-                .row.row-fluid.form-group.space(id='q4.4eb')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question How much did you purchase the Battery LED ?
-                  .col-sm-6
-                    input.form-control(type='number', name='BatteryB')
-                .row.row-fluid.form-group.space(id='q4.4ec')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question   How much do you spend on the Battery (LED) currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='BatteryC')
-              hr.style
-              div(id='q4.4fa', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4fA')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    | 4.4F
-                    span.col-sm-9.question How long have you owned the Kerosene Lamp
-                  .col-sm-6
-                    input.form-control(type='number', name='KeroseneLampA')
-                .row.row-fluid.form-group.space(id='q4.4fb')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question How much did you purchase the Kerosene Lamp?
-                  .col-sm-6
-                    input.form-control(type='number', name='KeroseneLampB')
-                .row.row-fluid.form-group.space(id='q4.4fc')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question   How much do you spend on the Kerosene Lamp currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='KeroseneLampC')
-              hr.style
-              div(id='q4.4ga', style='display : none')
-                .row.row-fluid.form-group.space(id='q4.4gA')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    | 4.4G
-                    span.col-sm-9.question How long have you owned the Other source
-                  .col-sm-6
-                    input.form-control(type='number', name='OtherPSA')
-                .row.row-fluid.form-group.space(id='q4.4fb')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question How much did you purchase the other source?
-                  .col-sm-6
-                    input.form-control(type='number', name='OtherPSB')
-                .row.row-fluid.form-group.space(id='q4.4fc')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question   How much do you spend on the other source currently ?
-                  .col-sm-6
-                    input.form-control(type='number', name='OtherPSC')
-              hr.style
-              .row.row-fluid.form-group.space(id='q4.5', style='display:none')
+              .row.row-fluid.form-group.space(id='q4.5')
                 label.col-sm-6.row
                   span.col-sm-1 4.5
                   span.col-sm-9.question
-                    | If a power failure happens during a period you've indicated is very important in terms of power, how much money might you spend on alternative source(s) ?
+                    | If a power failure happens during a period you've indicated is very important in terms of power, how much money
+                    | might you spend on alternative source(s) ?
                 .col-sm-6
-                  input.form-control(type='number', name='AlternatePowerCost')
+                  input.form-control(type='textarea', name='AlternatePowerCost')
+              hr.style
+              .btn-wrapper.text-center
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(3)')
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(5)')
+            #sect5(style='display:none')
               hr.style
               .row.row-fluid.form-group.space(id='q4.6')
                 label.col-sm-6.row
-                  span.col-sm-1 4.6
-                  span.col-sm-9.question
-                    | What effects do power failure have on your household ? [Prompts : work ? cooking food? watching TV? family]
+                  span.col-sm-1
+                  | 4.6
+                  span.col-sm-9.question  Based on your current situation, what improvements would you like to see?
                 .col-sm-6
-                  input.form-control(type='text', name='EffectsOfPF')
-              hr.style
-              hr.style
-              .row.row-fluid
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='PREVIOUS', onclick='navigate(3)')
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='NEXT', onclick='navigate(5)')
-            #sect5(style='display : none')
+                  input.form-control(type='textarea', name='Improvements')
               .row.form-group.row-fluid.space(id='q4.7')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 4.7
-                  span.col-sm-9.question  If you were given the option to ould you ?
+                  span.col-sm-9.question  Do you own a smart phone?( If not sure, interviewer explain)
                 span.col-sm-6
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | Yes
-                    input(type='radio', data-ans='Yes' name='SmartPhone?', value='00', onclick='')
+                    input#48(type='radio', name='SmartPhone?', value='00', onclick="showNext2('SmartPhone?', '48')")
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | No
-                    input(type='radio', data-ans='No' name='SmartPhone?', value='01', onclick='')
+                    input(type='radio', name='SmartPhone?', value='01', onclick="showNext2('SmartPhone?', '48')")
                   label.radio-inline.control-label.col-sm-5(for='BuyMeter')
                     | Not sure
-                    input(type='radio', data-ans='Not sure' name='SmartPhone?', value='03', onclick='')
+                    input(type='radio', name='SmartPhone?', value='02', onclick="showNext2('SmartPhone?', '48')")
+              .row.form-group.row-fluid.space(id='q4.8', style='display:none')
+                hr.style
+                div
+                  label.col-sm-6.row.control-label.row-eq-height(for='')
+                    span.col-sm-1 4.8
+                    span.col-sm-9.question  What system is it ?
+                  span.col-sm-6.row-eq-height
+                    label.radio-inline.control-label.col-sm-3(for='BuyMeter')
+                      | Apple
+                      input(type='radio', name='OS?', value='00', onclick='')
+                    label.radio-inline.control-label.col-sm-3(for='BuyMeter')
+                      | Android
+                      input#49(type='radio', name='OS?', value='01', onclick="showNext3('OS?', '49', '499')")
+                    label.radio-inline.control-label.col-sm-3(for='BuyMeter')
+                      | Other
+                      input#499(type='radio', name='OS?', value='02', onclick="showNext3('OS?', '49','499')")
               hr.style
-              .row.form-group.row-fluid.space(id='q4.8')
-                label.col-sm-6.row.control-label(for='')
-                  span.col-sm-1 4.8
-                  span.col-sm-9.question  If yes, what system is it ?
-                span.col-sm-6
-                  label.radio-inline.control-label.col-sm-3(for='BuyMeter')
-                    | Apple
-                    input(type='radio', data-ans='Apple' name='OS?', value='00', onclick='')
-                  label.radio-inline.control-label.col-sm-3(for='BuyMeter')
-                    | Android
-                    input(type='radio', data-ans='Android' name='OS?', value='01', onclick='')
-                  label.radio-inline.control-label.col-sm-5(for='BuyMeter')
-                    | Other
-                    input(type='radio', data-ans='Other' name='OS?', value='03', onclick='')
-              hr.style
-              .row.row-fluid.form-group.space(id='q4.8a')
+              .row.row-fluid.form-group.space(id='q4.8a', style='display:none')
                 label.col-sm-6.row
                   span.col-sm-1 4.8a
-                  span.col-sm-9.question  Specify Other smart phone System
+                  span.col-sm-9.question  If Other smart phone System, specify
                 .col-sm-6
                   input.form-control(type='text', name='OtherOS')
+              div(id='q4.9', style='display:none')
+                hr.style
+                .row.row-fluid.form-group.space
+                  label.col-sm-6.row
+                    span.col-sm-1 4.9
+                    span.col-sm-9.question
+                      | Briefly describe Gridwatch app and what we are doing on the project] Would you be willing to download the Gridwatch
+                      app onto your phone ?
+                  span.col-sm-6
+                    label.radio-inline.control-label.col-sm-3(for='BuyMeter')
+                      | Yes
+                      input#49a(type='radio', name='GetGridwatch?', value='00', onclick="showNext2('GetGridwatch?','49a')")
+                    label.radio-inline.control-label.col-sm-3(for='BuyMeter')
+                      | No
+                      input(type='radio', name='GetGridwatch?', value='01', onclick="showNext2('GetGridwatch?','49a')")
               hr.style
-              .row.row-fluid.form-group.space(id='q4.9')
+              div(id='q4.9a', style='display:none')
+                .row.row-fluid.form-group.space(id='q4.9A')
+                  label.col-sm-12.row
+                    span.col-sm-1
+                    span.col-sm-9  COLLECT CONTACT INFORMATION
+                  label.col-sm-6.row
+                    span.col-sm-1 4.8a
+                    span.col-sm-9.question  Name
+                  .col-sm-6
+                    input.form-control(type='text', name='NameDetails')
+                .row.row-fluid.form-group.space(id='q4.9b')
+                  label.col-sm-6.row
+                    span.col-sm-1 4.8b
+                    span.col-sm-9.question  Address
+                  .col-sm-6
+                    input.form-control(type='text', name='AddressDetails')
+                .row.row-fluid.form-group.space(id='q4.9c')
+                  label.col-sm-6.row
+                    span.col-sm-1 4.8c
+                    span.col-sm-9.question  Mobile Number
+                  .col-sm-6
+                    input.form-control(type='text', name='PhoneDetails')
+                hr.style
+              hr.style
+              #q5.row.row-fluid.form-group.space
                 label.col-sm-6.row
-                  span.col-sm-1 4.9
-                  span.col-sm-9.question
-                    | [ If 4.8 was yes and android : Briefly describe Gridwatch app and what we are doing on the project] Would you be willing to download the Gridwatch app onto your phone ?
-                span.col-sm-6
-                  label.radio-inline.control-label.col-sm-3(for='BuyMeter')
-                    | Apple
-                    input(type='radio', data-ans='Apple' name='GetGridwatch?', value='00', onclick='')
-                  label.radio-inline.control-label.col-sm-3(for='BuyMeter')
-                    | Android
-                    input(type='radio', data-ans='Android' name='GetGridwatch?', value='01', onclick='')
-                  label.radio-inline.control-label.col-sm-5(for='BuyMeter')
-                    | Other
-                    input(type='radio', data-ans='Other' name='GetGridwatch?', value='03', onclick='')
-              hr.style
-              .row.row-fluid.form-group.space(id='q4.9a')
-                label.col-sm-12.row
                   span.col-sm-1
-                  span.col-sm-9  [IF PREVIOUS QUESTION WAS YES] COLLECT CONTACT INFORMATION
-                label.col-sm-6.row
-                  span.col-sm-1 4.8a
-                  span.col-sm-9.question  Name
+                  span.col-sm-9.question  Additional comments
                 .col-sm-6
-                  input.form-control(type='text', name='NameDetails')
-              .row.row-fluid.form-group.space(id='q4.9a')
-                label.col-sm-6.row
-                  span.col-sm-1 4.8a
-                  span.col-sm-9.question  Address
-                .col-sm-6
-                  input.form-control(type='text', name='AddressDetails')
+                  input.form-control(type='textarea', cols='100', rows='10', name='ExtraComment')
               hr.style
-              .row
-                span.col-sm-6
-                  .col-sm-3
-                  .col-sm-8
-                    input.btn.btn-primary.col-sm-12(type='button', id='', value='PREVIOUS', onclick='navigate(4)')
-                .col-sm-6
-                  input.btn.btn-primary.col-sm-12(class='end', name='END', type='button', id='', value='SUBMIT')
-      script(src='/dist/App.bundle.js')
-      script.
-        var obj;
-        function pjson(event) {
-        var json = this.responseText;
-        obj = JSON.parse(json);
-        console.log(obj);
+              .btn-wrapper.text-center
+                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(4)')
+                input.btn.btn-primary.col-sm-3(name='END', type='button', id='submit', value='SUBMIT')
+  script.
+    var obj;
+    function pjson(event) {
+      var json = this.responseText;
+      obj = JSON.parse(json);
+      console.log(obj);
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "./question.json");
+    xhr.addEventListener('load', pjson);
+    xhr.send();
+    //////////////////////////////////////////
+    var keys = ["genderType", "AgeRange", "Relationship", "Population", "EducationalLevel", "PropertyOwnership",
+      "Occupation", "RemoteBusiness", "BusinessType", "TenancyAge", "NoBedrooms"
+    ]
+    var JsonDataList = [];
+    var initialKey = "InterviewerName" ; //keys[0];
+
+    function iterateVia(name) {
+      if (name == "dummy") {
+        return 0;
+      }
+      var node = obj[name];
+      var nodeObj = {
+        title: name,
+        ref: node
+      };
+      var form = document.getElementsByTagName("form")[0];
+      var qNo = node.QuestionNo || node.questionNo;
+      const questionNo = node.QuestionNo || node.questionNo;
+      console.log(questionNo);
+      const question = (questionNo != 'last') && document.getElementById(`q${questionNo.trim()}`).querySelector('.question').innerText;
+
+      //console.log("questn ",questn);
+      // alert(name) ;
+      if (nodeObj.ref.nextQuestion.length != 0 && nodeObj.nextQuestion != "END") //&& node.nextQuestion != "NoBedrooms") // rmpve last condition
+      {
+        if (nodeObj.ref.type == "radio") {
+          var index = form.elements[nodeObj.title].value;
+          var container = {};
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          container["responses"] = [];
+          nodeObj.ref.responses.push(index);
+          container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[parseInt(index)]);
+          JsonDataList.push(container);
+          console.log("index "+ index);
+          var indexNum = parseInt(index);
+          var nextName; //  nodeObj.ref.nextQuestion[0] ;
+          if (node.dynamic == "true" && index.trim().length != 0 ) {
+            var nextName = nodeObj.ref.nextQuestion[indexNum];
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+          }
+          console.log("nextNamre "+ nextName);
+          //  alert("seen radio, inserted " + container + " next question is "+ nextName);
+          console.log(JsonDataList);
+          iterateVia(nextName);
+        } else if (node.type == "date") {
+          var index = form.elements[nodeObj.title].value;
+          var container = {};
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          container["responses"] = []; //index ;
+          nodeObj.ref.responses.push(index);
+          container["responses"].push(index);
+          JsonDataList.push(container);
+          var nextName = nodeObj.ref.nextQuestion[0];
+          // alert("seen date, inserted " + container + " next question is "+ nextName);
+          console.log(JsonDataList);
+          iterateVia(nextName);
+        } else if (node.type == "text" || node.type == "number") {
+          var index = form.elements[nodeObj.title].value;
+          var container = {};
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          container["responses"] = [] // index ;
+          nodeObj.ref.responses.push(index);
+          container["responses"].push(index);
+          JsonDataList.push(container);
+          nextName = nodeObj.ref.nextQuestion[0];
+          //  alert("seen text, inserted " + container + " next question is "+ nextName);
+          console.log(JsonDataList);
+          iterateVia(nextName);
+        } else if (node.type == "select") {
+          var index = form.elements[nodeObj.title].value;
+          var container = {};
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          container["responses"] = []; //index ;
+          nodeObj.ref.responses.push(index);
+          //container["responses"].push(index);
+          container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[parseInt(index)]);
+          JsonDataList.push(container);
+          nextName = (index == "OT") ? nodeObj.ref.nextQuestion[1] : nodeObj.ref.nextQuestion[0];
+          //    alert("seen select, inserted " + container + " next question is "+ nextName);
+          console.log(JsonDataList);
+          iterateVia(nextName);
+        } else if (node.type == "checkbox") {
+          var stringParam = 'input[name = ' + '"' + name + '"' + ']';
+          var strIndex = [];
+          var container = {};
+          $(stringParam).each(function () {
+            //  strIndex.push(parseInt($(this).val()));
+            var index = parseInt($(this).val());
+            // var nextQuestionName = obj[name].nextQuestion[index] ;
+            // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
+            //  var id = appendToNumber + nextQuestionNo ;
+            if ($(this).is(':checked') == true) {
+              var index = $(this).val();
+              container["responses"] = []; //index ;
+              nodeObj.ref.responses.push(index);
+              // container["responses"].push(index);
+              container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[
+                parseInt(index)]);
+              //JsonDataList.push(container) ;
+            } else {
+              //document.getElementById(id).style.display = "none" ;
+            }
+          });
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          JsonDataList.push(container);
+          var nextName = nodeObj.ref.nextQuestion;
+          //    alert("seen select, inserted " + container + " next question is "+ nextName);
+          //console.log(JsonDataList);
+          iterateVia(nextName);
+        } else if (node.type == "checkTable") {
+          var stringParam = 'input[name = ' + '"' + name + '"' + ']';
+          var strIndex = [];
+          var container = {};
+          $(stringParam).each(function () {
+            //  strIndex.push(parseInt($(this).val()));
+            var index = parseInt($(this).val());
+            //   var nextQuestionName = obj[name].direction[index] ;
+            // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
+            //  var id = appendToNumber + nextQuestionNo ;
+            if ($(this).is(':checked') == true) {
+              var index = $(this).val();
+              container["responses"] = []; //index ;
+              nodeObj.ref.responses.push(index);
+              console.log("  --" + nodeObj.ref.result);
+              //container["responses"].push($(this).next().find('label').html());
+              container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[
+                parseInt(index)]);
+              // alert($(this).next('label')) ; //.find('label').html());
+              var indexNum = parseInt(index);
+              var nextDirection = obj[name].direction[indexNum];
+              iterateVia(nextDirection);
+            } else {
+              //document.getElementById(id).style.display = "none" ;
+            }
+          });
+          container["questionNo"] = obj[nodeObj.title].QuestionNo;
+          container['question'] = question.split('?')[0].trim();
+          JsonDataList.push(container);
+          var nextName = nodeObj.ref.nextQuestion[0];
+          //    alert("seen select, inserted " + container + " next question is "+ nextName);
+          //console.log(JsonDataList);
+          iterateVia(nextName);
+        } else {
+          console.log("error 5161");
         }
+      } else if (nodeObj.ref.nextQuestion.length == 0 || nodeObj.ref.nextQuestion == "END") {
+        return 0;
+      }
+    }
+    function showNext(name) {
+      var element = document.getElementsByTagName("form")[0].elements;
+      var type = obj[name].type;
+      var appendToNumber = "q"; /// to convert number in question.json to that in html, i.e 1.3 to q1.3
+      var total = obj[name].nextQuestion.length;
+      if (type == "radio" || type == "select" || type == "text" || type == "date") {
+        var indexString = element[name].value;
+        var indexNum = parseInt(indexString);
+        var nextQuestionName = obj[name].nextQuestion[indexNum];
+        console.log("question name " + nextQuestionName);
+        var nextQuestionNo = obj[nextQuestionName].QuestionNo;
+        console.log("question number " + nextQuestionNo);
+        var nextQuestionId = appendToNumber + nextQuestionNo;
+        //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
+        for (i = 1; i < total; i++) {
+          var otherIndex = (indexNum + i) % total;
+          //console.log("question id " + nextQuestionId)
+          //console.log(document.getElementById(nextQuestionId)) ;
+          var otherQuestionName = obj[name].nextQuestion[otherIndex];
+          var otherQuestionNo = obj[otherQuestionName].QuestionNo;
+          var otherQuestionId = appendToNumber + otherQuestionNo;
+          console.log(" other question id " + otherQuestionNo)
+          document.getElementById(otherQuestionId).style.display = "none";
+        }
+        document.getElementById(nextQuestionId).style.display = "inline";
+      } else if (type = "checkTable") {
+        var stringParam = 'input[name = ' + '"' + name + '"' + ']';
+        var strIndex = [];
+        $(stringParam).each(function () {
+          //  strIndex.push(parseInt($(this).val()));
+          var index = parseInt($(this).val());
+          console.log(index);
+          var nextQuestionName = obj[name].direction[index];
+          console.log(nextQuestionName);
+          var nextQuestionNo = obj[nextQuestionName].QuestionNo;
+          var id = appendToNumber + nextQuestionNo;
+          console.log(id);
+          var displayVar = document.getElementById(id).style.display;
+          if ($(this).is(':checked') == true) {
+            // document.getElementById(id).style.display = "block" ; // || block element
+            // //console.log(' element' +  document.getElementById(id).innerHTML) ;
+            // console.log(' element ' +  document.getElementById(id).style.display)
+          } else {
+            document.getElementById(id).style.display = "none";
+          }
+        });
+        $(stringParam).each(function () {
+          //  strIndex.push(parseInt($(this).val()));
+          var index = parseInt($(this).val());
+          console.log(index);
+          var nextQuestionName = obj[name].direction[index];
+          console.log(nextQuestionName);
+          var nextQuestionNo = obj[nextQuestionName].QuestionNo;
+          var id = appendToNumber + nextQuestionNo;
+          console.log(id);
+          var displayVar = document.getElementById(id).style.display;
+          if ($(this).is(':checked') == true) {
+            document.getElementById(id).style.display = "block"; // || block element
+            //console.log(' element' +  document.getElementById(id).innerHTML) ;
+            console.log(' element ' + document.getElementById(id).style.display)
+          } else {
+            // document.getElementById(id).style.display = "none" ;
+          }
+        });
+      }
+    }
+    function navigate(sectionNumber) {
+      var listSections = ["sect0", "sect1", "sect2", "sect3", "sect4", "sect5"]; // list of sections
+      for (var i = 0; i < listSections.length; i++) {
+        if ((i) == sectionNumber) {
+          document.getElementById(listSections[i]).style.display = "block";
+          console.log(document.getElementById(listSections[i]).style.display);
+        } else {
+          document.getElementById(listSections[i]).style.display = "none";
+        }
+      }
+    }
+    function navigate2(sectionNumber) {
+      var listSections = ["sect1", "sect2", "sect3", "sect4", "sect5"]; // list of sections
 
-        var xhr = new XMLHttpRequest();
-
-        xhr.open("GET", "./question.json");
-
-        xhr.addEventListener('load',pjson);
-
-        xhr.send();
-
-        //////////////////////////////////////////
-
-        var keys = ["genderType", "AgeRange", "Relationship", "Population", "EducationalLevel", "PropertyOwnership", "Occupation", "RemoteBusiness", "BusinessType", "TenancyAge", "NoBedrooms"]
-
-
-        var JsonDataList = [];
-        var initialKey = keys[0];
-
-        //- function fClick()
-        //- {
-        //-     iterateVia(initialKey);
-        //-     console.log('Final List', JsonDataList);
-        //-     submitData(JsonDataList);
-        //- }
-
-
-        function iterateVia(name)
+      document.getElementById(listSections[0]).style.display = "block";
+      document.getElementById("sect0").style.display = "none";
+    }
+    function showNext2(name, id) {
+      var element = document.getElementsByTagName("form")[0].elements;
+      var type = obj[name].type;
+      var appendToNumber = "q"; /// to convert number in question.json to that in html, i.e 1.3 to q1.3
+      var total = obj[name].nextQuestion.length;
+      if (type == "radio" || type == "select" || type == "text" || type == "date") {
+        var indexString = element[name].value;
+        var indexNum = parseInt(indexString);
+        var nextQuestionName = obj[name].nextQuestion[0];
+        console.log("question name " + nextQuestionName);
+        var nextQuestionNo = obj[nextQuestionName].QuestionNo;
+        console.log("question number " + nextQuestionNo);
+        var nextQuestionId = appendToNumber + nextQuestionNo;
+        //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
+        if ($('#' + id).is(':checked')) {
+          console.log("in process display block");
+          console.log("question id " + nextQuestionId);
+          document.getElementById(nextQuestionId).style.display = "block"
+        } else //if( document.getElementById(nextQuestionId).style.display == "block" )
         {
-            var node = obj[name] ;
-            var nodeObj = {title : name , ref: node} ;
+          document.getElementById(nextQuestionId).style.display = "none";
+        }
+      }
 
-            var form = document.getElementsByTagName("form")[0];
-
-            const questionNo = node.QuestionNo || node.questionNo;
-            console.log(questionNo);
-            const question = (questionNo!='last') &&document.getElementById(`q${questionNo.trim()}`).querySelector('.question').innerText;
-
-            if (nodeObj.ref.nextQuestion.length != 0 && nodeObj.nextQuestion != "END" )  //&& node.nextQuestion != "NoBedrooms") // rmpve last condition
-            {
-                if(nodeObj.ref.type == "radio")
-                {
-                    //- console.log(form.elements[nodeObj.title]);
-
-                    var index = form.elements[nodeObj.title].value;
-                    const inputAnwser = Array.from(form.elements[nodeObj.title]).find(input => input.type === 'radio' && parseInt(input.value) === parseInt(index));
-
-                    var container = {};
-
-
-
-                    if(inputAnwser) {
-                      container["questionNo"] = obj[nodeObj.title].QuestionNo;
-                      container["responses"] =[];
-                      container['question'] = question.split('?')[0].trim();
-                      nodeObj.ref.responses.push(index);
-                      console.log(inputAnwser.dataset.ans);
-                      container["responses"].push(inputAnwser.dataset.ans);
-                      JsonDataList.push(container);
-                      var indexNum = parseInt(index) ;
-
-
-
-                    }
-
-                    //- nodeObj.ref.responses.push(index);
-                    //- container["responses"].push(index);
-
-
-                      var nextName; //  nodeObj.ref.nextQuestion[0] ;
-                      if(nodeObj.dynamic == "true" && inputAnwser){
-                        var nextName = nodeObj.ref.nextQuestion[indexNum] ;
-                      }
-                      else{
-                        var nextName = nodeObj.ref.nextQuestion[0] ;
-                      }
-
-
-
-                    //- console.log(JsonDataList);
-                    iterateVia(nextName);
-
-                }
-                else if(node.type == "date")
-                {
-                    var index = form.elements[nodeObj.title].value ;
-                    var container = {};
-
-                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
-                    container["responses"] =[];
-                    container['question'] = question.split('?')[0].trim();
-                    nodeObj.ref.responses.push(index);
-                    container["responses"].push(index);
-
-                    JsonDataList.push(container) ;
-
-                    var nextName = nodeObj.ref.nextQuestion[0] ;
-                   // alert("seen date, inserted " + container + " next question is "+ nextName);
-                    //- console.log(JsonDataList);
-                    iterateVia(nextName);
-
-                }
-                else if(node.type == "text"|| node.type == "number")
-                {
-                    var index = form.elements[nodeObj.title].value ;
-
-                    var container = {};
-
-                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
-                    container["responses"] =[];
-                    container['question'] = question.split('?')[0].trim();
-                    nodeObj.ref.responses.push(index);
-                    container["responses"].push(index);
-
-                    JsonDataList.push(container) ;
-
-                    nextName = nodeObj.ref.nextQuestion[0] ;
-                  //  alert("seen text, inserted " + container + " next question is "+ nextName);
-                    //- console.log(JsonDataList);
-                    iterateVia(nextName);
-
-                }
-
-                else if(node.type == "select")
-                {
-
-                    const index = Array.from(form.elements[nodeObj.title].children).find(input => input.selected === true);
-                    console.log(index);
-                    var container = {};
-                    console.log(form.elements[nodeObj.title].children);
-                    const inputAnwser = Array.from(form.elements[nodeObj.title].children).find(input => input.value.trim() == index.value.trim());
-
-
-
-                    if(inputAnwser) {
-                      container["questionNo"] = obj[nodeObj.title].QuestionNo;
-                      container["responses"] =[];
-                      container['question'] = question.split('?')[0].trim();
-                      console.log(inputAnwser.dataset.ans);
-                      container["responses"].push(inputAnwser.dataset.ans);
-                      nodeObj.ref.responses.push(index);
-                      JsonDataList.push(container);
-                    }
-
-
-                    const nextName = (index == "OT") ? nodeObj.ref.nextQuestion[1] : nodeObj.ref.nextQuestion[0] ;
-                //    alert("seen select, inserted " + container + " next question is "+ nextName);
-                    console.log(JsonDataList);
-                    iterateVia(nextName);
-
-                }
-
-                else if(node.type == "checkbox")
-                {
-                    var stringParam = 'input[name = ' + '"' + name +'"' + ']' ;
-                    var strIndex = [] ;
-
-                    var container = {};
-
-                    $( stringParam).each( function(){
-                    //  strIndex.push(parseInt($(this).val()));
-                        var index = parseInt($(this).val());
-                       // var nextQuestionName = obj[name].nextQuestion[index] ;
-                       // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-                      //  var id = appendToNumber + nextQuestionNo ;
-
-
-
-                        if($(this).is(':checked') == true)
-                        {
-                            var index = $(this).val() ;
-                            const answer = $(this).dataset && $(this).dataset.ans;
-
-
-                          if(answer) {
-                            container["responses"] = [] ; //index ;
-                            nodeObj.ref.responses.push(index);
-                            container["responses"].push(answer);
-                            container["questionNo"] = obj[nodeObj.title].QuestionNo ;
-                            container['question'] = question.split('?')[0].trim();
-                            JsonDataList.push(container);
-                          }
-
-
-                            //JsonDataList.push(container) ;
-
-
-                        }
-                        else{
-                            //document.getElementById(id).style.display = "none" ;
-                        }
-                    }) ;
-
-
-
-                    var nextName = nodeObj.ref.nextQuestion ;
-                //    alert("seen select, inserted " + container + " next question is "+ nextName);
-                    //console.log(JsonDataList);
-                    iterateVia(nextName);
-
-                }
-                else if(node.type == "checkTable")
-                {
-                    var stringParam = 'input[name = ' + '"' + name +'"' + ']' ;
-                    var strIndex = [] ;
-                    var container = {};
-
-                    $( stringParam).each( function(){
-                    //  strIndex.push(parseInt($(this).val()));
-                        var index = parseInt($(this).val());
-
-                     //   var nextQuestionName = obj[name].direction[index] ;
-                       // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-                      //  var id = appendToNumber + nextQuestionNo ;
-
-
-                        if($(this).is(':checked') == true)
-                        {
-                            var index = $(this).val();
-                            const answer = $(this).dataset.ans;
-
-
-                            container["responses"] = [] ; //index ;
-                            nodeObj.ref.responses.push(index);
-                            container["responses"].push(answer);
-
-                            var indexNum = parseInt(index);
-
-                            var nextDirection = obj[name].direction[indexNum] ;
-
-                            iterateVia(nextDirection) ;
-
-                        }
-                        else{
-                            //document.getElementById(id).style.display = "none" ;
-                        }
-                    }) ;
-
-                    container["questionNo"] = obj[nodeObj.title].QuestionNo ;
-                    container['question'] = question.split('?')[0].trim();
-                    JsonDataList.push(container) ;
-
-                    var nextName = nodeObj.ref.nextQuestion[0] ;
-                //    alert("seen select, inserted " + container + " next question is "+ nextName);
-                    //console.log(JsonDataList);
-                    iterateVia(nextName);
-                }
-                else {
-                     console.log("error 5161") ;
-                }
+    }
+    function verify(name, finish, sect) {
+      var node = obj[name];
+      var nodeObj = {
+        title: name,
+        ref: node
+      }
+      var form = document.getElementsByTagName("form")[0];
+      //alert(name + nodeObj.ref.nextQuestion.length + node.nextQuestion[0]) ;
+      if (name == "Occupation") {
+        return 0; // occupation question is optional
+      } else if (node.nextQuestion.length != 0 && node.nextQuestion[0] != finish) //&& node.nextQuestion != "NoBedrooms") // rmpve last condition
+      {
+        if (nodeObj.ref.type == "radio") {
+          var index = form.elements[name].value;
+          var container = {};
+          if (typeof index == undefined || index.length == 0) {
+            var question = nodeObj.ref.QuestionNo;
+            alert("Please answer question " + question);
+            return false;
+          } else {
+            var indexNum = parseInt(index);
+            var nextName; //  nodeObj.ref.nextQuestion[0] ;
+            if (nodeObj.dynamic == "true") {
+              var nextName = nodeObj.ref.nextQuestion[indexNum];
+            } else {
+              var nextName = nodeObj.ref.nextQuestion[indexNum];
             }
-
-            else if (nodeObj.ref.nextQuestion.length== 0 || nodeObj.ref.nextQuestion == "END" ){
-                return 0 ;
+            verify(nextName, finish, sect);
+          }
+        } else if (node.type == "date") {
+          var index = form.elements[name].value;
+          var container = {};
+          if (typeof index == undefined || index.length == 0) {
+            var question = node.QuestionNo;
+            alert("Please answer question " + question);
+            return false;
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+            verify(nextName, finish, sect);
+          }
+        } else if (node.type == "text" || node.type == "number") {
+          var index = form.elements[name].value;
+          var container = {};
+          if (typeof index == undefined || index.length == 0) {
+            var question = node.QuestionNo;
+            alert("Please answer question " + question);
+            return false;
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+            verify(nextName, finish, sect);
+          }
+        } else if (node.type == "select") {
+          var index = form.elements[name].value;
+          var container = {};
+          nextName = (index == "OT") ? nodeObj.ref.nextQuestion[1] : nodeObj.ref.nextQuestion[0];
+          if (typeof index == undefined || index.length == 0) {
+            var question = node.QuestionNo;
+            alert("Please answer question " + question);
+            return false;
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+            verify(nextName, finish, sect);
+          }
+        } else if (node.type == "checkbox") {
+          var stringParam = 'input[name = ' + '"' + name + '"' + ']';
+          var strIndex = [];
+          var container = {};
+          var num = 0;
+          $(stringParam).each(function () {
+            var index = parseInt($(this).val());
+            if ($(this).is(':checked') == true) {
+              var index = $(this).val();
+              num = num + 1;
+            } else {
             }
+          });
+          var nextName = nodeObj.ref.nextQuestion;
+          if (num == 0) {
+            var question = node.QuestionNo;
+            alert("Please answer question " + question);
+            return false;
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+            verify(nextName, finish, sect);
+          }
+        } else if (node.type == "checkTable") {
+          var stringParam = 'input[name = ' + '"' + name + '"' + ']';
+          var strIndex = [];
+          var container = {};
+          $(stringParam).each(function () {
+            //  strIndex.push(parseInt($(this).val()));
+            var index = parseInt($(this).val());
+            var num = 0;
+            if ($(this).is(':checked') == true) {
+              var index = $(this).val();
+              var indexNum = parseInt(index);
+              var nextDirection = obj[name].direction[indexNum];
+              verify(nextDirection, finish, sect);
+              num = num + 1
+            } else {
+              //document.getElementById(id).style.display = "none" ;
+            }
+          });
+          var nextName = nodeObj.ref.nextQuestion[0];
+          if (num == 0) {
+            var question = node.QuestionNo;
+            alert(name + "Please answer question " + question);
+            return false;
+          } else {
+            var nextName = nodeObj.ref.nextQuestion[0];
+            verify(nextName, finish, sect);
+          }
+        } else {
+          console.log("error 5161");
+        }
+      } else if (nodeObj.ref.nextQuestion.length == 0) {
+        return 0;
+      } else if (nodeObj.ref.nextQuestion == finish) {
+        navigate(sect)
+      }
+    }
+    function showNext3(name, id1, id2) {
+      var element = document.getElementsByTagName("form")[0].elements;
+      var type = obj[name].type;
+      var appendToNumber = "q"; /// to convert number in question.json to that in html, i.e 1.3 to q1.3
+      var total = obj[name].nextQuestion.length;
+      if (type == "radio" || type == "select" || type == "text" || type == "date") {
+        // var indexString = element[name].value ;
+        //var indexNum = parseInt(indexString);
+        var nextQuestionName1 = obj[name].nextQuestion[1];
+        var nextQuestionNo1 = obj[nextQuestionName1].QuestionNo;
+        var nextQuestionId1 = appendToNumber + nextQuestionNo1;
+        var nextQuestionName2 = obj[name].nextQuestion[2];
+        var nextQuestionNo2 = obj[nextQuestionName2].QuestionNo;
+        var nextQuestionId2 = appendToNumber + nextQuestionNo2;
+        //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
+        if ($('#' + id1).is(':checked')) {
+          console.log("in process display block");
+          console.log("question id " + nextQuestionId1);
+          // var val1 = document.getElementById(nextQuestionId1).value ;
+          document.getElementById(nextQuestionId1).style.display = "block";
+          document.getElementById(nextQuestionId2).style.display = "none";
+        } else if ($('#' + id2).is(':checked')) //if( document.getElementById(nextQuestionId).style.display == "block" )
+        {
+          document.getElementById(nextQuestionId1).style.display = "none";
+          document.getElementById(nextQuestionId2).style.display = "block";
+        }
+      }
+    }
+
+
+    const container = document.getElementById('container');
+    const loader = document.querySelector('.loader-wrapper');
+    const submit = document.getElementById('submit');
+    console.log('submit', submit);
+    console.log("container",container);
+    console.log("loader", loader);
+
+
+
+    const sectionLinks = document.querySelectorAll('.section-link');
+    const panelHeading = document.querySelector('.dynamic-panel-title');
+    console.log(panelHeading, sectionLinks);
+    Array.from(sectionLinks).forEach(link => link.addEventListener('click', function () {
+      console.log(this.innerText);
+      panelHeading.innerHTML = this.innerText;
+      console.log(panelHeading.innerHTML);
+    }));
+    submit.addEventListener('click', submitData);
+
+
+    function showSectionText() {
+      console.log(this);
+      panelHeading.innerText = this.innerText;
+    }
+
+
+
+
+
+
+
+
+    //get user location
+    function getUserLocation(callback) {
+
+      console.log("Get location");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          const key = 'AIzaSyAddwFzEu83xzv_3kQjwLOrK3d35bmiOKg';
+          return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=false&key=${key}`).then(response => response.json()).then(res => {console.log(res); callback(null, res.results[0]['formatted_address'])});
+        },
+          function(error) {
+                return callback(error, null)
+          }),
+          {timeout: 30000, enableHighAccuracy: true, maximumAge: 75000}
+      }
+    }
+
+    //submit form data
+    function submitData() {
+      console.log("In here");
+      loader.classList.add('show');
+      console.log(JsonDataList);
+      iterateVia(initialKey);
+      getUserLocation((error, location) => {
+        console.log(location);
+
+        if(error) {
+           console.log('Could not get location data');
+           showError();
+           return;
         }
 
-        const button = document.querySelector('.end');
-        button.addEventListener('click', function() {
-          submitData(JsonDataList);
+        const data = { responses: JsonDataList, location }
+        console.log('data', data);
+        const url = '/response'
+        const request = new Request(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            mode: 'same-origin'
         });
 
+        fetch(request).then(response => response.json()).then(res => {
+            console.log(res);
+            loader.classList.remove('show');
 
-        function showNext(name)
-        {
-            var element =  document.getElementsByTagName("form")[0].elements ;
+          }).then(res => {
+            showSucess();
+          })
+          .catch(error => {
+            console.log(error);
+            showError();
+          });
+      });
+    }
 
-            var type = obj[name].type;
-            var appendToNumber = "q" ; /// to convert number in question.json to that in html, i.e 1.3 to q1.3
+    function showSucess() {
+      container.innerHTML = `<div class="jumbotron text-center">
+                    <h1 class="display-4">Thanks You!</h1>
+                    <p class="lead">Thanks for filling the survey.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-success" href="/account" role="button">Fill Another Survey</a>
+                        <a class="btn btn-primary btn-dark" href="/logout" role="button">Done</a>
+                    </p>
+              </div>`;
+    }
 
-            var total  = obj[name].nextQuestion.length ;
+    function showError() {
+      container.innerHTML = `<div class="jumbotron text-center">
+                <h1 class="display-4">Oh noo!</h1>
+                <p class="lead">Please check your internet connection and retry.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>
+                    <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>
+                </p>`
 
-            if(type == "radio" || type == "select" || type == "text" || type == "date" )
-            {
-                var indexString = element[name].value ;
-                var indexNum = parseInt(indexString);
+    }
 
-                var nextQuestionName = obj[name].nextQuestion[indexNum] ;
-
-                console.log("question name " + nextQuestionName);
-
-                var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-                console.log("question number " + nextQuestionNo);
-                var nextQuestionId = appendToNumber + nextQuestionNo ;
-
-                for(i = 1; i  < total; i++)
-                {
-                    var otherIndex = (indexNum + i) % total;
-
-                    //console.log("question id " + nextQuestionId)
-
-                    //console.log(document.getElementById(nextQuestionId)) ;
-                    var otherQuestionName = obj[name].nextQuestion[otherIndex] ;
-                    var otherQuestionNo = obj[otherQuestionName].QuestionNo ;
-                    var otherQuestionId = appendToNumber + otherQuestionNo;
-
-                    console.log(" other question id " + otherQuestionNo)
-
-                    document.getElementById(otherQuestionId).style.display = "none" ;
-
-                }
-
-                document.getElementById(nextQuestionId).style.display = "inline" ;
-            }
-
-            else if(type = "checkTable")
-            {
-                var stringParam = 'input[name = ' + '"' + name +'"' + ']' ;
-                var strIndex = [] ;
-
-                 $( stringParam).each( function(){
-                  //  strIndex.push(parseInt($(this).val()));
-                    var index = parseInt($(this).val());
-
-                    console.log(index);
-                    var nextQuestionName = obj[name].direction[index] ;
-                    console.log(nextQuestionName);
-                    var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-                    var id = appendToNumber + nextQuestionNo ;
-                    console.log(id);
-
-                    var displayVar =  document.getElementById(id).style.display ;
-
-
-                    if($(this).is(':checked') == true)
-                    {
-                        document.getElementById(id).style.display = "block" ; // || block element
-                        //console.log(' element' +  document.getElementById(id).innerHTML) ;
-                        console.log(' element ' +  document.getElementById(id).style.display)
-                    }
-                    else{
-                        document.getElementById(id).style.display = "none" ;
-                    }
-                }) ;
-
-            }
-
-
-
-        }
-
-        function navigate(sectionNumber)
-        {
-            var listSections = ["sect1","sect2","sect3","sect4","sect5"] ; // list of sections
-
-            for(var i = 0 ; i < listSections.length ; i++)
-            {
-                if((i + 1) == sectionNumber)
-                {
-                    document.getElementById(listSections[i]).style.display = "block" ;
-
-                    console.log(document.getElementById(listSections[i]).style.display);
-                }
-                else{
-                    document.getElementById(listSections[i]).style.display = "none" ;
-                }
-            }
-        }
-
-        const sectionLinks = document.querySelectorAll('.section-link');
-        const panelHeading = document.querySelector('.dynamic-panel-title');
-        console.log(panelHeading, sectionLinks);
-        Array.from(sectionLinks).forEach(link => link.addEventListener('click', function() {
-          console.log(this.innerText);
-          panelHeading.innerHTML = this.innerText ;
-          console.log(panelHeading.innerHTML);
-        }));
-
-        function showSectionText() {
-          console.log(this);
-          panelHeading.innerText = this.innerText;
-        }

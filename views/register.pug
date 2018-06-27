@@ -5,6 +5,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/bootstrap.min.css')
     title Document
   body
     .bg-color-full
@@ -19,19 +20,51 @@ html(lang='en')
                     .flash(class=`flash--${category}`)
                       p.flash__text!= message
                       button.flash__remove(onClick="this.parentElement.remove()") &times;
-        form.form(action='/register', method='POST')
-          .header__logo.text-center BlackOutChasing
-          h4.title.text-center Sign Up
-          label(for='firstname') FirstName
-          input(type='text', name='firstname')
-          label(for='lastname') LastName
-          input(type='text', name='lastname')
-          label(for='email') Email Address
-          input(type='email', name='email')
-          label(for='password') Password
-          input(type='password', name='password')
-          label(for="password-confirm") Confirm Password
-          input(type="password" name="password-confirm")
-          .btn-wrapper.text-center.pt-3
-            button.btn.btn-success(type='submit') Sign up →
-            a.text-center(href='/login') Login
+      .row
+        .banner-heading.text-white.bg-dark.text-center
+          h3.login-heading Welcome to BlockOutChasing
+        .col-sm-3
+        .col-sm-6.login
+          .panel.panel-primary
+            .panel-heading
+              h3.panel-title Register
+            .panel-body
+              form.login-form.form-horizontal(name='contact_form', method='post', action='/register')
+
+                fieldset
+                  .form-group
+                    label.col-sm-2.control-label(for='firstname')
+                      span.required
+                      | Firstname:
+                    .col-sm-10
+                      input#firstname.form-control(type='text', value='', placeholder='Firstname', name='firstname', required='')
+                  .form-group
+                    label.col-sm-2.control-label(for='lastname')
+                      span.required
+                      | Lastname:
+                    .col-sm-10
+                      input#lastname.form-control(type='text', value='', placeholder='Lastname', name='lastname', required='')
+                  .form-group
+                    label.col-sm-2.control-label(for='email')
+                      span.required
+                      | Email:
+                    .col-sm-10
+                      input#email.form-control(type='email', value='', placeholder='Email', name='email', required='')
+                  .form-group
+                    label.col-sm-2.control-label(for='password')
+                      span.required
+                      | Password:
+                    .col-sm-10
+                      input#password.form-control(type='password', value='', placeholder='Password', name='password', required='')
+                  .form-group
+                    label.col-sm-2.control-label(for='password')
+                      span.required
+                      | Confirm Password:
+                    .col-sm-10
+                      input#password-confirm.form-control(type='password', value='', placeholder='confirm password', name='password-confirm', required='')
+                  .form-group
+                    .col-sm-10.col-sm-offset-2
+                      button.btn.btn-primary(type='submit') Submit
+                  div(style='height: 10px;')  
+                  .form-group
+        div(col-sm-3='')

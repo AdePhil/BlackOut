@@ -1,53 +1,10 @@
 {
-    "InterviewerName" : {
-        "type" : "text",
-        "QuestionNo" : "000",
-        "responses" : [] ,
-        "nextQuestion" : ["SurveyDate"],
-        "dynamic" : "false"
-    },
-
-    "SurveyDate" : {
-        "type" : "text",
-        "QuestionNo" : "001",
-        "responses" : [] ,
-        "nextQuestion" : ["PropertyType"],
-        "dynamic" : "false"
-    },
-    
-    "PropertyType" : {
-        "type" : "select",
-        "QuestionNo" : "1.10",
-        "responses" : [],
-        "nextQuestion" : ["BriefRespondent?"]
-    },
-
-    "BriefRespondent?" : {
-        "type" : "radio",
-        "QuestionNo" : "002",
-        "responses" : [] ,
-        "nextQuestion" : ["Consent?"],
-        "dynamic" : "false"
-
-    },
-
-    "Consent?" : {
-        "type" : "radio",
-        "QuestionNo" : "003",
-        "responses" : [] ,
-        "nextQuestion" : ["genderType"],
-        "dynamic" : "false"
-
-    },
-    
-    
     "genderType" : {
         "type" : "radio",
         "QuestionNo" : "1.1",
         "responses" : [] ,
         "nextQuestion" : ["AgeRange","AgeRange","AgeRange"],
-        "dynamic" : "false",
-        "result" : ["Male","Female"]
+        "dynamic" : "false"
     },
 
     "AgeRange" : {
@@ -55,8 +12,8 @@
         "QuestionNo" : "1.2",
         "responses" : [] ,
         "nextQuestion" : ["Relationship"],
-        "dynamic" : "false",
-        "result" : ["18 - 25", "26 - 35", "36 - 45", "46 - 55", "56+"]
+        "dynamic" : "false"
+
     },
 
     "Relationship" :{
@@ -64,8 +21,7 @@
         "QuestionNo" : "1.3",
         "responses" : [] ,
         "nextQuestion" : ["Population","OTRelationship"],
-        "dynamic" : "false",
-        "result" : ["Head","Wife/husband", "Son/Daughter","Son-in-law or Daughter-in-law","Grandchild","Parent", "Parent-in-law", "Brother/sister","Niece/nephew by blood", "Niece/nephew by marriage","Adopted/foster/step child","other"]
+        "dynamic" : "false"
     },
 
     "OTRelationship" : {
@@ -78,7 +34,7 @@
 
 
     "Population" : {
-        "type" : "number",
+        "type" : "select",
         "QuestionNo" :" 1.4",
         "responses" : [] ,
         "nextQuestion" : ["EducationalLevel"],
@@ -91,8 +47,7 @@
         "QuestionNo" :" 1.5",
         "responses" : [] ,
         "nextQuestion" : ["PropertyOwnership"],
-        "dynamic" : "false",
-        "result" : ["Primary","Secondary", "Tertiary","Post-graduate"]
+        "dynamic" : "false"
     },
 
     "PropertyOwnership" : {
@@ -100,8 +55,7 @@
         "QuestionNo" : "1.6",
         "responses" : [] ,
         "nextQuestion" : ["Occupation"],
-        "dynamic" : "false",
-        "result" : ["Rent", "Own"]
+        "dynamic" : "false"
 
     },
 
@@ -118,8 +72,7 @@
         "QuestionNo" : "1.8",
         "responses" : [] ,
         "nextQuestion" : ["BusinessType","TenancyAge"],
-        "dynamic" : "false",
-        "result" : ["Yes", "No"]
+        "dynamic" : "false"
     },
 
     "BusinessType" : {
@@ -135,11 +88,8 @@
         "QuestionNo" : "1.9",
         "responses" : [] ,
         "nextQuestion" : ["NoBedrooms"],
-        "dynamic" : "false",
-        "result" : ["Less than 1 year", "1-3 years","3-6 years","6 years +"]
+        "dynamic" : "false"
     },
-
-   
 
     "NoBedrooms": {
         "type" : "text",
@@ -150,13 +100,12 @@
 
     },
 
-    "MeterType": {  
+    "MeterType": {
         "type" : "radio",
         "QuestionNo" : "2.1",
         "responses" : [] ,
-        "nextQuestion" : ["ElectricCost", "ElectricBill","Affordable?"],
-        "dynamic" : "true",
-        "result" : ["Pre-paid meter", "Post-paid meter"]
+        "nextQuestion" : ["ElectricCost", "ElectricBill"],
+        "dynamic" : "true"
 
     },
 
@@ -164,7 +113,7 @@
         "type" : "text",
         "QuestionNo" : "2.2",
         "responses" : [] ,
-        "nextQuestion" : ["Affordable?"],
+        "nextQuestion" : ["MonthlyBill"],
         "dynamic" : "false"
 
     },
@@ -187,15 +136,12 @@
 
     },
 
-   
-
     "Affordable?": {
         "type" : "select",
         "QuestionNo" : "2.5a",
         "responses" : [] ,
         "nextQuestion" : ["FairCost?"],
-        "dynamic" : "false",
-        "result" : ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+        "dynamic" : "false"
 
     },
 
@@ -204,9 +150,7 @@
         "QuestionNo" : "2.5b",
         "responses" : [] ,
         "nextQuestion" : ["BuyMeter"],
-        "dynamic" : "false",
-        "result" : ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
-
+        "dynamic" : "false"
 
     },
 
@@ -215,8 +159,7 @@
         "QuestionNo" : "2.6a",
         "responses" : [] ,
         "nextQuestion" : ["PredictablePower"],
-        "dynamic" : "false",
-        "result" : ["Yes", "No","Not sure"]
+        "dynamic" : "false"
 
     },
 
@@ -225,8 +168,7 @@
         "QuestionNo" : "2.6b",
         "responses" : [] ,
         "nextQuestion" : ["PreferredTime", "NoPowerFailure", "NoPowerFailure"],
-        "dynamic" : "true",
-        "result" : ["Yes", "No","Not sure"]
+        "dynamic" : "true"
 
     },
 
@@ -244,8 +186,7 @@
         "QuestionNo" : "3.1",
         "responses" : [] ,
         "nextQuestion" : ["HoursOfPower"],
-        "dynamic" : "false",
-        "result" : ["12midnight - 5am","5am - 8am","8am - 12noon","12noon - 4pm", "4pm - 7pm", "7pm - 12am"]
+        "dynamic" : "false"
 
     },
 
@@ -263,8 +204,7 @@
         "responses" : [] ,
         "nextQuestion" : ["CostOfPF"],
         "dynamic" : "dependent",
-        "direction" : ["12-5" , "5-8","8-12","12-4","4-7","7-12"],
-        "result" : ["12-5" , "5-8","8-12","12-4","4-7","7-12"]
+        "direction" : ["12-5" , "5-8","8-12","12-4","4-7","7-12"]
     },
 
     "12-5" : {
@@ -272,8 +212,7 @@
         "QuestionNo" : "3.4a",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "5-8" : {
@@ -281,8 +220,7 @@
         "QuestionNo" : "3.4b",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "8-12" : {
@@ -290,8 +228,7 @@
         "QuestionNo" : "3.4c",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "12-4" : {
@@ -299,8 +236,7 @@
         "QuestionNo" : "3.4d",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "4-7" : {
@@ -308,8 +244,7 @@
         "QuestionNo" : "3.4e",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "7-12" : {
@@ -317,8 +252,7 @@
         "QuestionNo" : "3.4f",
         "responses" : [] ,
         "nextQuestion" : [],
-        "dynamic" : "false",
-        "result" : ["Very important", "Quite important", "Neutral", "Quite unimportant","Very unimportant"]
+        "dynamic" : "false"
     },
 
     "CostOfPF" : {
@@ -327,7 +261,7 @@
         "responses" : [] ,
         "nextQuestion" : ["RecentPF"],
         "dynamic" : "false"
-        },
+    },
 
     "RecentPF" : {
         "type" : "date",
@@ -335,15 +269,14 @@
         "responses" : [] ,
         "nextQuestion" : ["TimeOfPF"],
         "dynamic" : "false"
-      },
+    },
     
     "TimeOfPF" : {
         "type" : "checkbox",
         "QuestionNo" : "3.7",
         "responses" : [] ,
         "nextQuestion" : ["AlternatePower"],
-        "dynamic" : "false",
-        "result" : ["12midnight - 5am","5am - 8am","8am - 12noon","12noon - 4pm", "4pm - 7pm", "7pm - 12am"]
+        "dynamic" : "false"
     },
 
     "AlternatePower" : {
@@ -352,9 +285,8 @@
         "responses" : [] ,
         "nextQuestion" : ["12-5PS"],
         "dynamic" : "dependent",
-      "direction" : ["GendieselA" , "GenpetrolA", "GenpetrolA", "GenpetrolA","InverterA","SolarPanelA","BatteryA","KeroseneLampA", "OtherPSA"],
-      "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
- 
+      "direction" : ["GendieselA" , "GenpetrolA", "GenpetrolA", "GenpetrolA","InverterA","SolarPanelA","BatteryA","KeroseneLampA", "OtherPSA"]
+        
     },
 
     "OtherAP" : {
@@ -370,9 +302,7 @@
         "QuestionNo" : "4.2a",
         "responses" : [] ,
         "nextQuestion" : ["5-8PS"], 
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
- 
+        "dynamic" : "false"
     },
 
     "5-8PS" : {
@@ -380,9 +310,7 @@
         "QuestionNo" : "4.2b",
         "responses" : [] ,
         "nextQuestion" : ["8-12PS"],
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "false"
     },
 
     "8-12PS" : {
@@ -390,9 +318,7 @@
         "QuestionNo" : "4.2c",
         "responses" : [] ,
         "nextQuestion" : ["12-4PS"],
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "false"
     },
 
     "12-4PS" : {
@@ -400,9 +326,7 @@
         "QuestionNo" : "4.2d",
         "responses" : [] ,
         "nextQuestion" : ["4-7PS"],
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "false"
     },
 
     "4-7PS" : {
@@ -410,9 +334,7 @@
         "QuestionNo" : "4.2e",
         "responses" : [] ,
         "nextQuestion" : ["7-12PS"],
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "false"
     },
 
     "7-12PS" : {
@@ -420,9 +342,7 @@
         "QuestionNo" : "4.2f",
         "responses" : [] ,
         "nextQuestion" : ["PreferredPS"],
-        "dynamic" : "false",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "false"
     },
 
     "PreferredPS" : {
@@ -430,9 +350,7 @@
         "QuestionNo" : "4.3a",
         "responses" : [] ,
         "nextQuestion" : ["AlternatePowerCost","OtherPreferredPS"],
-        "dynamic" : "true",
-        "result" : ["Generator-diesel" , "Generator-petrol", "Generator-petrol", "Generator-petrol","Inverter","SolarPanel","Battery","KeroseneLamp", "Other power sources"]
-
+        "dynamic" : "true"
     },
 
     "OtherPreferredPS" : {
@@ -613,14 +531,14 @@
     },
 
     "AlternatePowerCost" : {
-        "type" : "text",
+        "type" : "number",
         "QuestionNo" : "4.5",
         "responses" : [],
-        "nextQuestion" : ["Improvements"],
+        "nextQuestion" : ["EffectsOfPF"],
         "dynamic" : "false"
     },
 
-    "Improvements" : {
+    "EffectsOfPF" : {
         "type" : "text",
         "QuestionNo" : "4.6",
         "responses" : [],
@@ -632,18 +550,16 @@
         "type" : "radio",
         "QuestionNo" : "4.7",
         "responses" : [],
-        "nextQuestion" : ["OS?","END" , "END"],
-        "dynamic" : "false",
-        "result" : ["Yes","No","Not sure"]
+        "nextQuestion" : ["OS?","END"],
+        "dynamic" : "false"
     },
 
     "OS?" : {
         "type" : "radio",
         "QuestionNo" : "4.8",
         "responses" : [],
-        "nextQuestion" : ["END","GetGridwatch?", "OtherOS"],
-        "dynamic" : "false",
-        "result" : ["Apple","Android","Other"]
+        "nextQuestion" : ["GetGridwatch?","END", "OtherOS"],
+        "dynamic" : "false"
     },
 
     "OtherOS" : {
@@ -672,22 +588,7 @@
 
     "AddressDetails" : {
         "type" : "text",
-        "QuestionNo" : "4.9b",
-        "responses" : [],
-        "nextQuestion" : ["PhoneDetails"],
-        "dynamic" : "false"
-    },
-    "PhoneDetails" : {
-        "type" : "text",
-        "QuestionNo" : "4.9c",
-        "responses" : [],
-        "nextQuestion" : ["END"],
-        "dynamic" : "false"
-    },
-
-    "ExtraComment" : {
-        "type" : "text",
-        "QuestionNo" : "5",
+        "QuestionNo" : "4.9a",
         "responses" : [],
         "nextQuestion" : ["END"],
         "dynamic" : "false"
