@@ -40,7 +40,6 @@ router.post("handleForm", formHandler.func);
 //admin
 router.get('/admin/account', userController.viewallresponses);
 router.get('/admin/account/responses',
-  authController.isLoggedInAsAdmin,
   userController.viewallresponses);
 
 router.get('/admin/account/responses/:id', userController.viewResponseById);

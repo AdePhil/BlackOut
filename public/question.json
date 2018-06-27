@@ -238,7 +238,8 @@
         "QuestionNo": "2.7",
         "responses": [],
         "nextQuestion": ["NoPowerFailure"],
-        "dynamic": "false"
+        "dynamic": "false",
+        "result": ["12midnight - 5am", "5am - 8am", "8am - 12noon", "12noon - 4pm", "4pm - 7pm", "7pm - 12am"]
 
     },
 
