@@ -21,7 +21,9 @@ html(lang='en')
             h1.heading BlackOutChasing
           nav.header__nav
             if user.isAdmin
-              a.header__nav-link.header__nav-link--active(href='') All Responses
+              a.header__nav-link.header__nav-link--active(href='/admin/account/') All Responses
+            if user.isAdmin
+              a.header__nav-link.header__nav-link--active(href='/account/') Fill Survey
             if user
                 a.header__nav-link(href='') #{user.firstname}
                 a.header__nav-link(href='')

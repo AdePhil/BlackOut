@@ -102,7 +102,14 @@ a:hover,
 a:active,
 a:link {
     text-decoration: none !important;
-    color: #fff;
+    color: #fff !important;
+}
+
+.link:hover,
+.link:active,
+.link:link {
+    color: #0056b3 !important;
+    text-decoration: underline;
 }
 
 .header__nav-link {
@@ -794,6 +801,7 @@ input[type='radio'] {
 .badge {
     background-color: #ffc600;
     color: #000;
+    text-transform: capitalize;
 }
 
 .loader-wrapper {

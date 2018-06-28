@@ -43,9 +43,10 @@ router.post("handleForm", formHandler.func);
 //admin
 router.get('/admin/account', userController.viewallresponses);
 router.get('/admin/account/responses',
+  authController.isLoggedInAsAdmin,
   userController.viewallresponses);
 
-router.get('/admin/account/responses/:id', userController.viewResponseById);
-router.get('/admin/account/responses/:id/page/:page', userController.viewResponseById);
+router.get('/admin/account/responses/:id', authController.isLoggedInAsAdmin, userController.viewResponseById);
+router.get('/admin/account/responses/:id/page/:page', authController.isLoggedInAsAdmin, userController.viewResponseById);
 
 module.exports = router;
