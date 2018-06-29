@@ -319,7 +319,7 @@ block content
                     .form-check
                       input.filled-in.form-check-input(type='checkbox', value='01', name='PreferredTime')
                       label.form-check-label(for='') 5AM - 8AM
-                    .form-check
+                    .form-checkf
                       input.filled-in.form-check-input(type='checkbox', value='02', name='PreferredTime')
                       label.form-check-label(for='') 8AM - 12NOON
                     .form-check
@@ -984,7 +984,7 @@ block content
       console.log(obj);
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "./question.json");
+    xhr.open("GET", "/question.json");
     xhr.addEventListener('load', pjson);
     xhr.send();
     //////////////////////////////////////////
