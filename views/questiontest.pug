@@ -409,7 +409,7 @@ block content
               .row.row-fluid.form-group.space(id='q3.4c', style='display : none')
                 label.col-sm-6.row
                   span.col-sm-1  c)
-                  span.col-sm-9 8AM - 12NOON
+                  span.col-sm-9.question 8AM - 12NOON
                 .col-sm-6
                   select.form-control(name='8-12')
                     option
@@ -591,7 +591,7 @@ block content
                         span.col-sm-1
                         span.col-sm-9.question How long have you owned the Solar Panel
                       .col-sm-6
-                        input.form-control(type='number', name='SolarPaneA')
+                        input.form-control(type='number', name='SolarPanelA')
                     .row.row-fluid.form-group.space(id='q4.4db')
                       label.col-sm-6.row
                         span.col-sm-1
@@ -1048,6 +1048,7 @@ block content
           console.log(JsonDataList);
           iterateVia(nextName);
         } else if (node.type == "text" || node.type == "number") {
+          console.log('nodeObj.title', nodeObj.title);
           var index = form.elements[nodeObj.title].value;
           var container = {};
           container["questionNo"] = obj[nodeObj.title].QuestionNo;
