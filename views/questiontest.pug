@@ -5,7 +5,7 @@ block content
   .loader-wrapper
     .loader
   .row
-    .col-sm-3
+    .col-md-3
       .panel.panel-primary
         .panel-heading
           h3.panel-title Sections
@@ -23,7 +23,7 @@ block content
               a.link.section-link(href="#", onclick='navigate(4)') Section 4 (Alternative strategies)
             li
               a.link.section-link(href="#", onclick='navigate(5)') Section 4b (Alternative strategies)
-    .col-sm-9
+    .col-md-9
       .panel.panel-primary
         .panel-heading
           h3.panel-title.dynamic-panel-title Section 1 (Demographics)
@@ -83,13 +83,13 @@ block content
                   input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate2(1)')
             #sect1(style='display:none')
               .row.form-group.row-fluid.space(id='q1.1')
-                label.col-sm-5.row.control-label(for='gender')
+                label.col-sm-6.row.control-label(for='gender')
                   span.col-sm-1 1.1
                   span.col-sm-9.question  Gender
                 label.radio-inline.control-label.col-sm-3(for='genderType')
                   | Male
                   input(type='radio', name='genderType', value='00', onclick='')
-                label.radio-inline.control-label.col-sm-4(for='genderType')
+                label.radio-inline.control-label.col-sm-3(for='genderType')
                   | Female
                   input(type='radio', name='genderType', value='01', onclick='')
               hr.style
@@ -211,13 +211,13 @@ block content
             #sect2(style='display: none')
               hr.style
               .row.form-group.row-fluid.space(id='q2.1')
-                label.col-sm-4.row.control-label(for='')
+                label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 2.1
                   span.col-sm-9.question  Are you using a pre-paid or post-paid meter ?
-                label.radio-inline.control-label.col-sm-3(for='Property_ownership')
+                label.radio-inline.control-label.col-sm-2(for='Property_ownership')
                   | Pre-paid meter
                   input(type='radio', name='MeterType', value='00', onclick="showNext('MeterType')")
-                label.radio-inline.control-label.col-sm-3(for='Property_ownership')
+                label.radio-inline.control-label.col-sm-2(for='Property_ownership')
                   | Post-paid meter
                   input(type='radio', name='MeterType', value='01', onclick="showNext('MeterType')")
                 label.radio-inline.control-label.col-sm-2(for='Property_ownership')
@@ -241,7 +241,7 @@ block content
                     input.form-control(type='number', name='ElectricBill')
                 hr.style
                 .row.row-fluid.form-group.space(id='q2.4')
-                  label.col-sm-6.row
+                  label.col-sm-6
                     span.col-sm-1 2.4
                     span.col-sm-9.question  How much do you actually pay, per month ?
                   .col-sm-6
@@ -511,22 +511,22 @@ block content
                   div(id='q4.4aa', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4aA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How long have you owned the diesel generator
-                      .col-sm-6
+                        span.col-sm-11.question  How long have you owned the diesel generator
+                      .col-sm-5
                         input.form-control(type='number', name='GendieselA')
                     .row.row-fluid.form-group.space(id='q4.4ab')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much did you purchase the dieselgenerator ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much did you purchase the dieselgenerator ?
+                      .col-sm-5
                         input.form-control(type='number', name='GendieselB')
                     .row.row-fluid.form-group.space(id='q4.4ac')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on the diesel generator currently, per month ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on the diesel generator currently, per month ?
+                      .col-sm-5
                         input.form-control(type='number', name='GendieselC')
                   .form-check
                     input.filled-in.form-check-input(type='checkbox', value='01', name='AlternatePower', onclick="showNext('AlternatePower')")
@@ -540,22 +540,22 @@ block content
                   div(id='q4.4ba', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4bA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How long have you owned the petrol generator
-                      .col-sm-6
+                        span.col-sm-11.question  How long have you owned the petrol generator
+                      .col-sm-5
                         input.form-control(type='number', name='GenpetrolA')
                     .row.row-fluid.form-group.space(id='q4.4bb')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much did you purchase it ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much did you purchase it ?
+                      .col-sm-5
                         input.form-control(type='number', name='GenpetrolB')
                     .row.row-fluid.form-group.space(id='q4.4bc')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on it currently per month?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on it currently per month?
+                      .col-sm-5
                         input.form-control(type='number', name='GenpetrolC')
                     hr.style
                   .form-check
@@ -564,22 +564,22 @@ block content
                   div(id='q4.4ca', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4caA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How long have you owned the Inverter
-                      .col-sm-6
+                        span.col-sm-11.question  How long have you owned the Inverter
+                      .col-sm-5
                         input.form-control(type='number', name='InverterA')
                     .row.row-fluid.form-group.space(id='q4.4cb')
-                      label.col-sm-6.row
+                      label.col-sm-7.row
                         span.col-sm-1
-                        span.col-sm-9.question  How much did you purchase it ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much did you purchase it ?
+                      .col-sm-5
                         input.form-control(type='nummber', name='InverterB')
                     .row.row-fluid.form-group.space(id='q4.4cc')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on it currently per month ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on it currently per month ?
+                      .col-sm-5
                         input.form-control(type='number', name='InverterC')
                   .form-check
                     input.filled-in.form-check-input(type='checkbox', value='05', name='AlternatePower', onclick="showNext('AlternatePower')")
@@ -587,22 +587,22 @@ block content
                   div(id='q4.4da', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4dA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question How long have you owned the Solar Panel
-                      .col-sm-6
+                        span.col-sm-11.question How long have you owned the Solar Panel
+                      .col-sm-5
                         input.form-control(type='number', name='SolarPanelA')
                     .row.row-fluid.form-group.space(id='q4.4db')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question How much did you purchase the Solar Panel ?
-                      .col-sm-6
+                        span.col-sm-11.question How much did you purchase the Solar Panel ?
+                      .col-sm-5
                         input.form-control(type='number', name='SolarPanelB')
                     .row.row-fluid.form-group.space(id='q4.4dc')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on the Solar Panel currently per month?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on the Solar Panel currently per month?
+                      .col-sm-5
                         input.form-control(type='number', name='SolarPanelC')
                   .form-check
                     input.filled-in.form-check-input(type='checkbox', value='06', name='AlternatePower', onclick="showNext('AlternatePower')")
@@ -610,22 +610,22 @@ block content
                   div(id='q4.4ea', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4eA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question How long have you owned the Battery LED
-                      .col-sm-6
+                        span.col-sm-11.question How long have you owned the Battery LED
+                      .col-sm-5
                         input.form-control(type='number', name='BatteryA')
                     .row.row-fluid.form-group.space(id='q4.4eb')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question How much did you purchase the Battery LED ?
-                      .col-sm-6
+                        span.col-sm-11.question How much did you purchase the Battery LED ?
+                      .col-sm-5
                         input.form-control(type='number', name='BatteryB')
                     .row.row-fluid.form-group.space(id='q4.4ec')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on the Battery (LED) currently, per month ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on the Battery (LED) currently, per month ?
+                      .col-sm-5
                         input.form-control(type='number', name='BatteryC')
                   .form-check
                     input.filled-in.form-check-input(type='checkbox', value='07', name='AlternatePower', onclick="showNext('AlternatePower')")
@@ -633,23 +633,22 @@ block content
                   div(id='q4.4fa', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4fA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        | 4.4F
-                        span.col-sm-9.question How long have you owned the Kerosene Lamp
-                      .col-sm-6
+                        span.col-sm-11.question How long have you owned the Kerosene Lamp
+                      .col-sm-5
                         input.form-control(type='number', name='KeroseneLampA')
                     .row.row-fluid.form-group.space(id='q4.4fb')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question How much did you purchase the Kerosene Lamp?
-                      .col-sm-6
+                        span.col-sm-11.question How much did you purchase the Kerosene Lamp?
+                      .col-sm-5
                         input.form-control(type='number', name='KeroseneLampB')
                     .row.row-fluid.form-group.space(id='q4.4fc')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on the Kerosene Lamp currently ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on the Kerosene Lamp currently ?
+                      .col-sm-5
                         input.form-control(type='number', name='KeroseneLampC')
                   hr.style
                   .form-check
@@ -658,23 +657,22 @@ block content
                   div(id='q4.4ga', style='display : none')
                     hr.style
                     .row.row-fluid.form-group.space(id='q4.4gA')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        | 4.4G
-                        span.col-sm-9.question How long have you owned the Other source
-                      .col-sm-6
+                        span.col-sm-11.question How long have you owned the Other source
+                      .col-sm-5
                         input.form-control(type='number', name='OtherPSA')
                     .row.row-fluid.form-group.space(id='q4.4gb')
-                      label.col-sm-6.row
+                      label.col-sm-7.row
                         span.col-sm-1
-                        span.col-sm-9.question How much did you purchase the other source?
-                      .col-sm-6
+                        span.col-sm-11.question How much did you purchase the other source?
+                      .col-sm-5
                         input.form-control(type='number', name='OtherPSB')
                     .row.row-fluid.form-group.space(id='q4.4gc')
-                      label.col-sm-6.row
+                      label.col-sm-7.row.pt-0
                         span.col-sm-1
-                        span.col-sm-9.question  How much do you spend on the other source currently per month ?
-                      .col-sm-6
+                        span.col-sm-11.question  How much do you spend on the other source currently per month ?
+                      .col-sm-5
                         input.form-control(type='number', name='OtherPSC')
               hr.style
               .row.row-fluid.form-group.space(id='q4.1b')
@@ -686,7 +684,7 @@ block content
               hr.style
               label.col-sm-12.row
                 span.col-sm-1
-                span.col-sm-9
+                span.col-sm-10
                   | WHICH POWER SOURCES ARE YOU LIKELY TO USE IF YOU EXPERIENCE A POWER FAILURE DURING THESE DIFFERENT TIME PERIODS
                   | ? (TICK ALL THAT APPLY)
               .row.row-fluid.space(id='q4.2a')
@@ -1507,7 +1505,7 @@ block content
     }
 
     function showError() {
-      container.innerHTML = `<div class="jumbotron text-center">
+      container.innerHTML = `<div class="text-center mt-4">
                 <h1 class="display-4">Oh noo!</h1>
                 <p class="lead">Please check your internet connection and retry.</p>
                 <p class="lead">

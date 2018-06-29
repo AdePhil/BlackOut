@@ -1287,3 +1287,14 @@ ul {
 .panel-danger>.panel-footer+.panel-collapse>.panel-body {
     border-bottom-color: #ebccd1;
 }
+
+.form-check-label {
+    padding-left: 1.25rem;
+    margin-bottom: 0px;
+    cursor: pointer;
+    padding-top: 0px;
+}
+
+.form-check {
+    padding-top: 13px;
+}
