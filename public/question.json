@@ -376,7 +376,7 @@
         "responses": [],
         "nextQuestion": ["5-8PS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
@@ -386,7 +386,7 @@
         "responses": [],
         "nextQuestion": ["8-12PS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
@@ -396,7 +396,7 @@
         "responses": [],
         "nextQuestion": ["12-4PS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
@@ -406,7 +406,7 @@
         "responses": [],
         "nextQuestion": ["4-7PS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
@@ -426,7 +426,7 @@
         "responses": [],
         "nextQuestion": ["PreferredPS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
