@@ -416,7 +416,7 @@
         "responses": [],
         "nextQuestion": ["7-12PS"],
         "dynamic": "false",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
@@ -436,7 +436,7 @@
         "responses": [],
         "nextQuestion": ["AlternatePowerCost", "OtherPreferredPS"],
         "dynamic": "true",
-        "result": ["Generator-diesel", "Generator-petrol", "Generator-petrol", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
+        "result": ["Generator-diesel", "Generator-petrol", "Inverter", "SolarPanel", "Battery", "KeroseneLamp", "Other power sources"]
 
     },
 
