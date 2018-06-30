@@ -157,7 +157,7 @@
         "type": "radio",
         "QuestionNo": "2.1",
         "responses": [],
-        "nextQuestion": ["ElectricCost", "ElectricBill", "Affordable?"],
+        "nextQuestion": ["ElectricCost", "ElectricBill"],
         "dynamic": "true",
         "result": ["Pre-paid meter", "Post-paid meter"]
 
