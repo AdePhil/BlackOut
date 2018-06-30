@@ -222,7 +222,7 @@ block content
                   input(type='radio', name='MeterType', value='01', onclick="showNext('MeterType')")
                 label.radio-inline.control-label.col-sm-2(for='Property_ownership')
                   | Don't know
-                  input(type='radio', name='MeterType', value='02', onclick="")
+                  input(type='radio', name='MeterType', value='02', onclick="showNext('MeterType')")
               div(id='2.2a')
               .row.row-fluid.form-group.space(id='q2.2', style='display:none')
                 hr.style
@@ -247,6 +247,8 @@ block content
                   .col-sm-6
                     input.form-control(type='number', name='MonthlyBill')
               hr.style
+
+              .row(id="qnull")
               .row.row-fluid.form-group.space(id='q2.5a')
                 label.col-sm-6.row
                   span.col-sm-1 2.5a
@@ -992,7 +994,7 @@ block content
     var initialKey = "InterviewerName" ; //keys[0];
 
     function iterateVia(name) {
-      if (name == "dummy") {
+      if (name == "dummy" ) {
         return 0;
       }
       var node = obj[name];
@@ -1044,7 +1046,16 @@ block content
           // alert("seen date, inserted " + container + " next question is "+ nextName);
           console.log(JsonDataList);
           iterateVia(nextName);
-        } else if (node.type == "text" || node.type == "number") {
+        } else if(node.type == "null")
+        {
+
+          var nextName = nodeObj.ref.nextQuestion[0];
+          // alert("seen date, inserted " + container + " next question is "+ nextName);
+          console.log(JsonDataList);
+          iterateVia(nextName);
+        }
+
+        else if (node.type == "text" || node.type == "number") {
           console.log('nodeObj.title', nodeObj.title);
           var index = form.elements[nodeObj.title].value;
           var container = {};
@@ -1166,7 +1177,9 @@ block content
           document.getElementById(otherQuestionId).style.display = "none";
         }
         document.getElementById(nextQuestionId).style.display = "inline";
-      } else if (type = "checkTable") {
+      }
+
+      else if (type = "checkTable") {
         var stringParam = 'input[name = ' + '"' + name + '"' + ']';
         var strIndex = [];
         $(stringParam).each(function () {
