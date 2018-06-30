@@ -7,11 +7,20 @@ block content
           .card.product.mt-4
             .card-body
               h5.card-title
-                | Response from
-                span.badge.badge-warning.ml-2 #{response.user.firstname} #{response.user.lastname}
+                i.fa.fa-user.pr-1
+                span.badge.badge-warning.ml-1.name #{response.user.firstname} #{response.user.lastname}
               p.card-text
-                | #{response.location}
-                span.text-danger.bold
-
+                i.fa.fa-map-marker.pr-2
+                span.location #{response.location}
               a.btn.btn-primary.block.col-md-12(href=`/admin/account/responses/${response._id}`)
                 | View Response
+    - const link = `admin/account/responses`
+    .pagination.mt-4
+        .pagination__prev
+          if page > 1
+            a.btn.btn-primary(href=`/${link}/page/${page - 1}`) Prev
+        .pagination__text
+          p Page #{page} of #{pages} — #{count} total results
+        .pagination__next
+          if page < pages
+            a.btn.btn-primary(href=`/${link}/page/${parseFloat(page) + 1}`) Next

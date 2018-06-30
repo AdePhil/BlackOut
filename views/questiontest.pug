@@ -338,7 +338,6 @@ block content
                 input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(1)')
                 input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(3)')
             #sect3(style='display: none')
-              hr.style
               .row.row-fluid.form-group.space(id='q3.1')
                 label.col-sm-6.row
                   span.col-sm-1 3.1
@@ -461,7 +460,7 @@ block content
                 label.col-sm-6.row
                   span.col-sm-1 3.5
                   span.col-sm-9.question
-                    | 3.5 If a power failure happens during a period you’ve indicated is very disruptive/important; how does it affect
+                    |If a power failure happens during a period you’ve indicated is very disruptive/important; how does it affect
                     | you? [Prompts: costs? work? Cooking food? Watching television? Family?]
                 .col-sm-6
                   input.form-control(type='textarea', name='CostOfPF', min='0')
@@ -1433,8 +1432,7 @@ block content
     submit.addEventListener('click', submitData);
 
 
-    function showSectionText() {
-      console.log(this);
+    function showSectionText(link) {
       panelHeading.innerText = this.innerText;
     }
 

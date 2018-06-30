@@ -46,6 +46,10 @@ router.get('/admin/account/responses',
   authController.isLoggedInAsAdmin,
   userController.viewallresponses);
 
+router.get('/admin/account/responses/page/:page',
+  authController.isLoggedInAsAdmin,
+  userController.viewallresponses);
+
 router.get('/admin/account/responses/:id', authController.isLoggedInAsAdmin, userController.viewResponseById);
 router.get('/admin/account/responses/:id/page/:page', authController.isLoggedInAsAdmin, userController.viewResponseById);
 

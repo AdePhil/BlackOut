@@ -3,20 +3,19 @@ block content
   .container
     .row
       div(class='col-md-12')
-        h1 Response from #{answers.user.firstname} #{answers.user.lastname}
-        //- i.fa.fa-pin
+        //- h1 Response from #{answers.user.firstname} #{answers.user.lastname}
         table(class='table table-bordered mt-4')
           thead
-            tr
-              th(class='text-center yellocell') Question No
-              th(class='text-center yellocell') Question
-              th(class='text-center yellocell') Answer
+            tr.d-flex
+              th(class='text-center yellocell col-3') Question No
+              th(class='text-center yellocell col-6') Question
+              th(class='text-center yellocell col-3') Answer
           tbody
             each response in answers.response
-              tr.text-center.col-md-4
-                td #{response.questionNo}
-                td #{response.question}
-                td #{response.responses.join(',')}
+              tr.d-flex
+                td.text-center.col-3 #{response.questionNo}
+                td.col-6 #{response.question}
+                td.text-center.col-3 #{response.responses.join(',')}
     - const link = `admin/account/responses/${answers._id}`
     .pagination.mt-4
         .pagination__prev

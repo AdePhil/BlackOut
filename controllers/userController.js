@@ -70,9 +70,21 @@ exports.admindashboard = async (req, res) => {
 }
 
 exports.viewallresponses = async (req, res) => {
-    const responses = await Response.find({}).populate('user');
-    console.log(responses);
-    res.render('allresponses', { responses });
+    const page = req.params.page || 1;
+    const perPage = 6;
+    const skip = (perPage * page) - perPage;
+    const responsesPromise = Response.find({})
+        .skip(skip).
+        limit(perPage)
+        .populate('user');
+    const countPromise = Response.find({}).count();
+
+    const [responses, count] = await Promise.all([responsesPromise, countPromise]);
+
+    const pages = Math.ceil(count / perPage);
+    console.log(page, pages, count);
+
+    res.render('allresponses', { responses, page, pages, count });
 }
 
 exports.viewResponseById = async (req, res) => {
@@ -88,7 +100,7 @@ exports.viewResponseById = async (req, res) => {
             limit: perPage,
             skip: skip
         }
-    });
+    }).populate('user');
 
 
 
@@ -101,5 +113,6 @@ exports.viewResponseById = async (req, res) => {
     const pages = Math.ceil(count / perPage);
     console.log(page, pages, count);
     res.render('aresponse', { answers, page, pages, count });
+    // res.json(answers);
 }
 
