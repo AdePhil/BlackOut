@@ -166,7 +166,7 @@
         "type": "null",
         "QuestionNo": "null",
         "nextQuestion": ["Affordable?"]
-    }
+    },
 
     "ElectricCost": {
         "type": "text",
