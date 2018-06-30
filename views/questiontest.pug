@@ -180,12 +180,12 @@ block content
                 label.radio-inline.control-label.col-sm-3(for='RemoteBusiness')
                   | No
                   input(type='radio', name='RemoteBusiness', value='01', onclick='')
-                .row.row-fluid.form-group(id='q1.8a')
-                  label.col-sm-6.row
-                    span.col-sm-1
-                    span.col-sm-9.question If yes, what is your business ?
-                  .col-sm-6
-                    input.form-control(type='text', name='BusinessType')
+              .row.row-fluid.form-group(id='q1.8a')
+                label.col-sm-6.row
+                  span.col-sm-1
+                  span.col-sm-9.question If yes, what is your business ?
+                .col-sm-6
+                  input.form-control(type='text', name='BusinessType')
               hr.style
               .row.row-fluid.form-group.space(id='q1.9')
                 label.col-sm-6.row
@@ -879,18 +879,17 @@ block content
                 input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(3)')
                 input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(5)')
             #sect5(style='display:none')
-              hr.style
               .row.row-fluid.form-group.space(id='q4.6')
                 label.col-sm-6.row
-                  span.col-sm-1
-                  | 4.6
-                  span.col-sm-9.question  Based on your current situation, what improvements would you like to see?
+                  span.col-sm-1 4.6
+                  span.col-sm-11.question  Based on your current situation, what improvements would you like to see?
                 .col-sm-6
                   input.form-control(type='textarea', name='Improvements')
+              hr.style
               .row.form-group.row-fluid.space(id='q4.7')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 4.7
-                  span.col-sm-9.question  Do you own a smart phone?( If not sure, interviewer explain)
+                  span.col-sm-11.question  Do you own a smart phone?( If not sure, interviewer explain)
                 span.col-sm-6
                   label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                     | Yes
@@ -917,8 +916,8 @@ block content
                     label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                       | Other
                       input#499(type='radio', name='OS?', value='02', onclick="showNext3('OS?', '49','499')")
-              hr.style
               .row.row-fluid.form-group.space(id='q4.8a', style='display:none')
+                hr.style
                 label.col-sm-6.row
                   span.col-sm-1 4.8a
                   span.col-sm-9.question  If Other smart phone System, specify
@@ -939,8 +938,8 @@ block content
                     label.radio-inline.control-label.col-sm-3(for='BuyMeter')
                       | No
                       input(type='radio', name='GetGridwatch?', value='01', onclick="showNext2('GetGridwatch?','49a')")
-              hr.style
               div(id='q4.9a', style='display:none')
+                hr.style
                 .row.row-fluid.form-group.space(id='q4.9A')
                   label.col-sm-12.row
                     span.col-sm-1
@@ -1509,8 +1508,8 @@ block content
                 <h1 class="display-4">Oh noo!</h1>
                 <p class="lead">Please check your internet connection and retry.</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>
-                    <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>
+                    <a class="btn btn-primary btn-success col-sm-1" href="/account" role="button">Retry</a>
+                    <a class="btn btn-primary btn-dark col-sm-1" href="/logout" role="button">Logout</a>
                 </p>`
 
     }
