@@ -64,8 +64,9 @@ html(lang='en')
                       input#password-confirm.form-control(type='password', value='', placeholder='confirm password', name='password-confirm', required='')
                   .form-group
                     .col-sm-10.col-sm-offset-2
-                      button.btn.btn-primary(type='submit') Register
-                      a.btn.btn-primary(href="/login") Login
+                      .btn-wrapper
+                        button.btn.btn-small.btn-primary(type='submit') Register
+                        a.btn.btn-small.btn-primary(href="/login") Login
                   div(style='height: 10px;')  
                   .form-group
         div(col-sm-3='')
