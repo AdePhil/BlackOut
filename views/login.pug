@@ -45,9 +45,10 @@ html(lang='en')
                     .col-sm-10
                       input#user_password.form-control(type='password', value='', placeholder='Password', name='password', required='')
                   .form-group
-                    .col-sm-10.col-sm-offset-2
-                      button.btn.btn-primary(type='submit') Login
-                      a.btn.btn-primary(href="/register") Register
+                    .col-sm-11.col-sm-offset-2
+                      .btn-wrapper
+                        button.btn.btn-primary(type='submit') Login
+                        a.btn.btn-primary(href="/register") Register
                   div(style='height: 10px;')  
                   .form-group
         div(col-sm-3='')

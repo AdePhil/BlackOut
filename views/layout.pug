@@ -24,7 +24,7 @@ html(lang='en')
             if user.isAdmin
               a.header__nav-link.header__nav-link--active(href='/account/') Fill Survey
             if user
-                a.header__nav-link(href='') #{user.firstname}
+                a.header__nav-link(href='') Welcome #{user.firstname}
                 a.header__nav-link(href='')
                   img.avatar(src=user.gravatar + 'd=retro')
                 a.header__nav-link(href='/logout') Logout
