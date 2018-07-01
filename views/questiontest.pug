@@ -1463,9 +1463,9 @@ block content
       iterateVia(initialKey);
       getUserLocation((error, location) => {
         console.log(location);
-
-        if(error === 'nolocation') {
-          console.log('Could not get location data');
+        console.log(error);
+        if(error.code === 1) {
+          console.log('Could not get location data');       
            showError('Please turn on your location and retry.');
            return;
         }
@@ -1517,7 +1517,7 @@ block content
     function showError(message) {
       container.innerHTML = `<div class="text-center mt-4">
                 <h1 class="display-4">Oh noo!</h1>
-                <p class="lead"></p>
+                <p class="lead">${message}</p>
                 <p class="lead">
                     <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>
                     <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>
