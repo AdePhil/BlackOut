@@ -29,6 +29,7 @@ function showSectionText() {
 
 
 
+
 //get user location
 function getUserLocation(callback) {
 
@@ -76,5 +77,10 @@ function submitData(JsonDataList) {
       });
   });
 }
+
+
+
+
+
 
 

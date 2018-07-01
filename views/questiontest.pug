@@ -5,29 +5,30 @@ block content
   .loader-wrapper
     .loader
   .row
-    .col-md-3
+    .col-md-3.section-nav-wrapper
       .panel.panel-primary
-        .panel-heading
-          h3.panel-title Sections
-        .panel-body
+        .panel-heading.flex-section
+          h3.panel-title.section-title Sections
+          i.fa.fa-caret-square-o-down.toggle-section
+        .panel-body.section-nav.gray
           ul
             li
-              a.link.section-link(href="#", onclick='navigate(0)') Section 0 (Introduction)
+              a.link.section-link.link--active(href="#", onclick='navigate(0)') Section 0 - Introduction
             li
-              a.link.section-link(href="#", onclick='navigate2(1)') Section 1 (Demographics)
+              a.link.section-link(href="#", onclick='navigate(1)') Section 1 - Demographics
             li
-              a.link.section-link(href="#", onclick='navigate(2)') Section 2 (Cost of electicity)
+              a.link.section-link(href="#", onclick='navigate(2)') Section 2 - Cost of electicity
             li
-              a.link.section-link(href="#", onclick='navigate(3)') Section 3 (Power interruptions)
+              a.link.section-link(href="#", onclick='navigate(3)') Section 3 - Power interruptions
             li
-              a.link.section-link(href="#", onclick='navigate(4)') Section 4 (Alternative strategies)
+              a.link.section-link(href="#", onclick='navigate(4)') Section 4 - Alternative strategies
             li
-              a.link.section-link(href="#", onclick='navigate(5)') Section 4b (Alternative strategies)
-    .col-md-9
+              a.link.section-link(href="#", onclick='navigate(5)') Section 4b - Alternative strategies
+    .col-md-9.main
       .panel.panel-primary
         .panel-heading
-          h3.panel-title.dynamic-panel-title Section 1 (Demographics)
-        .panel-body
+          h3.panel-title.dynamic-panel-title.section-title Section 0 - Introduction
+        .panel-body.gray
           form(method='POST', action='/formController.js')
             #sect0(style='display:block')
               #q000.row.row-fluid.form-group.space
@@ -80,7 +81,7 @@ block content
                   input(type='radio', name='Consent?', value='01', onclick='')
               hr.style
               .btn-wrapper.text-center
-                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate2(1)')
+                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(1)')
             #sect1(style='display:none')
               .row.form-group.row-fluid.space(id='q1.1')
                 label.col-sm-6.row.control-label(for='gender')
@@ -209,7 +210,6 @@ block content
               .text-center
                   input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(2)')
             #sect2(style='display: none')
-              hr.style
               .row.form-group.row-fluid.space(id='q2.1')
                 label.col-sm-6.row.control-label(for='')
                   span.col-sm-1 2.1
@@ -379,9 +379,8 @@ block content
               hr.style
               .row
                 label.row
-                  span.col-sm-1
-                  | 3.4
-                  span.col-sm-10.question
+                  span.col-sm-1 3.4
+                  span.col-sm-11.question
                     | PLEASE INDICATE HOW IMPORTANT EACH PERIOD IS IN TERMS OF BEING ABLE TO USE POWER
               .row.row-fluid.form-group.space(id='q3.4a', style='display : none')
                 label.col-sm-6.row
@@ -675,7 +674,6 @@ block content
                         span.col-sm-11.question  How much do you spend on the other source currently per month ?
                       .col-sm-5
                         input.form-control(type='number', name='OtherPSC')
-              hr.style
               .row.row-fluid.form-group.space(id='q4.1b')
                 label.col-sm-6.row
                   span.col-sm-1 4.1b
@@ -976,6 +974,12 @@ block content
                 input.btn.btn-primary.col-sm-3(name='END', type='button', id='submit', value='SUBMIT')
   script.
     var obj;
+    const container = document.getElementById('container');
+    const loader = document.querySelector('.loader-wrapper');
+    const submit = document.getElementById('submit');
+    const sectionLinks = document.querySelectorAll('.section-link');
+    const panelHeading = document.querySelector('.dynamic-panel-title');
+
     function pjson(event) {
       var json = this.responseText;
       obj = JSON.parse(json);
@@ -1086,15 +1090,12 @@ block content
           var stringParam = 'input[name = ' + '"' + name + '"' + ']';
           var strIndex = [];
           var container = {};
+          container["responses"] = []; //index ;
           $(stringParam).each(function () {
             //  strIndex.push(parseInt($(this).val()));
             var index = parseInt($(this).val());
-            // var nextQuestionName = obj[name].nextQuestion[index] ;
-            // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-            //  var id = appendToNumber + nextQuestionNo ;
             if ($(this).is(':checked') == true) {
               var index = $(this).val();
-              container["responses"] = []; //index ;
               nodeObj.ref.responses.push(index);
               // container["responses"].push(index);
               container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[
@@ -1108,41 +1109,30 @@ block content
           container['question'] = question.split('?')[0].trim();
           JsonDataList.push(container);
           var nextName = nodeObj.ref.nextQuestion;
-          //    alert("seen select, inserted " + container + " next question is "+ nextName);
-          //console.log(JsonDataList);
           iterateVia(nextName);
         } else if (node.type == "checkTable") {
           var stringParam = 'input[name = ' + '"' + name + '"' + ']';
           var strIndex = [];
           var container = {};
+          container["responses"] = []; //index ;
           $(stringParam).each(function () {
-            //  strIndex.push(parseInt($(this).val()));
             var index = parseInt($(this).val());
-            //   var nextQuestionName = obj[name].direction[index] ;
-            // var nextQuestionNo = obj[nextQuestionName].QuestionNo ;
-            //  var id = appendToNumber + nextQuestionNo ;
             if ($(this).is(':checked') == true) {
               var index = $(this).val();
-              container["responses"] = []; //index ;
               nodeObj.ref.responses.push(index);
               console.log("  --" + nodeObj.ref.result);
-              //container["responses"].push($(this).next().find('label').html());
               container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[
                 parseInt(index)]);
-              // alert($(this).next('label')) ; //.find('label').html());
               var indexNum = parseInt(index);
               var nextDirection = obj[name].direction[indexNum];
               iterateVia(nextDirection);
             } else {
-              //document.getElementById(id).style.display = "none" ;
             }
           });
           container["questionNo"] = obj[nodeObj.title].QuestionNo;
           container['question'] = question.split('?')[0].trim();
           JsonDataList.push(container);
           var nextName = nodeObj.ref.nextQuestion[0];
-          //    alert("seen select, inserted " + container + " next question is "+ nextName);
-          //console.log(JsonDataList);
           iterateVia(nextName);
         } else {
           console.log("error 5161");
@@ -1222,20 +1212,51 @@ block content
     function navigate(sectionNumber) {
       var listSections = ["sect0", "sect1", "sect2", "sect3", "sect4", "sect5"]; // list of sections
       for (var i = 0; i < listSections.length; i++) {
+        console.log((i) == sectionNumber);
         if ((i) == sectionNumber) {
           document.getElementById(listSections[i]).style.display = "block";
           console.log(document.getElementById(listSections[i]).style.display);
+          showSectionText(sectionLinks[sectionNumber].innerText);
+          highlightLink(sectionLinks[i], sectionLinks);
         } else {
           document.getElementById(listSections[i]).style.display = "none";
         }
-      }
-    }
-    function navigate2(sectionNumber) {
-      var listSections = ["sect1", "sect2", "sect3", "sect4", "sect5"]; // list of sections
 
-      document.getElementById(listSections[0]).style.display = "block";
-      document.getElementById("sect0").style.display = "none";
+      }
+      $('html, body').animate({ scrollTop: 0 }, "slow");
     }
+
+    Array.from(sectionLinks).forEach(link => link.addEventListener('click', function () {
+      showSectionText(this.innerText);
+      highlightLink(this, sectionLinks);
+    }));
+    submit.addEventListener('click', submitData);
+
+
+    function showSectionText(text) {
+      panelHeading.innerText = text;
+      console.log(panelHeading.innerHTML);
+    }
+
+    function highlightLink(linkToHighlight, allLinks) {
+      console.log("linkToHighlight",linkToHighlight);
+      allLinks.forEach(link => link.classList.remove('link--active'));
+      linkToHighlight.classList.add('link--active');
+    }
+
+    
+    function toggleSection(){
+     const sectionToggler = $('.toggle-section');
+     const sectinNav = $('.section-nav');
+     sectionToggler.on('click', function() {
+      sectinNav.slideToggle('hide');
+     });
+
+    }
+
+
+
+    
     function showNext2(name, id) {
       var element = document.getElementsByTagName("form")[0].elements;
       var type = obj[name].type;
@@ -1412,29 +1433,13 @@ block content
     }
 
 
-    const container = document.getElementById('container');
-    const loader = document.querySelector('.loader-wrapper');
-    const submit = document.getElementById('submit');
-    console.log('submit', submit);
-    console.log("container",container);
-    console.log("loader", loader);
 
 
 
-    const sectionLinks = document.querySelectorAll('.section-link');
-    const panelHeading = document.querySelector('.dynamic-panel-title');
-    console.log(panelHeading, sectionLinks);
-    Array.from(sectionLinks).forEach(link => link.addEventListener('click', function () {
-      console.log(this.innerText);
-      panelHeading.innerHTML = this.innerText;
-      console.log(panelHeading.innerHTML);
-    }));
-    submit.addEventListener('click', submitData);
 
 
-    function showSectionText(link) {
-      panelHeading.innerText = this.innerText;
-    }
+
+
 
 
 
@@ -1524,4 +1529,8 @@ block content
                 </p>`
 
     }
+
+
+
+
 

@@ -102,8 +102,36 @@ body {
 .link:hover,
 .link:active,
 .link:link {
-    color: #0056b3 !important;
+    /* color: #0056b3 !important; */
     /* text-decoration: underline; */
+    /* padding-left: 10px; */
+    background-color: #6d6e70;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.link:hover {
+    background-color: #2c2b38;
+}
+
+.link--active {
+    background-color: #2c2b38;
+}
+
+ul {
+    margin-bottom: 0 !important;
+}
+
+.link {
+    display: block;
+    padding-left: 10px;
+    color: #212529;
+    color: #fff !important;
+    margin-bottom: 6px !important;
+}
+
+.link:not(:last-child) {
+    margin-bottom: 6px !important;
 }
 
 a:hover,
@@ -111,7 +139,7 @@ a:active,
 a:link,
 a:visited {
     text-decoration: none !important;
-    /* color: #fff; */
+    color: #fff !important;
 }
 
 .header__nav-link {
@@ -172,7 +200,7 @@ a:visited {
         overflow-y: scroll;
         left: 0;
         width: 320px;
-        background-color: #4f1747;
+        background-color: #2c2b38;
         bottom: 0;
         margin: 0;
         top: 0;
@@ -186,14 +214,25 @@ a:visited {
         color: #fff;
     }
     .header__nav.active .header__nav-link:hover {
-        background-color: #800080;
+        background-color: rgba(33, 37, 41, 0.5);
+;;
+        
     }
     .header__nav.active .header__nav-link--active {
-        background-color: #800080;
+        background-color: rgba(33, 37, 41, 0.5);
         color: #fff;
     }
     #step-form .modal-wrap {
         width: 95%;
+    }
+
+    .section-nav-wrapper {
+        display: none;
+    }
+
+    .main{
+        max-width: 100% !important;
+        flex-basis: 100% !important;
     }
 }
 
@@ -319,7 +358,7 @@ td {
     text-transform: capitalize;
     font-size: 1rem;
     letter-spacing: 1px;
-    padding: 15px;
+    padding: 15px;medi
     background-color: #3b3b3b;
     color: #fff;
 }
@@ -677,7 +716,8 @@ img {
 }
 
 .form {
-    /* color: #fff !important; */
+    margin-top: 80px;
+    padding: 0 30px !important;
 }
 
 .form a {
@@ -853,10 +893,6 @@ input[type='radio'] {
     margin-left: 10px;
 }
 
-.login {
-    margin-top: 80px;
-}
-
 .banner-heading {
     background-color: #000
 }
@@ -885,18 +921,22 @@ ul {
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border-bottom: none
 }
 
-.panel-body {
-    padding: 15px;
+
+.gray {
+     padding: 15px;
+    background-color: #f1f1f1 !important;
 }
 
 .panel-heading {
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
+
 
 .panel-heading>.dropdown .dropdown-toggle {
     color: inherit;
@@ -905,8 +945,16 @@ ul {
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 16px;
+    
+
+}
+
+.section-title{
+    font-size: 1.1rem;
     color: inherit;
+    height: 36px;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .panel-title>a,
@@ -1176,17 +1224,21 @@ ul {
 }
 
 .panel-primary {
-    border-color: #337ab7;
+    /* border-color: #337ab7; */
+    border-color: #f1f1f1;
 }
 
 .panel-primary>.panel-heading {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    /* background-color: #337ab7;
+    border-color: #337ab7; */
+    background-color: #2c2b38;
+    border-color: #2c2b38;
 }
 
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
-    border-top-color: #337ab7;
+    /* border-top-color: #337ab7; */
+    border-top-color: #f1f1f1;
 }
 
 .panel-primary>.panel-heading .badge {
@@ -1312,4 +1364,34 @@ ul {
 
 .location {
     text-transform: capitalize;
+}
+
+.form-space {
+    padding: 0 30px !important;
+}
+
+hr {
+    border-top: 1px solid rgba(0, 0, 0, .15) !important;
+}
+
+.section-nav {
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0 !important;
+}
+
+.section-nav.hide {
+    display: none;
+}
+
+.flex-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.toggle-section {
+    cursor: pointer;
+    line-height: 1;
 }
