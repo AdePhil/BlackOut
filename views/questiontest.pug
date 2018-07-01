@@ -1243,19 +1243,8 @@ block content
       linkToHighlight.classList.add('link--active');
     }
 
-    
-    function toggleSection(){
-     const sectionToggler = $('.toggle-section');
-     const sectinNav = $('.section-nav');
-     sectionToggler.on('click', function() {
-      sectinNav.slideToggle('hide');
-     });
-
-    }
 
 
-
-    
     function showNext2(name, id) {
       var element = document.getElementsByTagName("form")[0].elements;
       var type = obj[name].type;
@@ -1461,6 +1450,8 @@ block content
                 return callback(error, null)
           }),
           {timeout: 30000, enableHighAccuracy: true, maximumAge: 75000}
+      }else{
+        return callback('nolocation', null);
       }
     }
 
@@ -1473,9 +1464,14 @@ block content
       getUserLocation((error, location) => {
         console.log(location);
 
+        if(error === 'nolocation') {
+          console.log('Could not get location data');
+           showError('Please turn on your location and retry.');
+           return;
+        }
         if(error) {
            console.log('Could not get location data');
-           showError();
+           showError('Please check your internet connection and retry.');
            return;
         }
 
@@ -1518,10 +1514,10 @@ block content
               </div>`;
     }
 
-    function showError() {
+    function showError(message) {
       container.innerHTML = `<div class="text-center mt-4">
                 <h1 class="display-4">Oh noo!</h1>
-                <p class="lead">Please check your internet connection and retry.</p>
+                <p class="lead"></p>
                 <p class="lead">
                     <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>
                     <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>
