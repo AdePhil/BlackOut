@@ -81,7 +81,7 @@ block content
                   input(type='radio', name='Consent?', value='01', onclick='')
               hr.style
               .btn-wrapper.text-center
-                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(1)')
+                  input.btn.btn-primary(type='button', id='', value='NEXT', onclick='navigate(1)')
             #sect1(style='display:none')
               .row.form-group.row-fluid.space(id='q1.1')
                 label.col-sm-6.row.control-label(for='gender')
@@ -208,7 +208,7 @@ block content
                   input.form-control(type='number', name='NoBedrooms')
               hr.style
               .text-center
-                  input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(2)')
+                  input.btn.btn-primary(type='button', id='', value='NEXT', onclick='navigate(2)')
             #sect2(style='display: none')
               .row.form-group.row-fluid.space(id='q2.1')
                 label.col-sm-6.row.control-label(for='')
@@ -308,10 +308,9 @@ block content
                     input(type='radio', name='PredictablePower', value='02', onclick="showNext2('PredictablePower','227')")
               div(id='q2.7', style='display:none')
                 .row.space
-                  // style="display:none"
                   hr.style
                   .col-sm-6.row-eq-height
-                    label.control-label(for='')
+                    label.row.control-label(for='')
                       span.col-sm-1 2.7
                       span.col-sm-4.question  During what times of the day would you be most interested to receive power ?
                   .col-sm-6.row-eq-height
@@ -321,7 +320,7 @@ block content
                     .form-check
                       input.filled-in.form-check-input(type='checkbox', value='01', name='PreferredTime')
                       label.form-check-label(for='') 5AM - 8AM
-                    .form-checkf
+                    .form-check
                       input.filled-in.form-check-input(type='checkbox', value='02', name='PreferredTime')
                       label.form-check-label(for='') 8AM - 12NOON
                     .form-check
@@ -335,8 +334,8 @@ block content
                       label.form-check-label(for='') 7PM - 12MIDNIGHT
               hr.style
               .btn-wrapper.text-center
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(1)')
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(3)')
+                input.btn.btn-primary(type='button', id='', value='PREVIOUS', onclick='navigate(1)')
+                input.btn.btn-primary(type='button', id='', value='NEXT', onclick='navigate(3)')
             #sect3(style='display: none')
               .row.row-fluid.form-group.space(id='q3.1')
                 label.col-sm-6.row
@@ -496,8 +495,8 @@ block content
                     label.form-check-label(for='') 7PM - 12MIDNIGHT
               hr.style
               .btn-wrapper.text-center
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(2)')
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(4)')
+                input.btn.btn-primary(type='button', id='', value='PREVIOUS', onclick='navigate(2)')
+                input.btn.btn-primary(type='button', id='', value='NEXT', onclick='navigate(4)')
             #sect4(style='display: none')
               .row.row-fluid.space(id='q4.1')
                 label.col-sm-6.row.control-label(for='')
@@ -875,8 +874,8 @@ block content
                   input.form-control(type='textarea', name='AlternatePowerCost')
               hr.style
               .btn-wrapper.text-center
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(3)')
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='NEXT', onclick='navigate(5)')
+                input.btn.btn-primary(type='button', id='', value='PREVIOUS', onclick='navigate(3)')
+                input.btn.btn-primary(type='button', id='', value='NEXT', onclick='navigate(5)')
             #sect5(style='display:none')
               .row.row-fluid.form-group.space(id='q4.6')
                 label.col-sm-6.row
@@ -970,8 +969,8 @@ block content
                   input.form-control(type='textarea', cols='100', rows='10', name='ExtraComment')
               hr.style
               .btn-wrapper.text-center
-                input.btn.btn-primary.col-sm-3(type='button', id='', value='PREVIOUS', onclick='navigate(4)')
-                input.btn.btn-primary.col-sm-3(name='END', type='button', id='submit', value='SUBMIT')
+                input.btn.btn-primary(type='button', id='', value='PREVIOUS', onclick='navigate(4)')
+                input.btn.btn-primary(name='END', type='button', id='submit', value='SUBMIT')
   script.
     var obj;
     const container = document.getElementById('container');
@@ -1524,8 +1523,8 @@ block content
                 <h1 class="display-4">Oh noo!</h1>
                 <p class="lead">Please check your internet connection and retry.</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-success col-sm-1" href="/account" role="button">Retry</a>
-                    <a class="btn btn-primary btn-dark col-sm-1" href="/logout" role="button">Logout</a>
+                    <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>
+                    <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>
                 </p>`
 
     }

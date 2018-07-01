@@ -278,6 +278,13 @@ a:visited {
     }
 }
 
+@media (max-width: 500px) {
+    .main {
+        padding-right: 0px !important;
+        padding-left: 0px !important; 
+    }
+}
+
 p,
 h2,
 td {
@@ -669,7 +676,9 @@ img {
 }
 
 /* Button */
-
+.btn {
+    min-width: 150px !important;
+}
 .btn:not(:last-child) {
     margin-right: 10px;
 }
