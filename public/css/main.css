@@ -282,8 +282,11 @@ a:visited {
     .main {
         padding-right: 0px !important;
         padding-left: 0px !important; 
+        padding-bottom: 0px !important;
     }
 }
+
+
 
 p,
 h2,
@@ -928,7 +931,7 @@ ul {
 /* panel */
 
 .panel {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
