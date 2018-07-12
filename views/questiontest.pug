@@ -1468,7 +1468,7 @@ block content
            showError('Please turn on your location and retry.');
            return;
         }
-        if(error){
+        if(error && error.code === 2){
            console.log('Could not get location data');
            showError('Please check your internet connection and retry.');
            return;
@@ -1496,8 +1496,8 @@ block content
             showSucess();
           })
           .catch(error => {
-            console.log(error);
-            showError();
+            console.log('Could save data');
+            showError('Please check your internet connection and retry.');
           });
       });
     }
