@@ -982,7 +982,7 @@ block content
     function pjson(event) {
       var json = this.responseText;
       obj = JSON.parse(json);
-      console.log(obj);
+      (obj);
     }
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/question.json");
@@ -1007,10 +1007,10 @@ block content
       var form = document.getElementsByTagName("form")[0];
       var qNo = node.QuestionNo || node.questionNo;
       const questionNo = node.QuestionNo || node.questionNo;
-      console.log(questionNo);
+      (questionNo);
       const question = (questionNo != 'last') && document.getElementById(`q${questionNo.trim()}`).querySelector('.question').innerText;
 
-      //console.log("questn ",questn);
+      //("questn ",questn);
       // alert(name) ;
       if (nodeObj.ref.nextQuestion.length != 0 && nodeObj.nextQuestion != "END") //&& node.nextQuestion != "NoBedrooms") // rmpve last condition
       {
@@ -1023,7 +1023,7 @@ block content
           nodeObj.ref.responses.push(index);
           container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[parseInt(index)]);
           JsonDataList.push(container);
-          console.log("index "+ index);
+          ("index "+ index);
           var indexNum = parseInt(index);
           var nextName; //  nodeObj.ref.nextQuestion[0] ;
           if (node.dynamic == "true" && index.trim().length != 0 ) {
@@ -1031,9 +1031,9 @@ block content
           } else {
             var nextName = nodeObj.ref.nextQuestion[0];
           }
-          console.log("nextNamre "+ nextName);
+          ("nextNamre "+ nextName);
           //  alert("seen radio, inserted " + container + " next question is "+ nextName);
-          console.log(JsonDataList);
+          (JsonDataList);
           iterateVia(nextName);
         } else if (node.type == "date") {
           var index = form.elements[nodeObj.title].value;
@@ -1046,19 +1046,19 @@ block content
           JsonDataList.push(container);
           var nextName = nodeObj.ref.nextQuestion[0];
           // alert("seen date, inserted " + container + " next question is "+ nextName);
-          console.log(JsonDataList);
+          (JsonDataList);
           iterateVia(nextName);
         } else if(node.type == "null")
         {
 
           var nextName = nodeObj.ref.nextQuestion[0];
           // alert("seen date, inserted " + container + " next question is "+ nextName);
-          console.log(JsonDataList);
+          (JsonDataList);
           iterateVia(nextName);
         }
 
         else if (node.type == "text" || node.type == "number") {
-          console.log('nodeObj.title', nodeObj.title);
+          ('nodeObj.title', nodeObj.title);
           var index = form.elements[nodeObj.title].value;
           var container = {};
           container["questionNo"] = obj[nodeObj.title].QuestionNo;
@@ -1069,7 +1069,7 @@ block content
           JsonDataList.push(container);
           nextName = nodeObj.ref.nextQuestion[0];
           //  alert("seen text, inserted " + container + " next question is "+ nextName);
-          console.log(JsonDataList);
+          (JsonDataList);
           iterateVia(nextName);
         } else if (node.type == "select") {
           var index = form.elements[nodeObj.title].value;
@@ -1083,7 +1083,7 @@ block content
           JsonDataList.push(container);
           nextName = (index == "OT") ? nodeObj.ref.nextQuestion[1] : nodeObj.ref.nextQuestion[0];
           //    alert("seen select, inserted " + container + " next question is "+ nextName);
-          console.log(JsonDataList);
+          (JsonDataList);
           iterateVia(nextName);
         } else if (node.type == "checkbox") {
           var stringParam = 'input[name = ' + '"' + name + '"' + ']';
@@ -1119,7 +1119,7 @@ block content
             if ($(this).is(':checked') == true) {
               var index = $(this).val();
               nodeObj.ref.responses.push(index);
-              console.log("  --" + nodeObj.ref.result);
+              ("  --" + nodeObj.ref.result);
               container["responses"].push(index.trim().length == 0 ? "nothing " : node.result[
                 parseInt(index)]);
               var indexNum = parseInt(index);
@@ -1134,7 +1134,7 @@ block content
           var nextName = nodeObj.ref.nextQuestion[0];
           iterateVia(nextName);
         } else {
-          console.log("error 5161");
+          ("error 5161");
         }
       } else if (nodeObj.ref.nextQuestion.length == 0 || nodeObj.ref.nextQuestion == "END") {
         return 0;
@@ -1149,19 +1149,19 @@ block content
         var indexString = element[name].value;
         var indexNum = parseInt(indexString);
         var nextQuestionName = obj[name].nextQuestion[indexNum];
-        console.log("question name " + nextQuestionName);
+        ("question name " + nextQuestionName);
         var nextQuestionNo = obj[nextQuestionName].QuestionNo;
-        console.log("question number " + nextQuestionNo);
+        ("question number " + nextQuestionNo);
         var nextQuestionId = appendToNumber + nextQuestionNo;
         //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
         for (i = 1; i < total; i++) {
           var otherIndex = (indexNum + i) % total;
-          //console.log("question id " + nextQuestionId)
-          //console.log(document.getElementById(nextQuestionId)) ;
+          //("question id " + nextQuestionId)
+          //(document.getElementById(nextQuestionId)) ;
           var otherQuestionName = obj[name].nextQuestion[otherIndex];
           var otherQuestionNo = obj[otherQuestionName].QuestionNo;
           var otherQuestionId = appendToNumber + otherQuestionNo;
-          console.log(" other question id " + otherQuestionNo)
+          (" other question id " + otherQuestionNo)
           document.getElementById(otherQuestionId).style.display = "none";
         }
         document.getElementById(nextQuestionId).style.display = "inline";
@@ -1173,17 +1173,17 @@ block content
         $(stringParam).each(function () {
           //  strIndex.push(parseInt($(this).val()));
           var index = parseInt($(this).val());
-          console.log(index);
+          (index);
           var nextQuestionName = obj[name].direction[index];
-          console.log(nextQuestionName);
+          (nextQuestionName);
           var nextQuestionNo = obj[nextQuestionName].QuestionNo;
           var id = appendToNumber + nextQuestionNo;
-          console.log(id);
+          (id);
           var displayVar = document.getElementById(id).style.display;
           if ($(this).is(':checked') == true) {
             // document.getElementById(id).style.display = "block" ; // || block element
-            // //console.log(' element' +  document.getElementById(id).innerHTML) ;
-            // console.log(' element ' +  document.getElementById(id).style.display)
+            // //(' element' +  document.getElementById(id).innerHTML) ;
+            // (' element ' +  document.getElementById(id).style.display)
           } else {
             document.getElementById(id).style.display = "none";
           }
@@ -1191,17 +1191,17 @@ block content
         $(stringParam).each(function () {
           //  strIndex.push(parseInt($(this).val()));
           var index = parseInt($(this).val());
-          console.log(index);
+          (index);
           var nextQuestionName = obj[name].direction[index];
-          console.log(nextQuestionName);
+          (nextQuestionName);
           var nextQuestionNo = obj[nextQuestionName].QuestionNo;
           var id = appendToNumber + nextQuestionNo;
-          console.log(id);
+          (id);
           var displayVar = document.getElementById(id).style.display;
           if ($(this).is(':checked') == true) {
             document.getElementById(id).style.display = "block"; // || block element
-            //console.log(' element' +  document.getElementById(id).innerHTML) ;
-            console.log(' element ' + document.getElementById(id).style.display)
+            //(' element' +  document.getElementById(id).innerHTML) ;
+            (' element ' + document.getElementById(id).style.display)
           } else {
             // document.getElementById(id).style.display = "none" ;
           }
@@ -1211,10 +1211,9 @@ block content
     function navigate(sectionNumber) {
       var listSections = ["sect0", "sect1", "sect2", "sect3", "sect4", "sect5"]; // list of sections
       for (var i = 0; i < listSections.length; i++) {
-        console.log((i) == sectionNumber);
         if ((i) == sectionNumber) {
           document.getElementById(listSections[i]).style.display = "block";
-          console.log(document.getElementById(listSections[i]).style.display);
+          (document.getElementById(listSections[i]).style.display);
           showSectionText(sectionLinks[sectionNumber].innerText);
           highlightLink(sectionLinks[i], sectionLinks);
         } else {
@@ -1234,11 +1233,11 @@ block content
 
     function showSectionText(text) {
       panelHeading.innerText = text;
-      console.log(panelHeading.innerHTML);
+      (panelHeading.innerHTML);
     }
 
     function highlightLink(linkToHighlight, allLinks) {
-      console.log("linkToHighlight",linkToHighlight);
+      ("linkToHighlight",linkToHighlight);
       allLinks.forEach(link => link.classList.remove('link--active'));
       linkToHighlight.classList.add('link--active');
     }
@@ -1254,14 +1253,14 @@ block content
         var indexString = element[name].value;
         var indexNum = parseInt(indexString);
         var nextQuestionName = obj[name].nextQuestion[0];
-        console.log("question name " + nextQuestionName);
+        ("question name " + nextQuestionName);
         var nextQuestionNo = obj[nextQuestionName].QuestionNo;
-        console.log("question number " + nextQuestionNo);
+        ("question number " + nextQuestionNo);
         var nextQuestionId = appendToNumber + nextQuestionNo;
         //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
         if ($('#' + id).is(':checked')) {
-          console.log("in process display block");
-          console.log("question id " + nextQuestionId);
+          ("in process display block");
+          ("question id " + nextQuestionId);
           document.getElementById(nextQuestionId).style.display = "block"
         } else //if( document.getElementById(nextQuestionId).style.display == "block" )
         {
@@ -1383,7 +1382,7 @@ block content
             verify(nextName, finish, sect);
           }
         } else {
-          console.log("error 5161");
+          ("error 5161");
         }
       } else if (nodeObj.ref.nextQuestion.length == 0) {
         return 0;
@@ -1407,8 +1406,8 @@ block content
         var nextQuestionId2 = appendToNumber + nextQuestionNo2;
         //  if(obj[name].dynamic == true) // if the question leads to other questions dynamically
         if ($('#' + id1).is(':checked')) {
-          console.log("in process display block");
-          console.log("question id " + nextQuestionId1);
+          ("in process display block");
+          ("question id " + nextQuestionId1);
           // var val1 = document.getElementById(nextQuestionId1).value ;
           document.getElementById(nextQuestionId1).style.display = "block";
           document.getElementById(nextQuestionId2).style.display = "none";
@@ -1439,17 +1438,17 @@ block content
     //get user location
     function getUserLocation(callback) {
 
-      console.log("Get location");
+      ("Get location");
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          console.log(position);
+          (position);
           const key = 'AIzaSyAddwFzEu83xzv_3kQjwLOrK3d35bmiOKg';
-          return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=false&key=${key}`).then(response => response.json()).then(res => {console.log(res); callback(null, res.results[0]['formatted_address'])});
+          return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=false&key=${key}`).then(response => response.json()).then(res => {(res); callback(null, res.results[0]['formatted_address'])});
         },
           function(error) {
                 return callback(error, null)
           }),
-          {timeout: 30000, enableHighAccuracy: true, maximumAge: 75000}
+          {timeout: 10000, enableHighAccuracy: true, maximumAge: 75000}
       }else{
         return callback('nolocation', null);
       }
@@ -1457,25 +1456,14 @@ block content
 
     //submit form data
     function submitData() {
-      console.log("In here");
       loader.classList.add('show');
-      console.log(JsonDataList);
       iterateVia(initialKey);
       getUserLocation((error, location) => {
-        console.log(location);
-        console.log(error);
-        if(error && error.code === 1) {
-           showError('Please turn on your location and retry.');
-           return;
-        }
-        if(error && error.code === 2){
-           console.log('Could not get location data');
-           showError('Please check your internet connection and retry.');
-           return;
+        if(!location){
+          location = "Unknown";
         }
 
         const data = { responses: JsonDataList, location }
-        console.log('data', data);
         const url = '/response'
         const request = new Request(url, {
             method: 'POST',
@@ -1489,14 +1477,12 @@ block content
         });
 
         fetch(request).then(response => response.json()).then(res => {
-            console.log(res);
-            loader.classList.remove('show');
-
           }).then(res => {
+            loader.classList.remove('show');
             showSucess();
           })
           .catch(error => {
-            console.log('Could save data');
+            loader.classList.remove('show');
             showError('Please check your internet connection and retry.');
           });
       });

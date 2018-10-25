@@ -923,26 +923,18 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('Scripts');
-
 var container = document.getElementById('container');
 var loader = document.querySelector('.loader-wrapper');
-console.log(container);
-console.log("loader", loader);
 
 var sectionLinks = document.querySelectorAll('.section-link');
 var panelHeading = document.querySelector('.dynamic-panel-title');
-console.log(panelHeading, sectionLinks);
 Array.from(sectionLinks).forEach(function (link) {
   return link.addEventListener('click', function () {
-    console.log(this.innerText);
     panelHeading.innerHTML = this.innerText;
-    console.log(panelHeading.innerHTML);
   });
 });
 
 function showSectionText() {
-  console.log(this);
   panelHeading.innerText = this.innerText;
 }
 
@@ -955,7 +947,9 @@ function getUserLocation(callback) {
       console.log(position);
       var key = 'AIzaSyAddwFzEu83xzv_3kQjwLOrK3d35bmiOKg';
       return _axios2.default.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&sensor=false&key=' + key).then(function (response) {
-        return callback(response.data.results[0]['formatted_address']);
+        return callback(null, response.data.results[0]['formatted_address']);
+      }).catch(function (err) {
+        return callback(err, null);
       });
     });
   }
@@ -964,10 +958,9 @@ function getUserLocation(callback) {
 //submit form data
 function submitData(JsonDataList) {
   loader.classList.add('show');
-  console.log(JsonDataList);
-  getUserLocation(function (location) {
-    console.log(location);
-
+  getUserLocation(function (error, location) {
+    console.log("location", location);
+    console.log("error", error);
     var data = { responses: JsonDataList, location: location };
 
     _axios2.default.post('/response', data).then(function (res) {
@@ -978,10 +971,6 @@ function submitData(JsonDataList) {
       container.innerHTML = '<div class="jumbotron text-center">\n                <h1 class="display-4">Oh noo!</h1>\n                <p class="lead">Please check your internet connection and retry.</p>\n                <p class="lead">\n                    <a class="btn btn-primary btn-success" href="/account" role="button">Retry</a>\n                    <a class="btn btn-primary btn-dark" href="/logout" role="button">Logout</a>\n                </p>';
     });
   });
-}
-
-function fClick() {
-  iterateVia(initialKey);
 }
 
 /***/ }),
