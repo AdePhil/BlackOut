@@ -39,6 +39,22 @@ block content
           .icon.text-white.bg-red
             i.fas.fa-receipt
   .row.mb-4
+    .col-lg-12.relative
+      .card.mb-4
+        .card-header
+          .absolute-title
+            label(for="filter-bar1") Interval
+            select.form-control.filter#filter-bar1(name='account')
+              option 5000
+              option 4000
+              option 3000
+              option 2000
+              option 1000
+          h2.h6.text-uppercase.mb-0#BAR1-heading  Loading...
+        .card-body
+          .chart-holder
+            canvas#BAR1
+  .row.mb-4
     .col-lg-6
       .card.mb-4
         .card-header
@@ -57,17 +73,17 @@ block content
     .col-lg-6
       .card.mb-4
         .card-header
-          h2.h6.text-uppercase.mb-0#PIE3-heading  Loading...
-        .card-body
-          .chart-holder
-            canvas#PIE3
-    .col-lg-6
-      .card.mb-4
-        .card-header
           h2.h6.text-uppercase.mb-0#PIE4-heading  Loading...
         .card-body
           .chart-holder
             canvas#PIE4
+    .col-lg-6
+      .card.mb-4
+        .card-header
+          h2.h6.text-uppercase.mb-0#PIE3-heading  Loading...
+        .card-body
+          .chart-holder
+            canvas#PIE3
   .row.mb-4
     .col-lg-6
       .card.mb-4
@@ -76,22 +92,7 @@ block content
         .card-body
           .chart-holder
             canvas#PIE5
-  .row.mb-4
-    .col-lg-12.relative
-      .card.mb-4
-        .card-header
-          .absolute-title
-            label(for="filter-bar1") Interval
-            select.form-control.filter#filter-bar1(name='account')
-              option 5000
-              option 4000
-              option 2000
-              option 2000
-              option 1000
-          h2.h6.text-uppercase.mb-0#BAR1-heading  Loading...
-        .card-body
-          .chart-holder
-            canvas#BAR1
+
     .col-lg-12.mt-3
       .card.mb-4
         .card-header
