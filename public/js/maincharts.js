@@ -14,19 +14,35 @@ $(function() {
   };
 
   //colors
+  // const colors = [
+  //   "green",
+  //   "gold",
+  //   "red",
+  //   "black",
+  //   "violet",
+  //   "brown",
+  //   "blue",
+  //   "#3e95cd",
+  //   "#8e5ea2",
+  //   "#3cba9f",
+  //   "#e8c3b9",
+  //   "#c45850"
+  // ];
+
+  //colors
   const colors = [
-    "green",
-    "gold",
-    "red",
-    "black",
+    "#D3E0DF",
+    "#2B363D",
+    "#010440",
+    "#0284A8",
     "violet",
     "brown",
-    "blue",
+    "#59022B",
     "#3e95cd",
     "#8e5ea2",
-    "#3cba9f",
-    "#e8c3b9",
-    "#c45850"
+    "#A9E8DC",
+    "#F25652",
+    "#E1F7E7"
   ];
 
   Object.keys(pieQuestionMapper).forEach((questionNo, i) => {
@@ -35,8 +51,7 @@ $(function() {
       data: {
         questionNo: questionNo
       },
-      error: function() {
-      },
+      error: function() {},
       success: function(data) {
         const PIECHART = $(`#PIE${i + 1}`);
         $(`#PIE${i + 1}-heading`).text(pieQuestionMapper[questionNo]);
