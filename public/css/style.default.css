@@ -3841,6 +3841,10 @@ a.text-dark:focus {
   background-color: #b1bbc4;
 }
 
+.p-4 {
+  padding: 1.02rem !important;
+}
+
 .badge-gray-500 {
   color: #212529;
   background-color: #adb5bd;
