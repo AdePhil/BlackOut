@@ -1,0 +1,250 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Bubbly - Boootstrap 4 Admin template by Bootstrapious.com
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='robots', content='all,follow')
+    link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.3.1/css/all.css', integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Poppins:300,400,800')
+    link(rel='stylesheet', href='/css/orionicons.css')
+    link#theme-stylesheet(rel='stylesheet', href='/css/style.default.css')
+    link(rel='stylesheet', href='/css/custom.css')
+  body
+    // navbar
+    header.header
+      nav.navbar.navbar-expand-lg.px-4.py-2.bg-white.shadow.bg-main.text-white
+        a.sidebar-toggler.text-gray-500.mr-4.mr-lg-5.lead(href='#')
+          i.fas.fa-align-left
+        a.navbar-brand.font-weight-bold.text-uppercase.text-base.text-white(href='index.html') Admin Dashboard
+        ul.ml-auto.d-flex.align-items-center.list-unstyled.mb-0
+          li.nav-item
+            form#searchForm.ml-auto.d-none.d-lg-block
+              .form-group.position-relative.mb-0
+                button.position-absolute.border-0.p-0(type='submit', style='left: 8px; background-color: transparent;')
+                  i.o-search-magnify-1.text-gray.text-lg
+                input.pl-4.form-control.form-control-sm.border-0.no-shadow(type='search', placeholder='Search ...')
+          li.nav-item.dropdown.mr-3
+            a#notifications.nav-link.dropdown-toggle.text-gray-400.px-1(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-bell
+              span.notification-icon
+            .dropdown-menu(aria-labelledby='notifications')
+              a.dropdown-item(href='#')
+                .d-flex.align-items-center
+                  .icon.icon-sm.bg-violet.text-white
+                    i.fab.fa-twitter
+                  .text.ml-2
+                    p.mb-0 You have 2 followers
+              a.dropdown-item(href='#')
+                .d-flex.align-items-center
+                  .icon.icon-sm.bg-green.text-white
+                    i.fas.fa-envelope
+                  .text.ml-2
+                    p.mb-0 You have 6 new messages
+              a.dropdown-item(href='#')
+                .d-flex.align-items-center
+                  .icon.icon-sm.bg-blue.text-white
+                    i.fas.fa-upload
+                  .text.ml-2
+                    p.mb-0 Server rebooted
+              a.dropdown-item(href='#')
+                .d-flex.align-items-center
+                  .icon.icon-sm.bg-violet.text-white
+                    i.fab.fa-twitter
+                  .text.ml-2
+                    p.mb-0 You have 2 followers
+              .dropdown-divider
+              a.dropdown-item.text-center(href='#')
+                small.font-weight-bold.headings-font-family.text-uppercase View all notifications
+          li.nav-item.dropdown.ml-auto
+            a#userInfo.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              img.img-fluid.rounded-circle.shadow(src='/img/avatar-6.jpg', alt='Jason Doe', style='max-width: 2.5rem;')
+            .dropdown-menu(aria-labelledby='userInfo')
+              a.dropdown-item(href='#')
+                strong.d-block.text-uppercase.headings-font-family Mark Stephen
+                small Web Developer
+              .dropdown-divider
+              a.dropdown-item(href='#') Settings
+              a.dropdown-item(href='#') Activity log
+              .dropdown-divider
+              a.dropdown-item(href='login.html') Logout
+    .d-flex.align-items-stretch
+      #sidebar.sidebar.py-3
+        .text-gray-400.text-uppercase.px-3.px-lg-4.py-4.font-weight-bold.small.headings-font-family MAIN
+        ul.sidebar-menu.list-unstyled
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='/admin/account/' class=title === "admin-home" ? "active" : "")
+              i.o-home-1.mr-3.text-gray
+              span Home
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='/admin/account/locations' class=title === "locations" ? "active" : "")
+              i.fas.fa-map-marker-alt.mr-3.text-gray
+              span Locations
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='tables.html')
+              i.o-table-content-1.mr-3.text-gray
+              span Tables
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='forms.html')
+              i.o-survey-1.mr-3.text-gray
+              span Forms
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='#', data-toggle='collapse', data-target='#pages', aria-expanded='false', aria-controls='pages')
+              i.o-wireframe-1.mr-3.text-gray
+              span Pages
+            #pages.collapse
+              ul.sidebar-menu.list-unstyled.border-left.border-primary.border-thick
+                li.sidebar-list-item
+                  a.sidebar-link.text-muted.pl-lg-5(href='#') Page one
+                li.sidebar-list-item
+                  a.sidebar-link.text-muted.pl-lg-5(href='#') Page two
+                li.sidebar-list-item
+                  a.sidebar-link.text-muted.pl-lg-5(href='#') Page three
+                li.sidebar-list-item
+                  a.sidebar-link.text-muted.pl-lg-5(href='#') Page four
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='login.html')
+              i.o-exit-1.mr-3.text-gray
+              span Login
+        .text-gray-400.text-uppercase.px-3.px-lg-4.py-4.font-weight-bold.small.headings-font-family EXTRAS
+        ul.sidebar-menu.list-unstyled
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='#')
+              i.o-database-1.mr-3.text-gray
+              span Demo
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='#')
+              i.o-imac-screen-1.mr-3.text-gray
+              span Demo
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='#')
+              i.o-paperwork-1.mr-3.text-gray
+              span Demo
+          li.sidebar-list-item
+            a.sidebar-link.text-muted(href='#')
+              i.o-wireframe-1.mr-3.text-gray
+              span Demo
+      .page-holder.w-100.d-flex.flex-wrap
+        .container-fluid.px-xl-5
+          section.py-5
+            .row.mb-4
+              .col-xl-3.col-lg-6.mb-4.mb-xl-0
+                .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+                  .flex-grow-1.d-flex.align-items-center
+                    .dot.mr-3.bg-violet
+                    .text
+                      h6.mb-0 Survey Responses
+                      span.text-gray #{responseCount} responses
+                  .icon.text-white.bg-violet
+                    i.fas.fa-server
+              .col-xl-3.col-lg-6.mb-4.mb-xl-0
+                .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+                  .flex-grow-1.d-flex.align-items-center
+                    .dot.mr-3.bg-green
+                    .text
+                      h6.mb-0 Survey Workers
+                      span.text-gray #{usersCount} survey workers
+                  .icon.text-white.bg-green
+                    i.far.fa-user
+              .col-xl-3.col-lg-6.mb-4.mb-xl-0
+                .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+                  .flex-grow-1.d-flex.align-items-center
+                    .dot.mr-3.bg-blue
+                    .text
+                      h6.mb-0 Survey Questions
+                      span.text-gray #{questionsCount} survey questions
+                  .icon.text-white.bg-blue
+                    i.fa.fa-clipboard
+              .col-xl-3.col-lg-6.mb-4.mb-xl-0
+                .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+                  .flex-grow-1.d-flex.align-items-center
+                    .dot.mr-3.bg-red
+                    .text
+                      h6.mb-0 Total Answers
+                      span.text-gray #{answersCount} answers
+                  .icon.text-white.bg-red
+                    i.fas.fa-receipt
+            .row.mb-4
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE1-heading Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE1
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE2-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE2
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE3-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE3
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE4-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE4
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE5-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE5
+              .col-lg-6
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#PIE6-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#PIE6
+              .col-lg-12
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#BAR2-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#BAR2
+              .col-lg-12
+                select.form-control(name='account')
+                  option option 1
+                  option option 2
+                  option option 3
+                  option option 4
+                .card.mb-4
+                  .card-header
+                    h2.h6.text-uppercase.mb-0#BAR1-heading  Loading...
+                  .card-body
+                    .chart-holder
+                      canvas#BAR1
+        footer.footer.bg-white.shadow.align-self-end.py-3.px-xl-5.w-100
+          .container-fluid
+            .row
+              .col-md-6.text-center.text-md-left.text-primary
+                p.mb-2.mb-md-0 Blackoutchasing © 2018
+              .col-md-6.text-center.text-md-right.text-gray-400
+                p.mb-0
+                  | Design by
+                  a.external.text-gray-400(href='https://bootstrapious.com/admin-templates') Bootstrapious
+                // JavaScript files
+                script(src='/vendor/jquery/jquery.min.js')
+                script(src='/vendor/popper.js/umd/popper.min.js')
+                script(src='/vendor/bootstrap/js/bootstrap.min.js')
+                script(src='/vendor/jquery.cookie/jquery.cookie.js')
+                script(src='/vendor/chart.js/Chart.min.js')
+                script(src='https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js')
+                //- script(src='/js/charts-home.js')
+                script(src='/js/maincharts.js')
+                script(src='/js/front.js')

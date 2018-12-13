@@ -1,30 +1,27 @@
-extends layout
-block style
-  link(rel='stylesheet', href='/css/bootstrap-4.0.0-dist/css/bootstrap.min.css')
+extends adminlayout
 block content
   .loader-wrapper
     .loader
-  .row
-    .col-md-3.section-nav-wrapper
-      .panel.panel-primary
-        .panel-heading.flex-section
-          h3.panel-title.section-title Sections
-          i.fa.fa-caret-square-o-down.toggle-section
-        .panel-body.section-nav.gray
-          ul
-            li
-              a.link.section-link.link--active(href="#", onclick='navigate(0)') Section 0 - Introduction
-            li
-              a.link.section-link(href="#", onclick='navigate(1)') Section 1 - Demographics
-            li
-              a.link.section-link(href="#", onclick='navigate(2)') Section 2 - Cost of electicity
-            li
-              a.link.section-link(href="#", onclick='navigate(3)') Section 3 - Power interruptions
-            li
-              a.link.section-link(href="#", onclick='navigate(4)') Section 4 - Alternative strategies
-            li
-              a.link.section-link(href="#", onclick='navigate(5)') Section 4b - Alternative strategies
-    .col-md-9.main
+  .col-md-3.section-nav-wrapper
+    .panel.panel-primary
+      .panel-heading.flex-section
+        h3.panel-title.section-title Sections
+        i.fa.fa-caret-square-o-down.toggle-section
+      .panel-body.section-nav.gray
+        ul
+          li
+            a.link.section-link.link--active(href="#", onclick='navigate(0)') Section 0 - Introduction
+          li
+            a.link.section-link(href="#", onclick='navigate(1)') Section 1 - Demographics
+          li
+            a.link.section-link(href="#", onclick='navigate(2)') Section 2 - Cost of electicity
+          li
+            a.link.section-link(href="#", onclick='navigate(3)') Section 3 - Power interruptions
+          li
+            a.link.section-link(href="#", onclick='navigate(4)') Section 4 - Alternative strategies
+          li
+            a.link.section-link(href="#", onclick='navigate(5)') Section 4b - Alternative strategies
+  .col-md-9.main
       .panel.panel-primary
         .panel-heading
           h3.panel-title.dynamic-panel-title.section-title Section 0 - Introduction
@@ -1418,22 +1415,6 @@ block content
         }
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //get user location
     function getUserLocation(callback) {

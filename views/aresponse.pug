@@ -1,9 +1,9 @@
-extends layout
+extends adminlayout
 block content
   .container
     .row
       div(class='col-md-12')
-        //- h1 Response from #{answers.user.firstname} #{answers.user.lastname}
+        a(href=`/admin/account/responses` style="float: right") Back to responses
         table(class='table table-bordered mt-4')
           thead
             tr.d-flex

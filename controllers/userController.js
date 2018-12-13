@@ -6,12 +6,10 @@ const Response = require('../models/Response');
 
 //users
 exports.questionaire = (req, res) => {
-    res.render('questiontest');
+    res.render('questiontest', { title: 'account'});
 }
 
 exports.loginForm = (req, res) => {
-    console.log("In here");
-    // res.send("Its works");
     res.render('login');
 }
 
@@ -20,7 +18,6 @@ exports.registerForm = (req, res) => {
 }
 
 exports.validateRegister = (req, res, next) => {
-    console.log("In validateRegister");
     req.sanitizeBody('firstname');
     req.checkBody('firstname', 'You must supply a name!').notEmpty();
     req.sanitizeBody('lastname');
@@ -36,7 +33,6 @@ exports.validateRegister = (req, res, next) => {
     req.checkBody('password-confirm', 'Oops! Your passwords do not match').equals(req.body.password);
 
     const errors = req.validationErrors();
-    console.log(errors);
     if (errors) {
         req.flash('error', errors.map(err => err.msg));
         res.render('register', {
@@ -50,7 +46,6 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-    console.log("In register");
     const user = new User({
         email: req.body.email,
         firstname: req.body.firstname,
@@ -82,14 +77,11 @@ exports.viewallresponses = async (req, res) => {
     const [responses, count] = await Promise.all([responsesPromise, countPromise]);
 
     const pages = Math.ceil(count / perPage);
-    console.log(page, pages, count);
 
-    res.render('allresponses', { responses, page, pages, count });
+    res.render('allresponses', { responses, page, pages, count, title: 'allresponses' });
 }
 
 exports.viewResponseById = async (req, res) => {
-    console.log('In here');
-    console.log(req.params.id);
     const page = req.params.page || 1;
     const perPage = 5;
     const skip = (perPage * page) - perPage;
@@ -111,8 +103,7 @@ exports.viewResponseById = async (req, res) => {
 
 
     const pages = Math.ceil(count / perPage);
-    console.log(page, pages, count);
-    res.render('aresponse', { answers, page, pages, count });
+    res.render('aresponse', { answers, page, pages, count, title: 'allresponses' });
     // res.json(answers);
 }
 

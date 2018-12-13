@@ -1,0 +1,99 @@
+extends adminlayout
+block content
+  .container-fluid.px-xl-5
+    section.py-5
+      .row.mb-4
+        .col-xl-3.col-lg-6.mb-4.mb-xl-0
+          .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+            .flex-grow-1.d-flex.align-items-center
+              .dot.mr-3.bg-violet
+              .text
+                h6.mb-0 Survey Responses
+                span.text-gray #{responseCount} responses
+            .icon.text-white.bg-violet
+              i.fas.fa-server
+        .col-xl-3.col-lg-6.mb-4.mb-xl-0
+          .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+            .flex-grow-1.d-flex.align-items-center
+              .dot.mr-3.bg-green
+              .text
+                h6.mb-0 Survey Workers
+                span.text-gray #{usersCount} survey workers
+            .icon.text-white.bg-green
+              i.far.fa-user
+        .col-xl-3.col-lg-6.mb-4.mb-xl-0
+          .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+            .flex-grow-1.d-flex.align-items-center
+              .dot.mr-3.bg-blue
+              .text
+                h6.mb-0 Survey Questions
+                span.text-gray #{questionsCount} survey questions
+            .icon.text-white.bg-blue
+              i.fa.fa-clipboard
+        .col-xl-3.col-lg-6.mb-4.mb-xl-0
+          .bg-white.shadow.roundy.p-4.h-100.d-flex.align-items-center.justify-content-between
+            .flex-grow-1.d-flex.align-items-center
+              .dot.mr-3.bg-red
+              .text
+                h6.mb-0 Total Answers
+                span.text-gray #{answersCount} answers
+            .icon.text-white.bg-red
+              i.fas.fa-receipt
+      .row.mb-4
+        .col-lg-6
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#PIE1-heading Loading...
+            .card-body
+              .chart-holder
+                canvas#PIE1
+        .col-lg-6
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#PIE2-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#PIE2
+        .col-lg-6
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#PIE3-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#PIE3
+        .col-lg-6
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#PIE4-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#PIE4
+        .col-lg-6
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#PIE5-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#PIE5
+        .col-lg-12.relative
+          .card.mb-4
+            .card-header
+              .absolute-title
+                label(for="filter-bar1") Interval
+                select.form-control.filter#filter-bar1(name='account')
+                  option 5000
+                  option 4000
+                  option 2000
+                  option 2000
+                  option 1000
+              h2.h6.text-uppercase.mb-0#BAR1-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#BAR1
+        .col-lg-12
+          .card.mb-4
+            .card-header
+              h2.h6.text-uppercase.mb-0#BAR2-heading  Loading...
+            .card-body
+              .chart-holder
+                canvas#BAR2

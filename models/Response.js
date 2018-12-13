@@ -9,5 +9,28 @@ const responseSchema = new mongoose.Schema({
 
 });
 
+responseSchema.statics.locationByCount = function(){
+  return this.aggregate([
+    {
+        $match: {
+            keywords: { $not: { $size: 0 } }
+        }
+    },
+    { $unwind: "$location" },
+    {
+        $group: {
+            _id: '$location',
+            count: { $sum: 1 }
+        }
+    },
+    {
+        $match: {
+            count: { $gte: 2 }
+        }
+    },
+    // { $sort: { count: -1 } },
+]);
+}
+
 
 module.exports = mongoose.model('Response', responseSchema);

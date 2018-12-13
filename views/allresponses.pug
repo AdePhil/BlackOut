@@ -1,4 +1,4 @@
-extends layout
+extends adminlayout
 block content
   .container
     .row
@@ -7,10 +7,10 @@ block content
           .card.product.mt-4
             .card-body
               h5.card-title
-                i.fa.fa-user.pr-1
+                i.fas.fa-user.pr-1.text-gray
                 span.badge.badge-warning.ml-1.name #{response.user.firstname} #{response.user.lastname}
               p.card-text
-                i.fa.fa-map-marker.pr-2
+                i.fas.fa-map-marker-alt.pr-2.text-gray
                 span.location #{response.location}
               a.btn.btn-primary.block.col-md-12(href=`/admin/account/responses/${response._id}`)
                 | View Response

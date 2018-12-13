@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title BlackOutChasing - A survey on electricity cost and usuage in Lagos, Nigeria
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='robots', content='all,follow')
+    link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.3.1/css/all.css', integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Poppins:300,400,800')
+    link(rel='stylesheet', href='/css/orionicons.css')
+    link(rel='stylesheet', href='/css/main.css')
+    link#theme-stylesheet(rel='stylesheet', href='/css/style.default.css')
+  body
+    // navbar
+    header.header
+      nav.navbar.navbar-expand-lg.px-4.py-2.bg-white.shadow.bg-main.text-white
+        a.sidebar-toggler.text-gray-500.mr-4.mr-lg-5.lead(href='#')
+          i.fas.fa-align-left
+        a.navbar-brand.font-weight-bold.text-uppercase.text-base.text-white(href='index.html') BlackOutChasing
+        ul.ml-auto.d-flex.align-items-center.list-unstyled.mb-0
+          li.nav-item.dropdown.ml-auto
+            a#userInfo.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              span.text-white.mr-2 Settings
+              img.img-fluid.rounded-circle.shadow(src=user.gravatar + 'd=retro', alt='Jason Doe', style='max-width: 2.5rem;')
+            .dropdown-menu(aria-labelledby='userInfo')
+              a.dropdown-item(href='#')
+                strong.d-block.text-uppercase.headings-font-family #{user.firstname} #{user.lastname}
+              .dropdown-divider
+              if user.isAdmin
+                a.dropdown-item(href='/admin/account') Dashboard
+                .dropdown-divider
+              a.dropdown-item(href='/logout') Logout
+    .d-flex.align-items-stretch
+      if (user && title !== "account")
+        #sidebar.sidebar.py-3
+          .text-gray-400.text-uppercase.px-3.px-lg-4.py-4.font-weight-bold.small.headings-font-family MAIN
+          ul.sidebar-menu.list-unstyled
+            li.sidebar-list-item
+              a.sidebar-link.text-muted(href='/admin/account/' class=title === "admin-home" ? "active" : "")
+                i.o-home-1.mr-3.text-gray
+                span Home
+            li.sidebar-list-item
+              a.sidebar-link.text-muted(href='/admin/account/locations' class=title === "locations" ? "active" : "")
+                i.fas.fa-map-marker-alt.mr-3.text-gray
+                span Locations
+            li.sidebar-list-item
+              a.sidebar-link.text-muted(href='/admin/account/responses'  class=title === "allresponses" ? "active" : "")
+                i.fas.fa-poll.mr-3.text-gray
+                span Responses
+            li.sidebar-list-item
+              a.sidebar-link.text-muted(href='/account')
+                i.o-survey-1.mr-3.text-gray
+                span Fill Survey
+            li.sidebar-list-item
+              if !user
+                a.sidebar-link.text-muted(href='/login')
+                  i.fa.fa-sign-in-alt.mr-3.text-gray
+                  span Login
+              else
+                a.sidebar-link.text-muted(href='/logout')
+                  i.fa.fa-sign-out-alt.mr-3.text-gray
+                  span Logout
+
+      .page-holder.w-100.d-flex.flex-wrap
+        .container-fluid.px-xl-5
+          section.py-5
+            .row.mb-4
+              block content
+    footer.footer.bg-main.shadow.align-self-end.py-3.px-xl-5.w-100
+          .container-fluid
+            .row
+              .col-md-12.text-center.text-md-left.text-primary
+                p.mb-2.mb-md-0.pr-4.pc.text-center.text-white Blackoutchasing © 2018
+                // JavaScript files
+                script(src='/vendor/jquery/jquery.min.js')
+                script(src='/vendor/popper.js/umd/popper.min.js')
+                script(src='/vendor/bootstrap/js/bootstrap.min.js')
+                script(src='/vendor/chart.js/Chart.min.js')
+                script(src='https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js')
+                script(src='/js/maincharts.js')
+                block script
