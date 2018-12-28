@@ -1,8 +1,4 @@
 $(function() {
-  //colors
-  const violet = "#DF99CA",
-    red = "#F0404C",
-    green = "#7CF29C";
 
   //question mapper
   const pieQuestionMapper = {
@@ -13,38 +9,24 @@ $(function() {
     "4.1": "Which of the following alternative power sources do you own"
   };
 
-  //colors
-  // const colors = [
-  //   "green",
-  //   "gold",
-  //   "red",
-  //   "black",
-  //   "violet",
-  //   "brown",
-  //   "blue",
-  //   "#3e95cd",
-  //   "#8e5ea2",
-  //   "#3cba9f",
-  //   "#e8c3b9",
-  //   "#c45850"
-  // ];
-
-  //colors
+  colors
   const colors = [
-    "#D3E0DF",
-    "#2B363D",
-    "#010440",
-    "#0284A8",
+    "green",
+    "gold",
+    "red",
+    "black",
     "violet",
     "brown",
-    "#59022B",
+    "blue",
     "#3e95cd",
     "#8e5ea2",
-    "#A9E8DC",
-    "#F25652",
-    "#E1F7E7"
+    "#3cba9f",
+    "#e8c3b9",
+    "#c45850"
   ];
 
+  
+   // pie charts
   Object.keys(pieQuestionMapper).forEach((questionNo, i) => {
     $.ajax({
       url: "/api/question-by-count",

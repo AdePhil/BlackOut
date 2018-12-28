@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-// const storeController = require('../controllers/storeController');
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 const responseController = require("../controllers/responseController");
 const analyticsController = require("../controllers/analytics");
-// const reviewController = require('../controllers/reviewController');
 const { catchErrors } = require("../handlers/errorHandlers");
 
 const formHandler = require("../handlers/handleForm");
@@ -61,10 +59,19 @@ router.get(
   authController.isLoggedInAsAdmin,
   userController.viewResponseById
 );
-router.get("/admin/account/", authController.isLoggedInAsAdmin, analyticsController.dashboard);
-router.get("/admin/account/locations", authController.isLoggedInAsAdmin, analyticsController.locations);
+router.get(
+  "/admin/account/",
+  authController.isLoggedInAsAdmin,
+  analyticsController.dashboard
+);
+router.get(
+  "/admin/account/locations",
+  authController.isLoggedInAsAdmin,
+  analyticsController.locations
+);
 // Api's
 router.post("/api/question-by-count", analyticsController.questionByCount);
 router.get("/api/location-by-count", analyticsController.locationByCount);
 router.post("/api/bill-by-count", analyticsController.billByCount);
+router.get("/api/report", analyticsController.generateReport);
 module.exports = router;
