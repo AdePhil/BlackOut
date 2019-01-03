@@ -9,7 +9,6 @@ $(function() {
     "4.1": "Which of the following alternative power sources do you own"
   };
 
-  colors
   const colors = [
     "green",
     "gold",
@@ -25,7 +24,7 @@ $(function() {
     "#c45850"
   ];
 
-  
+
    // pie charts
   Object.keys(pieQuestionMapper).forEach((questionNo, i) => {
     $.ajax({

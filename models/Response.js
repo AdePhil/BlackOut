@@ -28,8 +28,27 @@ responseSchema.statics.locationByCount = function(){
             count: { $gte: 2 }
         }
     },
-    // { $sort: { count: -1 } },
 ]);
+}
+
+responseSchema.statics.generateReport = function () {
+    return this.aggregate([
+        { $lookup: { from: 'answers', localField: 'response', foreignField: '_id', as: 'response' } },
+        { $unwind: "$response" },
+        { $unwind: "$response.responses" },
+        { $project: { location: 1, question: "$response.question", questionNo: "$response.questionNo", answer: "$response.responses" } },
+        {
+            $group: {
+
+                _id: "$_id",
+                answers: { $push: "$answer" },
+                questions: { $push: "$question" },
+                location: { $first: "$location" }
+            }
+        },
+        { $project: { _id: 0 } },
+        { $sort: { location: -1 } }
+    ]);
 }
 
 

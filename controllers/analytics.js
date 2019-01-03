@@ -52,33 +52,26 @@ exports.locations = async (req, res) => {
 };
 
 exports.generateReport = async (req, res) => {
-  const responses = await Response.find({}).populate("response");
-  console.log(responses[1].response.length);
+  const responses = await Response.generateReport();
+  console.log(responses);
   const sheetName = "Responses";
   const workBook = XLSX.utils.book_new();
   workBook.SheetNames.push(sheetName);
 
-  //  begin
-  // get aray of arrays of answers
-  let rows = [];
-  let header = [];
-  responses.forEach((response, i) => {
-    let row = [];
-    response.response.forEach((answer) => {
-      if (i === 0) {
-        header.push(answer.question);
-      }
-      row.push(
-        answer.responses.reduce((total, item) => {
-          return item + " " + total;
-        }, "")
-      );
-    });
-    rows.push(row);
+  //  console.log(excelData);
+  let header = ["Locations"];
+  let rows = responses.map((response, i) => {
+    if(i == 0){
+      header =  [...header, ...response.questions];
+    }
+    return [response.location ,...response.answers];
   });
+
+  //console.log(row);
+  //console.log(header);
+
   rows = [header, ...rows];
 
-  //  console.log(excelData);
   const data = XLSX.utils.aoa_to_sheet(rows);
   workBook.Sheets[sheetName] = data;
 
@@ -86,8 +79,7 @@ exports.generateReport = async (req, res) => {
     bookType: "xlsx",
     type: "buffer"
   });
-  // res.json(responses[0].response);
-  // var filePath = "/my/file/path/..."; // Or format the path using the `id` rest param
+
   const fileName = "report.xlsx"; // The default name the browser will use
   res.setHeader(
     "Content-Type",
@@ -95,6 +87,6 @@ exports.generateReport = async (req, res) => {
   );
   res.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 
-  // res.download(workBookBinary);
+  //res.download(workBookBinary);
   res.send(new Buffer(workBookBinary));
 };
