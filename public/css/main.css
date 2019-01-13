@@ -1438,6 +1438,11 @@ hr {
     line-height: 1;
 }
 
-.align-self{
+.align-self {
     align-self: center;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px;
 }

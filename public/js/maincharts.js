@@ -271,14 +271,66 @@ function barChart(questionNo, street, region) {
   drawLineChart();
 
   //filter by street and region
-  const streetSelect = $('#street');
+  let streetSelect = $('#street');
   const regionSelect = $('#region');
-  $('#street').on('change', function() {
+  streetSelect.on('change', function() {
     const street = this.value;
-    const region =  street.split(",")[1].trim();
+    const region =  `${street.split(",")[1]}`.trim();
 
     drawPieCharts({street},{});
     barChart("2.3", {street});
     regionSelect.val(region);
   });
+
+  //search by region alone
+  const regionCheck = $('#region-only');
+  regionCheck.on('change', function() {
+    if(this.checked){
+      streetSelect.val('');
+      streetSelect.attr('disabled', true);
+    }else{
+      streetSelect.attr('disabled', false);
+    }
+  });
+
+  //filter by region
+  regionSelect.on('change', function(){
+      if(regionCheck.prop('checked')){
+        const region = this.value;
+        drawPieCharts({}, {region});
+        barChart("2.3", {}, {region});
+        return;
+      }
+      fetchAllStreetsInARegion(this.value);
+  });
+
+  function fetchAllStreetsInARegion(region) {
+    if(!region) return;
+    const config = { ALLOWED_TAGS: ['option'], KEEP_CONTENT: true };
+    streetSelect.html(DOMPurify.sanitize(`<option selected>Please Wait</option>`, config));
+
+    $.ajax({
+      url: "/api/streets-by-region",
+      data:{
+        region: region
+      },
+      error: function() {},
+      type: "POST",
+      success: function(data) {
+        const streetOptions = data[0].regionStreets.map(option => {
+          return `
+            <option value='${option}'>${option}</option>
+          `
+        }).join('');
+        streetSelect.html(DOMPurify.sanitize(streetOptions, config));
+        const street = data[0].regionStreets[0];
+        drawPieCharts({street},{});
+        barChart("2.3", {street});
+      }
+    });
+  }
 });
+
+
+
+

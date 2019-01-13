@@ -73,5 +73,6 @@ router.get(
 router.post("/api/question-by-count", analyticsController.questionByCount);
 router.get("/api/location-by-count", analyticsController.locationByCount);
 router.post("/api/bill-by-count", analyticsController.billByCount);
-router.get("/api/report", analyticsController.generateReport);
+router.post('/api/streets-by-region', analyticsController.streetsByRegion);
+// router.get("/api/report", analyticsController.generateReport);
 module.exports = router;

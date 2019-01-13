@@ -36,7 +36,6 @@ exports.dashboard = async (req, res) => {
     regions,
     title: "admin-home"
   });
-  console.log(streets, regions);
 
 };
 
@@ -45,7 +44,6 @@ exports.questionByCount = async (req, res) => {
   const street = req.body.street || {};
   const region = req.body.region || {};
 
-  console.log("street"+street, region);
   const questionByCount = await Response.questionByCount(questionNo, street, region);
   res.json(questionByCount);
 };
@@ -79,7 +77,6 @@ exports.generateReport = async (req, res) => {
     if(i == 0){
       header =  [...header, ...response.questions];
     }
-    console.log(response);
     return [`${response._id}`, response.location ,...response.answers];
   });
 
@@ -103,3 +100,10 @@ exports.generateReport = async (req, res) => {
 
   res.send(new Buffer(workBookBinary));
 };
+
+exports.streetsByRegion = async (req, res) => {
+  const region = req.body.region;
+  const streets = await Response.streetsByRegion(region);
+
+  res.json(streets);
+}

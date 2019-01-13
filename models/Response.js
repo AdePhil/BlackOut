@@ -104,4 +104,13 @@ responseSchema.statics.generateReport = function () {
 }
 
 
+responseSchema.statics.streetsByRegion = function(region) {
+    return this.aggregate([
+        {$match: {region}},
+        {$group: {
+            _id: "$region",
+            regionStreets: {$addToSet: "$street"}
+        }}
+    ]);
+  };
 module.exports = mongoose.model('Response', responseSchema);
