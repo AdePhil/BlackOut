@@ -13,34 +13,50 @@ exports.dashboard = async (req, res) => {
   }).count();
   const answersPromise = Answer.count();
   const questionsPromise = Answer.distinct("question");
+  const uniqueStreetPromise = Response.distinct("street");
+  const uniqueRegionPromise = Response.distinct("region");
 
   const result = await Promise.all([
     responsesPromise,
     usersPromise,
     answersPromise,
-    questionsPromise
+    questionsPromise,
+    uniqueStreetPromise,
+    uniqueRegionPromise
   ]);
 
-  const [responseCount, usersCount, answersCount, questions] = result;
+
+  const [responseCount, usersCount, answersCount, questions, streets, regions] = result;
   res.render("home", {
     responseCount,
     usersCount,
     answersCount,
     questionsCount: questions.length,
+    streets,
+    regions,
     title: "admin-home"
   });
+  console.log(streets, regions);
+
 };
 
 exports.questionByCount = async (req, res) => {
   const questionNo = req.body.questionNo;
-  const questionByCount = await Answer.questionByCount(questionNo);
+  const street = req.body.street || {};
+  const region = req.body.region || {};
+
+  console.log("street"+street, region);
+  const questionByCount = await Response.questionByCount(questionNo, street, region);
   res.json(questionByCount);
 };
 
 exports.billByCount = async (req, res) => {
   const questionNo = req.body.questionNo;
-  const questionByCount = await Answer.billByCount(questionNo);
-  res.json(questionByCount);
+  const street = req.body.street || {};
+  const region = req.body.region || {};
+
+  const billByCount = await Response.billByCount(questionNo, street, region);
+  res.json(billByCount);
 };
 
 exports.locationByCount = async (req, res) => {
@@ -54,12 +70,10 @@ exports.locations = async (req, res) => {
 
 exports.generateReport = async (req, res) => {
   const responses = await Response.generateReport();
-  // console.log(responses);
   const sheetName = "Responses";
   const workBook = XLSX.utils.book_new();
   workBook.SheetNames.push(sheetName);
 
-  //  console.log(excelData);
   let header = ["id","Locations"];
   let rows = responses.map((response, i) => {
     if(i == 0){
@@ -69,8 +83,6 @@ exports.generateReport = async (req, res) => {
     return [`${response._id}`, response.location ,...response.answers];
   });
 
-  //console.log(row);
-  //console.log(header);
 
   rows = [header, ...rows];
 
@@ -82,13 +94,12 @@ exports.generateReport = async (req, res) => {
     type: "buffer"
   });
 
-  const fileName = "report.xlsx"; // The default name the browser will use
+  const fileName = "report.xlsx";
   res.setHeader(
     "Content-Type",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   );
   res.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 
-  //res.download(workBookBinary);
   res.send(new Buffer(workBookBinary));
 };

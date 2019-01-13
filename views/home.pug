@@ -38,6 +38,20 @@ block content
               span.text-gray #{answersCount} answers
           .icon.text-white.bg-red
             i.fas.fa-receipt
+  .card.mb-4.p-4
+    .row
+      .col-lg-2.align-self
+        h2.h6.text-uppercase.mb-3 Filter By:
+      .col-lg-6
+        select.form-control.mb-3#street
+          option(value="" disabled selected) Street
+          each street in streets
+            option(value=street) #{street}
+      .col-lg-4
+        select.form-control#region
+          option(value="" disabled selected) Region
+          each region in regions
+            option(value=region) #{region}
   .row.mb-4
     .col-lg-12.relative
       .card.mb-4

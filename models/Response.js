@@ -23,6 +23,44 @@ const responseSchema = new mongoose.Schema({
 },
 });
 
+responseSchema.statics.questionByCount = function(questionNo, street, region) {
+    return this.aggregate([
+
+      { $lookup: { from: 'answers', localField: 'response', foreignField: '_id', as: 'response' } },
+      { $unwind: "$response" },
+      { $unwind: "$response.responses" },
+      { $project : {region: 1, street:1, address:1, question: "$response.question", questionNo: "$response.questionNo", answer: "$response.responses"}},
+      {
+          $match: {
+              $and: [{questionNo: questionNo},street, region]
+          }
+      },
+      {$group: { _id: "$answer", count: {"$sum": 1}} },
+  ]);
+  };
+
+  responseSchema.statics.billByCount = function(questionNo, street, region) {
+    return this.aggregate([
+
+      { $lookup: { from: 'answers', localField: 'response', foreignField: '_id', as: 'response' } },
+      { $unwind: "$response" },
+      { $unwind: "$response.responses" },
+      { $project : {region: 1, street:1, address:1, question: "$response.question", questionNo: "$response.questionNo", answer: "$response.responses"}},
+      {
+          $match: {
+              $and: [{questionNo: questionNo}, street, region]
+          }
+      },
+      {$group: { _id: "$answer", count: {"$sum": 1}} },
+      {
+        $match: {
+          _id: { $ne: "" }
+        }
+      },
+      { $sort: { count: -1 } }
+    ]);
+  };
+
 responseSchema.statics.locationByCount = function(){
   return this.aggregate([
     {

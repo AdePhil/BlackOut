@@ -1437,3 +1437,7 @@ hr {
     cursor: pointer;
     line-height: 1;
 }
+
+.align-self{
+    align-self: center;
+}

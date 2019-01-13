@@ -26,67 +26,82 @@ $(function() {
 
 
    // pie charts
-  Object.keys(pieQuestionMapper).forEach((questionNo, i) => {
-    $.ajax({
-      url: "/api/question-by-count",
-      data: {
-        questionNo: questionNo
-      },
-      error: function() {},
-      success: function(data) {
-        const PIECHART = $(`#PIE${i + 1}`);
-        $(`#PIE${i + 1}-heading`).text(pieQuestionMapper[questionNo]);
+   let PIECHARTCANVAS = {};
+   function drawPieCharts(street, region) {
+     const streetAvailable = street || {};
+     const regionAvailable = region || {};
 
-        const pieChartExample = new Chart(PIECHART, {
-          type: "pie",
-          responsive: true,
-          options: {
-            tooltips: {
-              callbacks: {
-                label: function(tooltipItem, data) {
-                  let label = data.labels[tooltipItem.index] || "";
+    Object.keys(pieQuestionMapper).forEach((questionNo, i) => {
 
-                  if (label) {
-                    label += ": ";
+      if(PIECHARTCANVAS[i]){
+        PIECHARTCANVAS[i].destroy();
+      }
+      $.ajax({
+        url: "/api/question-by-count",
+        data: {
+          questionNo: questionNo,
+          street: streetAvailable,
+          region: regionAvailable,
+        },
+        error: function() {},
+        success: function(data) {
+          const PIECHART = $(`#PIE${i + 1}`);
+          $(`#PIE${i + 1}-heading`).text(pieQuestionMapper[questionNo]);
+
+          PIECHARTCANVAS[i] = new Chart(PIECHART, {
+            type: "pie",
+            responsive: true,
+            options: {
+              tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    let label = data.labels[tooltipItem.index] || "";
+
+                    if (label) {
+                      label += ": ";
+                    }
+
+                    const total = data.datasets[0].data.reduce(
+                      (total, num) => total + num,
+                      0
+                    );
+                    const number = data.datasets[0].data[tooltipItem.index];
+                    label += Math.round(number * 100 / total) + "%";
+                    return label;
                   }
-
-                  const total = data.datasets[0].data.reduce(
-                    (total, num) => total + num,
-                    0
-                  );
-                  const number = data.datasets[0].data[tooltipItem.index];
-                  label += Math.round(number * 100 / total) + "%";
-                  return label;
+                }
+              },
+              legend: {
+                position: "bottom",
+                labels: {
+                  fontColor: "#444",
+                  fontSize: 12
                 }
               }
             },
-            legend: {
-              position: "bottom",
-              labels: {
-                fontColor: "#444",
-                fontSize: 12
-              }
+            data: {
+              labels: data.map(item => {
+                if (item._id.trim() === "nothing") return "Don't know";
+                return item._id;
+              }),
+              datasets: [
+                {
+                  data: data.map(item => item.count).map(parseFloat),
+                  borderWidth: 0,
+                  backgroundColor: colors,
+                  hoverBackgroundColor: colors
+                }
+              ]
             }
-          },
-          data: {
-            labels: data.map(item => {
-              if (item._id.trim() === "nothing") return "Don't know";
-              return item._id;
-            }),
-            datasets: [
-              {
-                data: data.map(item => item.count).map(parseFloat),
-                borderWidth: 0,
-                backgroundColor: colors,
-                hoverBackgroundColor: colors
-              }
-            ]
-          }
-        });
-      },
-      type: "POST"
+          });
+        },
+        type: "POST"
+      });
     });
-  });
+   }
+
+   drawPieCharts();
+
 
   const barQuestionMapper = {
     "2.3": "How much does the electricity company bill you, per month"
@@ -97,19 +112,21 @@ $(function() {
   let BARCHART1 = null;
   const filterBar1 = $("#filter-bar1");
   filterBar1.change(function() {
-    if (BARCHART1) {
-      BARCHART1.destroy();
-    }
-    drawBarCharrt(barChart1Data, this.value);
+    drawBarChart(barChart1Data, this.value);
   });
 
   //draw bar chart with data from api
 
-  function drawBarCharrt(data, interval) {
+  function drawBarChart(data, interval) {
+    if (BARCHART1) {
+      BARCHART1.destroy();
+    }
+
     if (!data) return;
     const [labels, counts] = barChartRange(data, interval, 10);
     const BARCHART = $(`#BAR1`);
     $(`#BAR1-heading`).text("Electricity Bill");
+
     BARCHART1 = new Chart(BARCHART, {
       type: "bar",
       data: {
@@ -152,19 +169,27 @@ $(function() {
     });
   }
   //bar chart
+function barChart(questionNo, street, region) {
+     const questionNoAvailable = questionNo || "2.3";
+     const streetAvailable = street || {};
+     const regionAvailable = region || {};
   $.ajax({
     url: "/api/bill-by-count",
     data: {
-      questionNo: "2.3"
+      questionNo: questionNoAvailable,
+      street: streetAvailable,
+      region: regionAvailable,
     },
     error: function() {},
     success: function(data) {
       barChart1Data = data;
       const value = $("#filter-bar1").val();
-      drawBarCharrt(data, value);
+      drawBarChart(data, value);
     },
     type: "POST"
   });
+}
+  barChart();
 
   //split barchart data into range
   function barChartRange(barChartData, distance, count) {
@@ -202,6 +227,7 @@ $(function() {
   }
 
   //Line chart
+  function drawLineChart() {
   $.ajax({
     url: "/api/location-by-count",
     error: function() {},
@@ -238,5 +264,21 @@ $(function() {
       });
     },
     type: "GET"
+  });
+
+  }
+
+  drawLineChart();
+
+  //filter by street and region
+  const streetSelect = $('#street');
+  const regionSelect = $('#region');
+  $('#street').on('change', function() {
+    const street = this.value;
+    const region =  street.split(",")[1].trim();
+
+    drawPieCharts({street},{});
+    barChart("2.3", {street});
+    regionSelect.val(region);
   });
 });
