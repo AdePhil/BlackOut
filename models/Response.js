@@ -5,8 +5,22 @@ const responseSchema = new mongoose.Schema({
 
   response: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Answer' }],
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  location: String
-
+  location: {
+    type: String,
+    trim: true
+   },
+  address: {
+    type: String,
+    trim: true
+},
+  street: {
+    type: String,
+    trim: true
+},
+  region: {
+    type: String,
+    trim: true
+},
 });
 
 responseSchema.statics.locationByCount = function(){
@@ -16,16 +30,16 @@ responseSchema.statics.locationByCount = function(){
             keywords: { $not: { $size: 0 } }
         }
     },
-    { $unwind: "$location" },
+    { $unwind: "$street" },
     {
         $group: {
-            _id: '$location',
+            _id: '$street',
             count: { $sum: 1 }
         }
     },
     {
         $match: {
-            count: { $gte: 2 }
+            count: { $gte: 1 }
         }
     },
 ]);
@@ -46,7 +60,7 @@ responseSchema.statics.generateReport = function () {
                 location: { $first: "$location" }
             }
         },
-        { $project: { _id: 0 } },
+        // { $project: { _id: 0 } },
         { $sort: { location: -1 } }
     ]);
 }

@@ -2,6 +2,7 @@ const Response = require("../models/Response");
 const Answer = require("../models/Answer");
 const User = require("../models/User");
 const XLSX = require("xlsx");
+const path = require("path");
 
 exports.dashboard = async (req, res) => {
   const responsesPromise = Response.count();
@@ -53,18 +54,19 @@ exports.locations = async (req, res) => {
 
 exports.generateReport = async (req, res) => {
   const responses = await Response.generateReport();
-  console.log(responses);
+  // console.log(responses);
   const sheetName = "Responses";
   const workBook = XLSX.utils.book_new();
   workBook.SheetNames.push(sheetName);
 
   //  console.log(excelData);
-  let header = ["Locations"];
+  let header = ["id","Locations"];
   let rows = responses.map((response, i) => {
     if(i == 0){
       header =  [...header, ...response.questions];
     }
-    return [response.location ,...response.answers];
+    console.log(response);
+    return [`${response._id}`, response.location ,...response.answers];
   });
 
   //console.log(row);
