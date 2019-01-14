@@ -1444,8 +1444,12 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
+select {
+    display: inline-block !important;
+}
+
 label {
-    display: inline-block;
+    display: inline-block !important;
     margin-right: 5px;
 }
 
