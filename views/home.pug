@@ -52,8 +52,9 @@ block content
           option(value="" disabled selected) Region
           each region in regions
             option(value=region) #{region}
-        input(type="checkbox" name="region-only").mt-2#region-only
-        span Region Only
+        p
+          input(type="checkbox" name="region-only").mt-2#region-only
+          label(for="region-only") Region Only
 
   .row.mb-4
     .col-lg-12.relative
