@@ -305,7 +305,7 @@ function barChart(questionNo, street, region) {
   });
 
   function fetchAllStreetsInARegion(region) {
-    if(!region) return;
+    // if(!region) return;
     const config = { ALLOWED_TAGS: ['option'], KEEP_CONTENT: true };
     streetSelect.html(DOMPurify.sanitize(`<option selected>Please Wait</option>`, config));
 
@@ -317,15 +317,26 @@ function barChart(questionNo, street, region) {
       error: function() {},
       type: "POST",
       success: function(data) {
-        const streetOptions = data[0].regionStreets.map(option => {
+
+        let streetOptions = data.map(option => {
           return `
-            <option value='${option}'>${option}</option>
+            <option value='${option._id}'>${option._id}</option>
           `
-        }).join('');
-        streetSelect.html(DOMPurify.sanitize(streetOptions, config));
-        const street = data[0].regionStreets[0];
-        drawPieCharts({street},{});
-        barChart("2.3", {street});
+        });
+        if(!region){
+          streetOptions = [`<option value='' selected>Street</option>`, ...streetOptions];
+        }
+        streetSelect.html(DOMPurify.sanitize(streetOptions.join(''), config));
+        const street = data[0]._id;
+        if(region){
+          drawPieCharts({street},{});
+          barChart("2.3", {street});
+          return;
+        }
+
+          drawPieCharts({},{});
+          barChart("2.3");
+
       }
     });
   }

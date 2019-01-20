@@ -105,12 +105,10 @@ responseSchema.statics.generateReport = function () {
 
 
 responseSchema.statics.streetsByRegion = function(region) {
+    const correctRegion = region  ? {region} :  {};
     return this.aggregate([
-        {$match: {region}},
-        {$group: {
-            _id: "$region",
-            regionStreets: {$addToSet: "$street"}
-        }}
+        {$match: correctRegion},
+        {$group: {_id: "$street"}}
     ]);
   };
 module.exports = mongoose.model('Response', responseSchema);

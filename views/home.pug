@@ -50,10 +50,12 @@ block content
       .col-lg-4
         select.form-control#region
           option(value="" disabled selected) Region
+          option(value="") All Streets
           each region in regions
             option(value=region) #{region}
-        input(type="checkbox" name="region-only").mt-2#region-only
-        label Region Only
+        p
+          input(type="checkbox" name="region-only").mt-2#region-only
+          label(for="region-only") Region Only
 
   .row.mb-4
     .col-lg-12.relative
